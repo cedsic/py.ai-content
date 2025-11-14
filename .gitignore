@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VSCode settings
+.vscode/
+
+# MacOS Finder files
+.DS_Store
+
+# Logs
+*.log
+
+# Jupyter checkpoints (if any)
+.ipynb_checkpoints/
