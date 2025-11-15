@@ -1,0 +1,97 @@
+name: "OpenAI API"
+slug: "openai-api"
+headline: "Access GPT, DALL·E, and other advanced AI models."
+urls:
+  - label: "Official Site"
+    url: "https://platform.openai.com/"
+overview: |
+  **OpenAI API provides access to state-of-the-art language and image models** for a wide range of applications.
+  <br>
+  Building **advanced AI systems** from scratch is complex, requiring expertise and computational resources. **OpenAI API solves this** by offering ready-to-use models for immediate integration.
+description: |
+  ### 🚀 Key Features
+
+  - **✨ Access to Cutting-Edge Models**  -  Includes GPT-4, DALL·E, and other state-of-the-art AI models.
+
+  - **📝 Text & Image Generation**  -  Supports content creation, embeddings, and conversational AI.
+
+  - **🔗 Simple REST Interface**  -  Easy integration into applications and workflows.
+
+  - **⚙️ Scalable & Reliable**  -  Designed for production use at scale.
+
+  ---
+
+  ### 🎯 Use Cases
+
+  OpenAI API serves **developers, researchers, and businesses** seeking reliable AI capabilities for text, image, and conversational tasks.
+
+  Common scenarios include:
+
+  - **🛠 Generating marketing copy and content**  
+  - **🎨 Creating illustrations or image assets**  
+  - **💬 Powering chatbots and virtual assistants**
+
+  ---
+
+  ### ⚙️ How It Works
+
+  The **OpenAI API** exposes models like GPT-4 and DALL·E through a simple REST interface, enabling:
+
+  - Text generation  
+  - Chat and conversational AI  
+  - Embeddings  
+  - Image creation  
+
+  It is often integrated with frameworks such as **LangChain** for workflow management and **FastAPI** for building interactive AI endpoints.
+
+  ---
+
+  ### 📄 Example: Excel/PDF/Image Content Summarization
+  <br>
+  #### 🔗 Tool documentation: <a href="https://github.com/cedsic/py-ai-extract-summarize" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+
+  This tool provides a unified command-line interface to **extract and summarize content from unstructured data sources and files** such as PDFs, images, spreadsheets, and CSVs. It is especially useful for managing **content overload**, transforming large volumes of raw data into clear, concise, and actionable insights.
+
+  It combines Python utilities with AI models powered by the **OpenAI API**, which offers access to **proprietary generative models** developed by OpenAI, helping you quickly turn raw documents into clear, usable insights.
+  <br><br>
+  #### 💻 Quick CLI Usage
+
+  ```bash
+  # Summarize an Excel file
+  py-ai summarize /path/to/file.xlsx --max-chars 800
+
+  # Summarize a PDF file
+  py-ai summarize /path/to/file.pdf --max-chars 800
+
+  # Summarize text extracted from an image
+  py-ai summarize /path/to/file.png --max-chars 800
+  ```
+  <br>
+  #### 🐍 Python Code: Summarize Document Content with OpenAI API
+
+  The summarization process aims not only to condense content but also to ensure **safe responses** that avoid inappropriate or harmful outputs, leveraging the OpenAI API's built-in safety mechanisms.
+
+  ```python
+  import os
+  from dotenv import load_dotenv
+  from openai import OpenAI
+
+  load_dotenv()
+  client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+  def summarize_text(text: str, max_chars: int = 800, role: str = "assistant") -> str:
+      """
+      Summarize text using OpenAI API.
+      """
+      if not text.strip():
+          return ""
+      prompt = f"Summarize the following text in less than {max_chars} characters:\n\n{text}"
+      response = client.responses.create(
+          model="gpt-5-nano",
+          input=[
+              {"role": "system", "content": f"You are a helpful {role} that summarizes text clearly and concisely."},
+              {"role": "user", "content": prompt},
+          ]
+      )
+      return response.output_text.strip()
+  ```

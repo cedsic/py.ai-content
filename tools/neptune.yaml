@@ -1,0 +1,132 @@
+name: "Neptune.ai"
+slug: "neptune"
+headline: "Track experiments, metadata, and models across teams."
+urls:
+  - label: "Official Site"
+    url: "https://neptune.ai/"
+  - label: "Github"
+    url: "https://github.com/neptune-ai/neptune-client"
+overview: |
+  In the fast-evolving world of machine learning, managing experiments, tracking model versions, and collaborating efficiently across teams can quickly become overwhelming. **Neptune.ai** is a powerful metadata store designed specifically for MLOps, helping data scientists, ML engineers, and research teams **centralize experiment tracking, monitor model performance, and collaborate seamlessly**.
+  <br>
+  By providing a unified platform to log, organize, and visualize all your machine learning metadata, Neptune accelerates reproducibility, transparency, and decision-making throughout the ML lifecycle.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability             | Description                                                                                   |
+  |-----------------------|-----------------------------------------------------------------------------------------------|
+  | 🧪 **Experiment Tracking** | Log hyperparameters, metrics, artifacts, and outputs to ensure reproducibility and auditability. |
+  | 📈 **Model Monitoring**    | Continuously track model performance in production to detect data drift and degradation.      |
+  | 📊 **Dashboards & Visualization** | Interactive UI and customizable dashboards to analyze experiments and compare results effortlessly. |
+  | 🤝 **Collaboration Support** | Share experiments, insights, and reports with teammates or stakeholders in real-time.          |
+  | 🗃️ **Metadata Store**      | Central repository for all ML metadata, enabling seamless version control and lineage tracking. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Neptune.ai is an ideal solution for:
+
+  - 🧪 **Experiment Management:** Track hundreds or thousands of training runs simultaneously without losing context.
+  - ⚖️ **Performance Comparison:** Compare models side-by-side to identify the best performing version.
+  - 🤝 **Collaboration:** Share experiment results and visualizations with cross-functional teams or external stakeholders.
+  - 🚀 **Production Monitoring:** Monitor deployed models to quickly identify performance drops or anomalies.
+  - 🔄 **Research Reproducibility:** Ensure that experiments are fully reproducible by logging all relevant metadata.
+
+  ---
+
+  ## 💡 Why People Use Neptune.ai
+
+  - 🗂️ **Centralized Metadata Hub:** Avoid scattered logs and spreadsheets by consolidating all experiment data in one place.
+  - ⚙️ **Ease of Use:** Simple integration with popular ML frameworks and minimal setup.
+  - 📈 **Scalability:** Handles everything from small research projects to enterprise-grade ML pipelines.
+  - 🔍 **Transparency & Accountability:** Improve team productivity by making experiment results accessible and understandable.
+  - 🎨 **Customizable Dashboards:** Visualize the most relevant metrics and KPIs tailored to your workflow.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Neptune.ai plays well with your existing ML and data stack:
+
+  | Tool Category        | Examples                              | Integration Highlights                                  |
+  |----------------------|-------------------------------------|--------------------------------------------------------|
+  | 🧰 **Frameworks**       | TensorFlow, PyTorch, Scikit-learn   | Native APIs and SDKs to log metrics, parameters, and artifacts directly. |
+  | 🔄 **Orchestration**    | Airflow, Kubeflow, MLflow            | Trigger and track experiments as part of pipelines.    |
+  | ☁️ **Cloud Platforms**  | AWS, GCP, Azure                      | Store artifacts and metadata securely in the cloud.    |
+  | 📊 **Visualization**    | Jupyter Notebooks, Grafana           | Embed Neptune dashboards or export data for custom visualizations. |
+  | 🔧 **CI/CD Tools**      | GitHub Actions, Jenkins              | Automate experiment tracking and model deployment workflows. |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **Architecture:** Neptune consists of a backend metadata store (cloud or on-premise), a web UI, and SDKs for Python and other languages.
+  - **Storage:** Efficient storage of numeric metrics, text, images, and binary artifacts.
+  - **APIs:** RESTful APIs and Python SDK for seamless integration.
+  - **Security:** Role-based access control (RBAC), single sign-on (SSO), and encrypted data storage.
+  - **Extensibility:** Custom metadata fields and tags to fit any ML workflow.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Neptune.ai is deeply integrated with the Python ML ecosystem, making it a natural choice for Python-based workflows. Its Python SDK is intuitive and supports popular ML libraries out-of-the-box.
+
+  <br>
+  ### Example: Tracking an Experiment with PyTorch and Neptune
+
+  ```python
+  import neptune.new as neptune
+  import torch
+  import torch.nn as nn
+  import torch.optim as optim
+
+  # Initialize Neptune run
+  run = neptune.init(project='your_workspace/your_project', api_token='YOUR_API_TOKEN')
+
+  # Log hyperparameters
+  params = {'lr': 0.001, 'batch_size': 64, 'epochs': 10}
+  run['parameters'] = params
+
+  # Dummy training loop
+  model = nn.Linear(10, 1)
+  optimizer = optim.Adam(model.parameters(), lr=params['lr'])
+  criterion = nn.MSELoss()
+
+  for epoch in range(params['epochs']):
+      # Simulate training loss
+      loss = torch.rand(1).item()
+      # Log loss metric to Neptune
+      run['train/loss'].log(loss)
+      print(f"Epoch {epoch+1}, Loss: {loss:.4f}")
+
+  # Upload model checkpoint
+  torch.save(model.state_dict(), 'model.pth')
+  run['model/checkpoint'].upload('model.pth')
+
+  # Stop Neptune run
+  run.stop()
+  ```
+
+  ---
+
+  ## 🥊 Competitors & Pricing
+
+  | Product          | Strengths                                       | Pricing Model                         |
+  |------------------|------------------------------------------------|-------------------------------------|
+  | **Neptune.ai**   | Flexible metadata store, strong collaboration, easy Python integration | Free tier + paid plans starting at $49/month |
+  | **MLflow**       | Open-source, experiment tracking & model registry | Free (open-source), enterprise version available |
+  | **Weights & Biases** | Rich visualization, team collaboration, hyperparameter sweeps | Free tier + paid plans starting at $49/month |
+  | **Comet.ml**     | Experiment tracking with automated logging      | Free tier + paid plans starting at $30/month |
+  | **TensorBoard**  | Visualization focused, tightly integrated with TensorFlow | Free, open-source                    |
+
+  **Neptune.ai** stands out for its **flexible metadata management** and **customizable dashboards**, making it a great fit for teams needing more than just experiment tracking.
+
+  ---
+
+  ## 🌟 Summary
+
+  Neptune.ai is a **comprehensive MLOps platform** built to simplify experiment tracking, model monitoring, and collaboration within the Python ecosystem and beyond. Whether you're a solo data scientist or part of a large ML team, Neptune offers the tools to **boost productivity, improve reproducibility, and accelerate model development cycles**.
+
+  ---

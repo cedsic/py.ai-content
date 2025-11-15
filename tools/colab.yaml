@@ -1,0 +1,125 @@
+name: "Colab"
+slug: "colab"
+headline: "Cloud-hosted Jupyter notebooks with free GPU support."
+urls:
+  - label: "Website"
+    url: "https://colab.research.google.com/"
+overview: |
+  **Google Colaboratory**, commonly known as **Colab**, is a free, cloud-based platform that brings the power of Jupyter notebooks directly to your browser. It eliminates the hassle of local environment setup, allowing you to write, execute, and share Python code seamlessly. Whether you're a student, data scientist, researcher, or developer, Colab provides an accessible, scalable playground for Python programming and machine learning experiments — all with zero installation required.
+description: |
+  ## ☁️ Core Capabilities
+
+  | Feature                         | Description                                                                                  |
+  |--------------------------------|----------------------------------------------------------------------------------------------|
+  | **☁️ Cloud-Based Notebooks**       | Run fully interactive Jupyter notebooks in your browser with no local setup.                  |
+  | **⚡ Free Compute Resources**      | Access powerful GPUs and TPUs on-demand to accelerate machine learning workflows.            |
+  | **🤝 Seamless Collaboration**     | Share notebooks with others, enabling real-time editing and commenting.                      |
+  | **📂 Google Drive Integration**   | Save, organize, and manage notebooks directly in your Google Drive for easy access and backup.|
+  | **📚 Pre-Installed Libraries**    | Comes with popular Python libraries pre-installed (TensorFlow, PyTorch, NumPy, pandas, TensorFlow datasets, etc.).|
+  | **📤 Easy Sharing & Publishing**  | Export notebooks as PDFs, HTML, or GitHub Gists, and embed them in blogs or websites.        |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  Colab is designed to empower a broad spectrum of users with instant access to Python environments:
+
+  - **🤖 Machine Learning & Deep Learning**: Train and prototype models with GPU/TPU acceleration without any local hardware investment.
+
+  - **📊 Data Analysis & Visualization**: Perform exploratory data analysis using libraries like pandas, Matplotlib, and Seaborn.
+
+  - **🎓 Education & Learning**: Students and educators use Colab for interactive coding lessons, assignments, and tutorials.
+
+  - **👥 Collaborative Research & Development**: Teams collaborate on code, share results, and iterate faster with real-time notebook sharing.
+
+  - **⚙️ Experimentation without Setup**: Quickly test Python snippets or algorithms without installing packages or configuring environments.
+
+  ---
+
+  ## ❓ Why People Use Colab
+
+  - **🚀 Zero Setup Hassle**: Start coding instantly without worrying about Python installations or dependencies.
+  - **💰 Cost-Effective**: Access GPUs/TPUs for free, which would otherwise require expensive hardware or cloud subscriptions.
+  - **🤝 Collaboration Made Easy**: Share notebooks with a link, and collaborate in real-time similar to Google Docs.
+  - **🔗 Integration with Google Ecosystem**: Leverage Google Drive for storage and Google Sheets or BigQuery for data integration.
+  - **🌐 Rich Ecosystem Support**: Supports popular ML frameworks and Python libraries out-of-the-box.
+
+  ---
+
+  ## 🔌 Integration with Other Tools
+
+  Colab works smoothly with a variety of tools and services:
+
+  | Integration           | Description                                                                                     |
+  |-----------------------|-------------------------------------------------------------------------------------------------|
+  | **Google Drive**      | Save and load notebooks and datasets seamlessly.                                                |
+  | **GitHub**            | Import notebooks directly from GitHub repos or save your work back to GitHub.                   |
+  | **BigQuery**          | Run SQL queries on large datasets and analyze results within notebooks.                         |
+  | **TensorBoard**       | Visualize training metrics and model graphs inline.                                            |
+  | **Python Packages**   | Install any additional Python package via `pip` commands within the notebook environment.       |
+  | **APIs & Cloud Services** | Connect to Google Cloud APIs or other RESTful services for extended functionality.            |
+  | **VSCode Python Tools** | Develop and debug Python code locally with rich features, then easily port notebooks to Colab for cloud execution and GPU acceleration. |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **🖥️ Runtime Environment**: Each notebook runs on a virtual machine hosted by Google, with a Linux backend. You get access to CPUs, GPUs (NVIDIA Tesla K80, T4, P100, or V100 depending on availability), and TPUs.
+
+  - **⏳ Session Limits**: Sessions can last up to 12 hours (or less for GPUs/TPUs), after which the environment resets. Data should be saved externally to avoid loss.
+
+  - **🐍 Python Version**: Supports Python 3.x (usually the latest stable release).
+
+  - **📦 Package Management**: Pre-installed major libraries: TensorFlow, PyTorch, Keras, NumPy, pandas, scikit-learn, Matplotlib, and more. Install others on-the-fly using `!pip install package_name`.
+
+  ---
+
+  ## 🧠 Example: Training a Simple Neural Network on MNIST with TensorFlow
+
+  ```python
+  import tensorflow as tf
+  from tensorflow.keras.datasets import mnist
+  from tensorflow.keras.models import Sequential
+  from tensorflow.keras.layers import Dense, Flatten
+  from tensorflow.keras.utils import to_categorical
+
+  # Load data
+  (x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+  # Preprocess data
+  x_train, x_test = x_train / 255.0, x_test / 255.0
+  y_train_cat = to_categorical(y_train)
+  y_test_cat = to_categorical(y_test)
+
+  # Build model
+  model = Sequential([
+      Flatten(input_shape=(28, 28)),
+      Dense(128, activation='relu'),
+      Dense(10, activation='softmax')
+  ])
+
+  model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+  # Train model
+  model.fit(x_train, y_train_cat, epochs=5, validation_data=(x_test, y_test_cat))
+  ```
+  <br>
+  Run this code on Colab to leverage free GPU acceleration (select `Runtime` > `Change runtime type` > `GPU`).
+
+  ---
+
+  ## 💸 Competitors & Pricing
+
+  | Tool                | Pricing Model                         | Notes                                               |
+  |---------------------|-------------------------------------|-----------------------------------------------------|
+  | **Google Colab**    | Free tier + Colab Pro ($9.99/month) | Pro offers longer runtimes, more RAM, and priority GPUs. |
+  | **Kaggle Kernels**  | Free                                | Similar free notebooks, with GPU support, but less collaboration-friendly. |
+  | **Microsoft Azure Notebooks** | Free tier + Paid plans          | Integrated with Azure cloud, good for enterprise users. |
+  | **Amazon SageMaker Studio Lab** | Free + Paid AWS SageMaker       | Free basic notebooks, paid for full SageMaker features. |
+  | **JupyterHub**      | Self-hosted (cost depends on infra) | Requires local or cloud infrastructure management.  |
+
+  ---
+
+  ## 📋 Summary
+
+  Google Colab democratizes access to powerful computing resources and Python environments by combining the flexibility of Jupyter notebooks with the convenience of the cloud. Its zero-setup, collaborative, and GPU/TPU-enabled platform makes it a top choice for anyone looking to accelerate Python development, machine learning research, or data analysis — all without spending a dime on hardware.

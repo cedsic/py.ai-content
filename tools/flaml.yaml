@@ -1,0 +1,150 @@
+name: "FLAML"
+slug: "flaml"
+headline: "Fast and lightweight AutoML for cost-efficient model tuning."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/microsoft/FLAML"
+  - label: "Docs"
+    url: "https://microsoft.github.io/FLAML/"
+overview: |
+  In the rapidly evolving world of machine learning, **model optimization** often demands extensive computational resources and time — a luxury not every team or project can afford. Enter **FLAML** (Fast Lightweight AutoML), an open-source AutoML library designed to deliver **efficient**, **cost-effective**, and **scalable** model tuning without the need for heavy infrastructure.
+  <br>
+  FLAML empowers data scientists, ML engineers, and developers to **automate hyperparameter tuning** and model selection with minimal overhead, making high-quality machine learning accessible even on modest hardware.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                        | Description                                                                                  |
+  |-------------------------------|----------------------------------------------------------------------------------------------|
+  | **⚡ Lightweight AutoML**         | Efficiently explores model and hyperparameter spaces without exhaustive search.             |
+  | **🎯 Adaptive Hyperparameter Tuning** | Dynamically adjusts search strategies to minimize evaluation time and computational cost.   |
+  | **💰 Cost-Aware Optimization**    | Balances model performance and resource consumption, ideal for budget-sensitive projects.   |
+  | **🤖 Support for Multiple ML Tasks** | Works seamlessly with classification, regression, and time-series forecasting problems.     |
+  | **🧩 Easy-to-Use API**            | Simple, Pythonic interface designed for quick integration into existing ML workflows.        |
+  | **⚙️ Customizable Search Space** | Allows users to define or extend model and hyperparameter search spaces based on needs.      |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  - **👥 Customer Segmentation & Personalization**  
+    Quickly build accurate classifiers to segment users or customers for targeted marketing.
+
+  - **📈 Predictive Analytics**  
+    Automate regression and forecasting models for sales, demand, or financial predictions.
+
+  - **🚀 Rapid Prototyping & Experimentation**  
+    Iterate over multiple model types and configurations without manual tuning overhead.
+
+  - **📱 Resource-Constrained Environments**  
+    Deploy AutoML on edge devices or small servers where computational resources are limited.
+
+  - **👨‍💻 Small Teams & Startups**  
+    Achieve competitive model performance without investing in expensive compute infrastructure.
+
+  ---
+
+  ## 💡 Why People Use FLAML
+
+  - **⚙️ Resource Efficiency:** Designed to minimize CPU/GPU usage and runtime while maintaining strong accuracy.
+  - **⚡ Speed:** FLAML’s adaptive search quickly converges on promising models and hyperparameters.
+  - **🔧 Flexibility:** Supports custom ML libraries and user-defined search spaces.
+  - **🌍 Open Source & Community-Driven:** Free to use with active development and support.
+  - **🐍 Python Ecosystem Friendly:** Works well with popular libraries like scikit-learn, XGBoost, LightGBM, and more.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  FLAML fits naturally into modern ML pipelines and integrates smoothly with:
+
+  - **scikit-learn** — Use FLAML as a drop-in AutoML replacement for hyperparameter tuning.
+  - **XGBoost & LightGBM** — Automatically tune gradient boosting models efficiently.
+  - **Pandas & NumPy** — Accepts standard Python data structures for input.
+  - **MLflow / DVC** — Track experiments and manage model lifecycle alongside FLAML.
+  - **Cloud Platforms** — Lightweight footprint makes it suitable for cloud and edge deployments.
+
+  ---
+
+  ## ⚙️ Technical Aspect
+
+  At its core, FLAML employs **adaptive, cost-aware search algorithms** that intelligently balance exploration and exploitation of the hyperparameter space. Unlike brute-force or Bayesian optimization methods that can be computationally expensive, FLAML:
+
+  - Uses **low-cost surrogate models** to estimate performance.
+  - Prioritizes **fast evaluation** of promising configurations.
+  - Continuously adapts search strategies based on intermediate results.
+
+  This approach results in **significantly reduced training times** and **lower resource consumption** without sacrificing model quality.
+
+  ---
+
+  ## 🐍 FLAML in Action: Python Example
+
+  ```python
+  from flaml import AutoML
+  from sklearn.datasets import load_iris
+  from sklearn.model_selection import train_test_split
+  from sklearn.metrics import accuracy_score
+
+  # Load dataset
+  X, y = load_iris(return_X_y=True)
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+  # Initialize AutoML
+  automl = AutoML()
+
+  # Specify task and time budget
+  automl_settings = {
+      "time_budget": 30,  # seconds
+      "metric": 'accuracy',
+      "task": 'classification',
+      "log_file_name": "flaml_iris.log",
+  }
+
+  # Train with FLAML
+  automl.fit(X_train=X_train, y_train=y_train, **automl_settings)
+
+  # Predict and evaluate
+  y_pred = automl.predict(X_test)
+  print(f"Best ML learner: {automl.best_estimator}")
+  print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+  ```
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Tool           | Description                                | Pricing Model          | Key Differentiator               |
+  |----------------|--------------------------------------------|-----------------------|---------------------------------|
+  | **FLAML**      | Lightweight, resource-efficient AutoML     | Free, open source     | Minimal compute, fast tuning    |
+  | **Auto-sklearn** | Robust AutoML with Bayesian optimization  | Free, open source     | Strong performance, but slower  |
+  | **TPOT**       | Genetic programming-based AutoML            | Free, open source     | Evolutionary algorithms         |
+  | **H2O AutoML** | Enterprise-grade AutoML platform            | Free & paid tiers     | Scalable, GUI & enterprise-ready|
+  | **Google AutoML** | Cloud-based AutoML services               | Pay-as-you-go         | Fully managed, cloud native     |
+
+  > **Note:** FLAML is notable for its **low computational overhead** compared to many competitors, which often require GPUs or large clusters.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  FLAML is deeply embedded in the Python data science ecosystem:
+
+  - Compatible with **scikit-learn** estimators and pipelines.
+  - Supports popular ML frameworks like **XGBoost**, **LightGBM**, and **CatBoost**.
+  - Easily integrates with **Jupyter notebooks** for interactive experimentation.
+  - Works alongside tools like **Pandas** and **NumPy** for data manipulation.
+  - Can be combined with **MLflow** or **DVC** for experiment tracking and reproducibility.
+
+  ---
+
+  ## ✨ Summary
+
+  FLAML stands out as a **fast, lightweight, and cost-effective AutoML solution** that democratizes access to high-quality machine learning. Its adaptive search strategies and easy-to-use Python API make it an ideal choice for:
+
+  - Teams with limited computational resources
+  - Rapid prototyping needs
+  - Real-world applications requiring efficient and accurate models
+
+  Whether you’re a startup aiming to optimize customer segmentation or a data scientist looking to accelerate model development, FLAML offers a compelling blend of **performance, efficiency, and flexibility**.
+
+  ---

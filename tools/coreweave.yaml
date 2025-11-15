@@ -1,0 +1,129 @@
+name: "CoreWeave"
+slug: "coreweave"
+headline: "Scalable GPU cloud infrastructure for AI and HPC workloads."
+urls:
+  - label: "Official Site"
+    url: "https://www.coreweave.com/"
+overview: |
+  CoreWeave is a **specialized GPU cloud provider** designed from the ground up for **large-scale AI training, visual effects (VFX), and high-performance computing (HPC)** workloads. Unlike traditional, general-purpose cloud platforms, CoreWeave offers **ultra-fast GPU infrastructure**, **high-bandwidth networking**, and **massive parallel compute capacity** tailored to power the most demanding GPU-intensive applications.
+  <br>
+  Whether you're training multi-billion parameter AI models, rendering blockbuster visual effects, or running complex scientific simulations, CoreWeave delivers the performance and scalability enterprises need — all while simplifying infrastructure management.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                         | Description                                                                                     |
+  |--------------------------------|-------------------------------------------------------------------------------------------------|
+  | **🖥️ Latest NVIDIA GPUs**          | Access to cutting-edge GPUs like NVIDIA H100, A100, and other high-memory GPUs with NVLink.     |
+  | **🌐 High-Throughput Networking**  | InfiniBand and ultra-low latency interconnects optimized for multi-node distributed training.   |
+  | **☸️ Kubernetes-Native**           | Seamless integration with container orchestration for ML pipelines and rendering workloads.     |
+  | **💰 Flexible Pricing Models**     | On-demand, reserved instances, and burst capacity options to optimize costs against usage.       |
+  | **🏢 Massive Data Center Scale**   | Infrastructure proven to support enterprise AI labs and large VFX studios with thousands of GPUs.|
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  - 🎯 **Large-Scale AI Training:** Distributed training of transformer models, diffusion models, and other deep learning architectures requiring hundreds of GPUs.
+  - 🎨 **Visual Effects & Animation:** Cloud elasticity for rendering feature films or complex animations with GPU-accelerated render engines.
+  - 🔬 **Scientific HPC Simulations:** Computational fluid dynamics (CFD), physics simulations, genomics, and other compute-heavy scientific workloads.
+  - ⚡ **Real-Time AI Inference:** Powering generative AI applications and other latency-sensitive inference workloads at scale.
+
+  ---
+
+  ## 💡 Why Choose CoreWeave?
+
+  - **⚡ Performance-First Architecture:** Purpose-built for GPU-intensive workloads, not a general cloud retrofit.
+  - **💵 Cost Efficiency:** Flexible pricing and usage models help optimize your cloud spend.
+  - **🛠️ Ease of Use:** Kubernetes-native and API-driven interfaces integrate smoothly with existing ML and rendering workflows.
+  - **📈 Scalability:** Instantly scale from a handful to thousands of GPUs without infrastructure headaches.
+  - **🤝 Expert Support:** Tailored support for AI research teams, VFX studios, and HPC users.
+
+  ---
+
+  ## 🔗 Integration with Tools, Ecosystems
+
+  CoreWeave seamlessly integrates with a broad range of popular machine learning frameworks, container orchestration platforms, data storage solutions, and DevOps tools—making it easy to incorporate into your existing pipelines and workflows. Its platform is especially well-suited for the Python ecosystem, supporting a wide variety of AI, data science, and automation use cases.
+
+  - **ML Frameworks:** PyTorch, TensorFlow, JAX, Hugging Face Transformers  
+  - **Data Science Libraries:** NumPy, RAPIDS, Dask for accelerated GPU workloads  
+  - **Container Orchestration:** Kubernetes, Docker for scalable and manageable deployments  
+  - **Data & Storage:** Compatible with S3-compatible object storage, NFS, and high-speed NVMe drives  
+  - **DevOps & CI/CD:** Integrates with GitLab, Jenkins, and other CI/CD pipelines for automated workflows  
+  - **Python Automation:** Python-based CLI and API clients enable programmatic management of cloud resources  
+
+  This comprehensive integration ensures that CoreWeave users—from AI researchers and deep learning practitioners to data scientists and DevOps engineers—can leverage GPU acceleration effortlessly within their familiar Python-based tools and infrastructure.
+
+  ---
+
+  ## 🏗️ Technical Architecture & Highlights
+
+  - **GPU Hardware:** NVIDIA H100, A100, RTX 6000, and more — with NVLink for GPU-to-GPU communication.
+  - **Networking:** InfiniBand and 100GbE for low latency and high throughput across multi-node clusters.
+  - **Orchestration:** Kubernetes-native platform with custom operators for GPU scheduling and scaling.
+  - **APIs & CLI:** Full-featured REST APIs and CLI tools to programmatically manage workloads and infrastructure.
+  - **Security:** Enterprise-grade network isolation, encryption, and compliance certifications.
+
+  ---
+
+  ## 🐍 Python Example: Launching a Distributed PyTorch Job on CoreWeave
+
+  Here's a minimal example showing how you might launch a distributed PyTorch training job using CoreWeave's Kubernetes infrastructure and PyTorch's `torch.distributed` package.
+
+  ```python
+  import torch
+  import torch.distributed as dist
+  from torch.nn.parallel import DistributedDataParallel as DDP
+
+  def setup(rank, world_size):
+      dist.init_process_group(
+          backend='nccl', 
+          init_method='env://', 
+          world_size=world_size, 
+          rank=rank
+      )
+      torch.cuda.set_device(rank)
+
+  def cleanup():
+      dist.destroy_process_group()
+
+  def train(rank, world_size):
+      setup(rank, world_size)
+      model = YourModel().cuda(rank)
+      ddp_model = DDP(model, device_ids=[rank])
+      
+      # Your training loop here
+      for epoch in range(num_epochs):
+          # Forward, backward, optimize
+          pass
+      
+      cleanup()
+
+  if __name__ == "__main__":
+      world_size = int(os.environ['WORLD_SIZE'])
+      rank = int(os.environ['RANK'])
+      train(rank, world_size)
+  ```
+  <br>
+  > **Note:** CoreWeave provides optimized Kubernetes clusters with pre-configured networking (InfiniBand) and GPU drivers, so distributed training jobs like this can scale seamlessly.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Provider         | Strengths                              | Pricing Model                      |
+  |------------------|--------------------------------------|----------------------------------|
+  | **CoreWeave**    | GPU-specialized, latest NVIDIA GPUs, flexible pricing | On-demand, reserved, burst pricing; highly competitive |
+  | **AWS (Amazon EC2)** | Massive global footprint, broad services | Pay-as-you-go, spot instances    |
+  | **Google Cloud (GCP)** | Strong AI/ML tooling integration    | On-demand, committed use discounts|
+  | **Microsoft Azure** | Enterprise integrations, hybrid cloud | Pay-as-you-go, reserved instances|
+  | **Lambda Labs**   | GPU cloud focused on ML workloads     | Hourly pricing, simple tiers     |
+
+  CoreWeave often stands out due to its **GPU-first infrastructure**, **cost efficiency**, and **developer-friendly Kubernetes-native platform**.
+
+  ---
+
+  ## 📋 Summary
+
+  CoreWeave is a **purpose-built GPU cloud platform** that empowers AI labs, creative studios, and scientific researchers to run **GPU-intensive workloads at scale** — with the latest NVIDIA GPUs, high-speed networking, and Kubernetes-native orchestration. Its flexible pricing and seamless integration with popular ML frameworks make it an attractive alternative to general-purpose clouds.
+
+  If your projects demand **high-performance GPU compute with simplified management**, CoreWeave is a powerful choice to accelerate innovation.

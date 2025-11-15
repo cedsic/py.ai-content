@@ -1,0 +1,153 @@
+name: "Prefect"
+slug: "prefect"
+headline: "Modern workflow orchestration for data and ML pipelines."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/PrefectHQ/prefect"
+  - label: "Docs"
+    url: "https://docs.prefect.io/"
+overview: |
+  In today’s data-driven world, managing complex workflows and pipelines reliably is crucial. **Prefect** is a powerful, Python-native workflow orchestration tool designed to automate, monitor, and manage data and machine learning pipelines with ease. It empowers data engineers, scientists, and analysts to focus on building pipelines without worrying about the intricacies of scheduling, error handling, or visibility.
+description: |
+  ## ⚙️ Core Capabilities
+
+  | Feature                  | Description                                                                                      |
+  |--------------------------|--------------------------------------------------------------------------------------------------|
+  | **🧩 Flow & Task Definitions** | Define workflows as Python code, organizing logic into reusable tasks and flows.                |
+  | **⏰ Dynamic Scheduling**      | Flexible scheduling options, including cron, event-driven, or ad-hoc runs.                      |
+  | **📊 Robust Monitoring & Logging** | Real-time visibility into pipeline execution, with detailed logs and dashboards.                 |
+  | **🚨 Automatic Retries & Alerts** | Built-in error handling with customizable retry policies and alerting mechanisms.              |
+  | **🎛️ Parameterization & Versioning** | Pass parameters dynamically and track different versions of your workflows.                   |
+  | **☁️ Cloud & Hybrid Deployment** | Run workflows locally, on your own infrastructure, or leverage Prefect Cloud for managed orchestration. |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  Prefect fits seamlessly into various data and ML workflows, including:
+
+  - **🔄 Automating ETL Pipelines**  
+    Schedule and monitor complex data extraction, transformation, and loading processes reliably.
+
+  - **🤖 Machine Learning Model Training**  
+    Orchestrate periodic model retraining, validation, and deployment with automated error recovery.
+
+  - **✅ Data Quality & Validation**  
+    Integrate checks and balances into pipelines to ensure data integrity before downstream processing.
+
+  - **⚡ Event-Driven Workflows**  
+    Trigger workflows based on external events or data availability, enabling reactive pipeline execution.
+
+  ---
+
+  ## 💡 Why People Choose Prefect
+
+  - **🐍 Python-Native & Developer-Friendly**  
+    Define workflows in pure Python, leveraging familiar syntax and libraries without learning a new DSL.
+
+  - **🔧 Reliability & Resilience**  
+    Automatic retries, failure notifications, and state management reduce manual intervention and downtime.
+
+  - **👁️ Full Visibility & Control**  
+    Intuitive dashboards and logs provide deep insights into pipeline health and performance.
+
+  - **🌐 Flexible Deployment Options**  
+    Whether on-premises, cloud, or hybrid, Prefect adapts to your infrastructure and security needs.
+
+  - **🆓 Open Source with Enterprise Options**  
+    Start with the free open-source version and scale up to Prefect Cloud or Enterprise for advanced features.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Prefect integrates seamlessly with the broader Python and data ecosystem:
+
+  | Integration Category | Examples                              | Purpose                                      |
+  |----------------------|-------------------------------------|----------------------------------------------|
+  | **💾 Data Storage & DBs**   | PostgreSQL, Snowflake, BigQuery, S3 | Read/write data within tasks                  |
+  | **🛠️ Data Processing**      | Pandas, Dask, Spark                  | Process data at scale inside workflows        |
+  | **🤖 Machine Learning**     | scikit-learn, TensorFlow, PyTorch   | Orchestrate model training and deployment     |
+  | **📅 Scheduling & Messaging** | Airflow (via Prefect Cloud), Slack, Email | Trigger workflows and send alerts              |
+  | **🚀 CI/CD & DevOps**       | GitHub Actions, Docker, Kubernetes  | Automate deployment and scale workflow agents |
+
+  ---
+
+  ## 🏗️ Technical Overview
+
+  Prefect’s architecture centers around two main concepts:
+
+  - **Tasks:** The smallest unit of work, defined as Python functions or callables.
+  - **Flows:** Compositions of tasks, defining dependencies and execution order, enabling sequential processing or parallel execution as needed.
+
+  Prefect manages **state** transitions (e.g., Pending → Running → Success/Failure) and offers a rich API for controlling execution, retries, and concurrency.
+
+  <br>
+  ### Example: A Simple Prefect Flow in Python
+
+  ```python
+  from prefect import flow, task
+  from prefect.tasks import task_input_hash
+  from datetime import timedelta
+
+  @task(retries=3, retry_delay_seconds=10, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
+  def extract_data():
+      print("Extracting data...")
+      # Simulate data extraction logic
+      return {"data": [1, 2, 3, 4]}
+
+  @task
+  def transform_data(data):
+      print("Transforming data...")
+      return [x * 10 for x in data["data"]]
+
+  @task
+  def load_data(transformed_data):
+      print(f"Loading data: {transformed_data}")
+
+  @flow(name="ETL Pipeline")
+  def etl_pipeline():
+      raw = extract_data()
+      transformed = transform_data(raw)
+      load_data(transformed)
+
+  if __name__ == "__main__":
+      etl_pipeline()
+  ```
+  <br>
+  This example demonstrates Prefect’s simplicity — defining tasks with retries and caching, composing them into a flow, and running the pipeline with full observability.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool          | Key Strengths                          | Pricing Model                         |
+  |---------------|--------------------------------------|-------------------------------------|
+  | **Prefect**   | Python-native, flexible, cloud & OSS | Open source + Prefect Cloud (subscription) |
+  | **Apache Airflow** | Mature, extensive integrations       | Open source, managed services (Astronomer, Cloud Composer) |
+  | **Luigi**     | Simple pipeline management             | Open source                        |
+  | **Dagster**   | Strong type system & testing support   | Open source + Dagster Cloud         |
+  | **Argo Workflows** | Kubernetes-native, container-first   | Open source                        |
+  | **Snakemake** | Scientific workflow management, strong bioinformatics focus | Open source                        |
+
+  Prefect’s **open-source** version is free and feature-rich, while **Prefect Cloud** offers enhanced UI, scalability, and collaboration features based on subscription tiers.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Prefect’s **Python-first** design makes it a natural choice for teams already invested in Python data tooling. It integrates effortlessly with:
+
+  - Data libraries like **pandas**, **NumPy**, and **Dask**
+  - ML frameworks such as **scikit-learn**, **TensorFlow**, and **PyTorch**
+  - Database connectors and cloud SDKs (e.g., **boto3** for AWS)
+
+  This synergy accelerates pipeline development and reduces context switching, enabling data teams to build end-to-end solutions in a single language.
+
+  ---
+
+  ## 📋 Summary
+
+  Prefect stands out as a **modern, reliable, and developer-friendly** workflow orchestration platform tailored for the evolving needs of data and ML pipelines. With its Python-native API, robust error handling, and rich integrations, it helps teams automate complex workflows with confidence and clarity.
+
+  ---

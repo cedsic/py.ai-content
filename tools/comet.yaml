@@ -1,0 +1,138 @@
+name: "Comet.ml"
+slug: "comet"
+headline: "Centralized experiment tracking and model management for ML teams."
+urls:
+  - label: "Official Site"
+    url: "https://www.comet.com/"
+overview: |
+  In the fast-paced world of machine learning, managing experiments, tracking metrics, and collaborating efficiently can become overwhelming. **Comet.ml** is a comprehensive platform designed to bring order, transparency, and collaboration to your ML workflows. Whether you're a solo data scientist or part of a large AI team, Comet.ml helps you track, compare, and manage your machine learning experiments with ease — all in one centralized place.
+description: |
+  ## 🚀 Core Capabilities ✨
+
+  | Feature                  | Description                                                                                   |
+  |--------------------------|-----------------------------------------------------------------------------------------------|
+  | 🔍 **Experiment Tracking**    | Log hyperparameters, metrics, code versions, datasets, and system environment automatically.  |
+  | 🧠 **Model Management**        | Version control your models, compare performance across experiments, and store artifacts.     |
+  | 📊 **Dashboards & Reports**    | Create rich visualizations, custom reports, and share insights with your team or stakeholders.|
+  | 🤝 **Collaboration Tools**     | Comment on experiments, assign tasks, and maintain transparency across teams.                 |
+  | 🔗 **Integrations**            | Seamlessly connect with popular ML frameworks, cloud platforms, and CI/CD pipelines.          |
+
+  ---
+
+  ## 🎯 Key Use Cases 💡
+
+  - **Experiment Monitoring:** Track hundreds or thousands of experiments in real-time to identify winning models faster. ⏱️
+  - **Model Comparison:** Analyze performance metrics side-by-side to select the best model for production. ⚖️
+  - **Team Collaboration:** Share results, discuss findings, and ensure reproducibility across distributed teams. 🗣️
+  - **Compliance & Audit:** Maintain a detailed history of experiments to meet regulatory or internal audit requirements. 📜
+  - **Automated Reporting:** Generate and distribute reports automatically to keep stakeholders informed. 📤
+
+  ---
+
+  ## ❤️ Why People Use Comet.ml 🔧
+
+  - **Centralized Tracking:** No more scattered spreadsheets or manual logs — all experiment data lives in one place. 📚
+  - **Reproducibility:** Capture code, data, and environment details automatically to reproduce any experiment exactly. 🔄
+  - **Scalability:** Supports individual practitioners to large enterprise teams with thousands of experiments. 📈
+  - **Ease of Use:** Minimal setup with intuitive UI and powerful APIs. 🖥️
+  - **Integration Friendly:** Works with your existing tools and workflows without disruption. 🔌
+
+  ---
+
+  ## 🔄 How Comet.ml Integrates with Other Tools 🔗
+
+  Comet.ml is designed to fit seamlessly into your ecosystem:
+
+  | Tool Category        | Examples                          | Integration Highlights                                  |
+  |----------------------|---------------------------------|--------------------------------------------------------|
+  | ML Frameworks        | TensorFlow, PyTorch, Scikit-learn | Native SDKs for automatic logging and visualization.    |
+  | Data Platforms       | AWS S3, GCP Storage, Azure Blob  | Store datasets and model artifacts securely.            |
+  | CI/CD & DevOps       | GitHub Actions, Jenkins, MLflow  | Automate experiment tracking in pipelines.              |
+  | Collaboration        | Slack, Jira, Confluence          | Push notifications, link experiments to tickets, share reports. |
+
+  ---
+
+  ## ⚙️ Technical Aspects 🔒
+
+  - **SDKs & APIs:** Comet.ml provides Python, JavaScript, and REST APIs to log experiments programmatically.
+  - **Real-time Logging:** Metrics, images, audio, and other media are streamed live to the dashboard.
+  - **Storage & Versioning:** Models and artifacts are versioned and stored securely with metadata.
+  - **Security:** Enterprise-grade security with SSO, role-based access control, and data encryption.
+  - **Cloud & On-Prem:** Available as a SaaS platform or on-premises deployment for sensitive environments.
+
+  ---
+
+  ## 🐍 Python Example: Tracking a Simple Experiment with Comet.ml 💻
+
+  ```python
+  from comet_ml import Experiment
+  from sklearn.datasets import load_iris
+  from sklearn.ensemble import RandomForestClassifier
+  from sklearn.model_selection import train_test_split
+  from sklearn.metrics import accuracy_score
+
+  # Initialize Comet experiment
+  experiment = Experiment(
+      api_key="YOUR_API_KEY",
+      project_name="iris-classification",
+      workspace="your-workspace"
+  )
+
+  # Load data
+  data = load_iris()
+  X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2, random_state=42)
+
+  # Log parameters
+  params = {"n_estimators": 100, "max_depth": 5, "random_state": 42}
+  experiment.log_parameters(params)
+
+  # Train model
+  model = RandomForestClassifier(**params)
+  model.fit(X_train, y_train)
+
+  # Predict and evaluate
+  y_pred = model.predict(X_test)
+  acc = accuracy_score(y_test, y_pred)
+
+  # Log metric
+  experiment.log_metric("accuracy", acc)
+
+  print(f"Test Accuracy: {acc:.4f}")
+  ```
+  <br>
+  The script trains a Random Forest model on the Iris dataset while logging key experiment details—such as parameters and accuracy—to Comet.ml. This enables easy comparison of multiple runs, helps visualize model performance, and supports reproducibility in ML workflows.
+
+  ---
+
+  ## 💰 Competitors and Pricing ⚔️
+
+  | Platform          | Highlights                                         | Pricing (approx.)                       |
+  |-------------------|---------------------------------------------------|---------------------------------------|
+  | **Comet.ml**      | Rich experiment tracking, collaboration, model registry | Free tier + Paid plans from $30/user/month |
+  | MLflow            | Open-source, strong model registry, less UI       | Free (self-hosted)                     |
+  | Weights & Biases  | Similar experiment tracking, strong visualization | Free tier + Paid plans from $12/user/month |
+  | Neptune.ai        | Focus on experiment tracking and metadata logging | Free tier + Paid plans from $15/user/month |
+  | TensorBoard       | TensorFlow-native visualization                    | Free (open-source)                     |
+
+  **Why choose Comet.ml?**  
+  While competitors offer valuable features, Comet.ml stands out for its **enterprise readiness**, **collaboration features**, and **deep integrations** across frameworks and cloud providers, making it ideal for teams scaling ML operations.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance 📚
+
+  Comet.ml’s **Python SDK** is the most widely used and mature, supporting popular libraries such as:
+
+  - TensorFlow
+  - PyTorch
+  - Scikit-learn
+  - XGBoost
+  - LightGBM
+
+  This makes it a natural fit for Python-centric ML workflows, enabling effortless experiment tracking without disrupting your coding style.
+
+  ---
+
+  ## 📝 Summary 🎉
+
+  Comet.ml empowers ML teams to **track experiments, manage models, and collaborate seamlessly** — all while ensuring reproducibility and accelerating model development. Its rich integrations, intuitive UI, and powerful APIs make it a top choice for individuals and enterprises alike.

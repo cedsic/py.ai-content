@@ -1,0 +1,127 @@
+name: "Snakemake"
+slug: "snakemake"
+headline: "Workflow management system for reproducible data science."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/snakemake/snakemake"
+  - label: "Docs"
+    url: "https://snakemake.readthedocs.io/"
+overview: |
+  In today’s data-driven world, managing complex computational workflows is a critical challenge for researchers, data scientists, and engineers alike. **Snakemake** is a powerful workflow management system designed to simplify this complexity by turning intricate pipelines into clear, maintainable, and reproducible workflows. Inspired by the simplicity of Makefiles but supercharged with Python integration and modern scalability, Snakemake ensures your data processing is **efficient**, **error-free**, and **portable**.
+description: |
+  ## ⚙️ Core Capabilities
+
+  | Feature                       | Description                                                                                      |
+  |-------------------------------|--------------------------------------------------------------------------------------------------|
+  | **📋 Declarative Workflow Definition** | Write human-readable rules specifying inputs, outputs, and commands using a clear syntax.          |
+  | **🔗 Automatic Dependency Resolution** | Automatically figures out the order of execution based on file dependencies.                      |
+  | **🚀 Scalable Execution**             | Run workflows seamlessly on a laptop, HPC cluster, or cloud environment without changing code.  |
+  | **🔒 Reproducibility & Provenance**   | Guarantees consistent results by tracking software environments, parameters, and input files.    |
+  | **⚙️ Flexible Resource Management**   | Specify CPU, memory, and time requirements per rule for optimized scheduling.                    |
+  | **📊 Rich Logging & Reporting**        | Generate detailed execution reports and DAG visualizations for transparency and debugging.      |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  Snakemake shines in scenarios where reproducibility, scalability, and clarity are paramount:
+
+  - **🧬 Bioinformatics & Genomics**: Processing and analyzing large-scale sequencing data (e.g., RNA-seq, ChIP-seq pipelines).
+  - **🤖 Machine Learning Pipelines**: Automating data preprocessing, model training, evaluation, and deployment.
+  - **🛠️ Data Engineering**: Complex ETL workflows involving multiple data sources and transformations.
+  - **🔬 Scientific Research**: Ensuring that computational experiments can be reproduced by collaborators or reviewers.
+  - **🖼️ Multi-step Image Processing**: Automating and scaling image segmentation, enhancement, and analysis workflows.
+
+  ---
+
+  ## 💡 Why People Use Snakemake
+
+  - **✍️ Simplicity & Readability**: Workflow rules resemble Python syntax, making them easy to write and maintain.
+  - **🧩 Robust Dependency Handling**: No more manual task ordering — Snakemake figures it out for you.
+  - **🌍 Portability**: Run the same workflow on your laptop, HPC cluster, or cloud with minimal changes.
+  - **🐍 Integration with Conda & Containers**: Embed software environments directly into workflows for perfect reproducibility.
+  - **🤝 Community & Ecosystem**: Backed by a vibrant open-source community and extensive documentation.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Snakemake fits naturally into the modern data science and bioinformatics ecosystem:
+
+  - **Conda & Mamba**: Define software environments per rule for reproducible dependencies.
+  - **Docker & Singularity**: Use containers to encapsulate software environments and dependencies.
+  - **Cluster Schedulers**: Submit jobs to SLURM, SGE, LSF, PBS, and others transparently.
+  - **Cloud Platforms**: Run workflows on AWS Batch, Google Cloud, Kubernetes, and more.
+  - **Python Libraries**: Embed Python code directly in workflows and easily combine with pandas, scikit-learn, NumPy, etc.
+  - **Version Control Systems**: Combine with Git for tracking workflow changes and collaboration.
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  Snakemake workflows are defined in `Snakefiles` using a Python-based domain-specific language (DSL). Each **rule** specifies:
+
+  - **input** files
+  - **output** files
+  - **shell** or **script** commands to transform inputs into outputs
+  - Optional **resources** and **environment** specifications
+
+  Snakemake builds a Directed Acyclic Graph (DAG) of jobs at runtime, ensuring tasks execute in the correct order and maximizing parallelism.
+
+  <br>
+  ### Minimal Example Snakefile
+
+  ```python
+  rule all:
+      input:
+          "results/analysis.txt"
+
+  rule analyze_data:
+      input:
+          "data/raw_data.csv"
+      output:
+          "results/analysis.txt"
+      shell:
+          """
+          python scripts/analyze.py {input} > {output}
+          """
+  ```
+  <br>
+  This workflow defines two rules:
+
+  - `all`: The final target file.
+  - `analyze_data`: Processes raw data into an analysis result.
+
+  Snakemake will automatically run `analyze_data` before `all`, ensuring dependencies are respected.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Snakemake is deeply embedded in the Python ecosystem:
+
+  - Workflow files are Python scripts, allowing for full Python expressiveness.
+  - Supports Python-based scripts and libraries inside rules.
+  - Can be extended with custom Python functions or modules.
+  - Integrates smoothly with scientific Python tools like NumPy, pandas, matplotlib, and scikit-learn.
+  - Enables reproducible data science workflows fully controlled by Python code.
+
+  ---
+
+  ## 💰 Competitors & Pricing
+
+  | Tool                | Description                                   | Pricing Model          | Notes                                      |
+  |---------------------|-----------------------------------------------|-----------------------|--------------------------------------------|
+  | **Snakemake**       | Pythonic, scalable workflow manager           | Open-source (BSD)     | Free, with optional commercial support     |
+  | **Nextflow**        | Workflow manager focused on bioinformatics    | Open-source (GPL)     | Strong container & cloud integration       |
+  | **Cromwell (WDL)**  | Workflow engine from Broad Institute           | Open-source (Apache)  | Popular in genomics, supports WDL syntax   |
+  | **Airflow**         | General-purpose workflow orchestration         | Open-source (Apache)  | More complex, suited for ETL & pipelines   |
+  | **Luigi**           | Python workflow tool by Spotify                 | Open-source (Apache)  | Focus on batch jobs, less bioinformatics    |
+
+  > **Pricing:** Snakemake itself is free and open-source. For enterprise users, [RIB GmbH](https://snakemake.readthedocs.io/en/stable/enterprise.html) offers commercial support and additional features.
+
+  ---
+
+  ## 📝 Summary
+
+  Snakemake is the go-to solution for anyone needing to build **robust**, **scalable**, and **reproducible** workflows with minimal hassle. Its Pythonic syntax, powerful dependency management, and seamless integration with modern computational environments make it an indispensable tool in bioinformatics, data science, and beyond.

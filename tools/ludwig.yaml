@@ -1,0 +1,140 @@
+name: "Ludwig"
+slug: "ludwig"
+headline: "No-code deep learning framework for rapid experimentation."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/ludwig-ai/ludwig"
+  - label: "Docs"
+    url: "https://ludwig.ai/"
+overview: |
+  Building deep learning models can often be a daunting task, requiring expertise in coding, architecture design, and data preprocessing. **Ludwig** changes this paradigm by enabling users to build, train, and evaluate deep learning models **without writing a single line of code**. Powered by a simple yet powerful YAML-based configuration system, Ludwig democratizes AI development, making it accessible to researchers, educators, and developers alike.
+description: |
+  ## 🔑 Core Capabilities
+
+  - **🛠️ Code-Free Model Training**  
+    Define your entire neural network architecture and training setup using human-readable YAML configuration files—no Python scripting required.
+
+  - **⚙️ Automatic Data Preprocessing & Feature Engineering**  
+    Ludwig intelligently handles data normalization, tokenization, image resizing, and other preprocessing steps tailored to your input data types.
+
+  - **🧩 Multi-Modal Data Support**  
+    Seamlessly combine and train on diverse data types such as **text, images, audio, categorical, numerical, and sequence data** within a single model.
+
+  - **📊 Built-in Model Evaluation & Visualization**  
+    Automatically generates performance metrics, confusion matrices, and other evaluation reports to help you interpret model results.
+
+  - **🎯 Flexible Output Types**  
+    Supports classification, regression, sequence tagging, and more, enabling a wide variety of AI tasks.
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  | Use Case                     | Description                                                                                   |
+  |-----------------------------|-----------------------------------------------------------------------------------------------|
+  | **⚡ Rapid Prototyping**         | Quickly test ideas and model architectures without coding overhead.                          |
+  | **🖼️ Multi-Modal AI Models**     | Combine text, images, and other data types to build sophisticated AI systems.                |
+  | **📚 Educational Purposes**      | Ideal for teaching deep learning concepts with immediate hands-on experience.               |
+  | **🔬 Research Experimentation** | Accelerate research by focusing on model design and insights rather than boilerplate code.  |
+  | **🤖 Automated Model Training**  | Deploy models in production pipelines where manual intervention is minimized.                |
+
+  ---
+
+  ## 🤔 Why People Use Ludwig
+
+  - **✨ Simplicity & Accessibility**: Removes the technical barrier for non-programmers to build deep learning models.
+  - **⏱️ Time Efficiency**: Automates repetitive and error-prone tasks like data preprocessing and evaluation.
+  - **🔄 Flexibility**: Supports a broad range of data types and model outputs, suitable for many AI applications.
+  - **🔍 Transparency**: Configuration files are easy to read, share, and version control.
+  - **🆓 Open Source & Extensible**: Built on top of TensorFlow, Ludwig is open source and customizable for advanced users.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Ludwig fits well within the Python AI ecosystem and data workflows:
+
+  - **📊 Data Science Pipelines**: Easily integrates with pandas, NumPy, and scikit-learn for data preparation.
+  - **🧠 Deep Learning Frameworks**: Built on TensorFlow, allowing users to leverage GPU acceleration and TensorBoard visualization.
+  - **🚀 Deployment**: Models can be exported and served via TensorFlow Serving or converted to ONNX for broader compatibility.
+  - **📈 Experiment Tracking**: Compatible with MLflow, Weights & Biases, and other experiment management tools through custom hooks.
+  - **☁️ Cloud Platforms**: Can be deployed on AWS, GCP, or Azure with minimal setup due to containerized support.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **🏗️ Architecture Definition**: Models are defined via YAML files specifying input features, output features, preprocessing options, and training parameters.
+  - **📂 Data Handling**: Supports CSV, JSON, Parquet, and image folders as input formats.
+  - **🖥️ Training Backend**: Uses TensorFlow 2.x, leveraging eager execution and Keras APIs for modularity.
+  - **🧩 Model Components**: Includes pre-built encoders and decoders for text (e.g., CNN, RNN, transformers), images (CNNs), audio, and more.
+  - **🛠️ Extensibility**: Advanced users can create custom encoders/decoders and metrics by extending Ludwig classes.
+
+  ---
+
+  ## 🐍 Ludwig in Python: Example Usage
+
+  ```python
+  from ludwig.api import LudwigModel
+
+  # Define the model configuration as a dictionary (can also be YAML)
+  model_definition = {
+      'input_features': [
+          {'name': 'text', 'type': 'text'},
+          {'name': 'image_path', 'type': 'image'}
+      ],
+      'output_features': [
+          {'name': 'sentiment', 'type': 'category'}
+      ],
+      'training': {
+          'epochs': 5
+      }
+  }
+
+  # Initialize the model
+  model = LudwigModel(config=model_definition)
+
+  # Train the model with a dataset (CSV with columns: text, image_path, sentiment)
+  train_stats = model.train(dataset='data/multi_modal_data.csv')
+
+  # Evaluate the model
+  eval_stats = model.evaluate(dataset='data/multi_modal_test.csv')
+
+  # Make predictions
+  predictions = model.predict(dataset='data/new_samples.csv')
+  print(predictions)
+  ```
+
+  ---
+
+  ## ⚔️ Competitors and Pricing
+
+  | Tool            | Description                                    | Pricing Model             |
+  |-----------------|------------------------------------------------|--------------------------|
+  | **Ludwig**      | Code-free deep learning with multi-modal support | Open Source (Apache 2.0)  |
+  | **AutoKeras**   | Automated machine learning for deep learning    | Open Source              |
+  | **H2O Driverless AI** | Automated ML platform with interpretability    | Commercial, subscription  |
+  | **Google AutoML** | Cloud-based AutoML for vision, language, tabular | Pay-as-you-go (Cloud)     |
+  | **MLjar**       | Automated ML with GUI and code support           | Freemium                 |
+
+  **Ludwig** stands out by focusing on **multi-modal deep learning without code**, and being completely free and open source, making it an excellent choice for both experimentation and production.
+
+  ---
+
+  ## 🐍 Ludwig and the Python Ecosystem
+
+  Ludwig is deeply integrated into the Python ecosystem:
+
+  - Uses **TensorFlow** as its core deep learning framework.
+  - Works seamlessly with **pandas** and **NumPy** for data manipulation.
+  - Can be scripted and automated using Python APIs.
+  - Compatible with popular Python-based ML tools like **scikit-learn** and **matplotlib** for visualization.
+  - Supports Jupyter notebooks for interactive model building and experimentation.
+
+  ---
+
+  # Summary
+
+  Ludwig is a powerful, user-friendly tool that **lowers the barrier to entry for deep learning** by providing a code-free, configuration-driven interface. Its support for multi-modal data, automatic preprocessing, and tight integration with the Python ecosystem make it ideal for rapid prototyping, education, and research. Best of all, Ludwig is open source and free, inviting everyone to build sophisticated AI models with ease.
+
+  ---

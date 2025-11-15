@@ -1,0 +1,119 @@
+name: "VS Code Python tools"
+slug: "vscode-python-tools"
+headline: "Python development extensions and tools for VS Code."
+urls:
+  - label: "Marketplace"
+    url: "https://marketplace.visualstudio.com/items?itemName=ms-python.python"
+  - label: "Docs"
+    url: "https://code.visualstudio.com/docs/python/python-tutorial"
+overview: |
+  Visual Studio Code (VS Code) Python tools transform VS Code into a powerful, versatile Python IDE. They streamline the entire Python development lifecycle — from writing clean, efficient code to debugging and deploying applications — all within a single, lightweight editor. Whether you're a beginner or a seasoned Pythonista, these tools enhance productivity by integrating essential features tailored specifically for Python development.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                      | Description                                                                                  |
+  |------------------------------|----------------------------------------------------------------------------------------------|
+  | **💡 Intelligent Code Completion** | Powered by Microsoft’s Pyright and Language Server Protocol (LSP), offering context-aware suggestions and auto-imports. |
+  | **🐞 Debugging Tools**            | Set breakpoints, inspect variables, evaluate expressions, and step through code seamlessly.  |
+  | **🛠️ Linting & Code Quality**     | Supports popular linters like pylint, flake8, mypy, and black for enforcing style and catching errors early. |
+  | **🌐 Environment Management**     | Detects and manages virtual environments (`venv`, `conda`), interpreters, and Docker containers effortlessly. |
+  | **🧪 Testing Integration**        | Supports unittest, pytest, and nose frameworks with test discovery and running inside the editor. |
+  | **📓 Jupyter Notebook Support**   | Edit, run, and debug Jupyter notebooks natively, blending code, markdown, and output interactively. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  - **🖥️ Application Development:** Build scalable Python web apps, APIs, and scripts with rich debugging and linting support.
+  - **📊 Data Science & Machine Learning:** Develop, test, and visualize ML models using integrated Jupyter notebooks and Python interactive windows.
+  - **⚙️ Automation & Scripting:** Rapidly prototype and maintain automation scripts with instant code feedback.
+  - **🤝 Code Quality & Collaboration:** Enforce coding standards and share environments to keep teams aligned and productive.
+
+  ---
+
+  ## ✔️ Why People Use VS Code Python Tools
+
+  - **🧩 Unified Experience:** No need to switch editors or terminals — code, test, debug, and deploy in one place.
+  - **⚡ Lightweight & Fast:** Unlike traditional heavy IDEs, VS Code boots quickly and remains responsive.
+  - **🔌 Highly Extensible:** Customize your Python workflow with thousands of extensions available in the VS Code marketplace.
+  - **💻 Cross-Platform:** Works consistently on Windows, macOS, and Linux.
+  - **🆓 Free & Open Source:** Backed by Microsoft and a vibrant community, ensuring continuous improvements.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  VS Code Python tools seamlessly integrate with:
+
+  - **🐙 Git & GitHub:** Source control, pull requests, and code reviews inside the editor.
+  - **🐳 Docker:** Build, run, and debug Python apps inside containers.
+  - **☁️ Azure & AWS:** Deploy Python applications directly to cloud platforms.
+  - **🚦 CI/CD Pipelines:** Extensions support integration with Jenkins, GitHub Actions, and Azure Pipelines.
+  - **🗄️ Databases:** Connect and query SQL and NoSQL databases via extensions.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  At its core, the Python extension for VS Code leverages the **Language Server Protocol (LSP)** to provide language intelligence features. The default language server, **Pylance**, is built on Microsoft’s Pyright static type checker, offering lightning-fast type checking and autocomplete.
+
+  The debugger is based on the **Debug Adapter Protocol (DAP)**, enabling rich debugging experiences including remote debugging and multi-threaded applications.
+
+  VS Code Python tools detect Python interpreters by scanning your system and virtual environments, letting you switch interpreters with a simple command palette action.
+
+  ---
+
+  ## 🐍 Example: Writing and Debugging Python Code in VS Code
+
+  ```python
+  def fibonacci(n: int) -> list[int]:
+      """Generate Fibonacci sequence up to n terms."""
+      sequence = [0, 1]
+      for _ in range(2, n):
+          next_value = sequence[-1] + sequence[-2]
+          sequence.append(next_value)
+      return sequence
+
+  if __name__ == "__main__":
+      terms = 10
+      print(f"First {terms} Fibonacci numbers: {fibonacci(terms)}")
+  ```
+  <br>
+  **How VS Code helps:**  
+
+    - ✨ Autocompletion suggests `append()` and variable names.  <br>  
+    - 🚨 Inline linting warns if types don’t match.  <br>  
+    - 🐞 Debugger lets you step through the loop, inspect `sequence` at each iteration.  <br>  
+    - 📓 You can run tests or Jupyter notebooks side-by-side.
+
+  ---
+
+  ## 💰 Competitors & Pricing
+
+  | Tool                    | Pricing                         | Notes                                                |
+  |-------------------------|--------------------------------|------------------------------------------------------|
+  | **PyCharm (JetBrains)** | Free Community / Paid Pro ($199/year) | Heavyweight IDE with advanced refactoring and profiling tools. |
+  | **JupyterLab**          | Free                           | Excellent for notebooks but lacks full IDE features.|
+  | **Spyder**              | Free                           | Focused on scientific computing, less extensible.   |
+  | **Atom + Python Packages** | Free                         | Lightweight but slower updates and smaller ecosystem.|
+
+  **VS Code Python tools** are **completely free** and open source, making them highly accessible.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  VS Code Python tools are deeply embedded in the Python ecosystem:
+
+  - Support for **PEP8**, **PEP484** (type hints), and **PEP257** (docstrings) ensures code style compliance.
+  - Integration with popular Python package managers (`pip`, `conda`) and environment managers.
+  - Compatibility with scientific libraries like **NumPy**, **Pandas**, **TensorFlow**, and **PyTorch**.
+  - Supports Python 2.x (legacy) and Python 3.x (modern), enabling smooth migration paths.
+
+  ---
+
+  ## 📋 Summary
+
+  VS Code Python tools deliver a **feature-rich, lightweight, and extensible environment** tailored for Python developers across domains — from web development to data science. By combining intelligent code completion, powerful debugging, environment management, and seamless integrations, they empower you to write better Python code faster and with less friction.
+
+  ---

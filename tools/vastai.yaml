@@ -1,0 +1,46 @@
+name: "Vast.ai"
+slug: "vastai"
+headline: "Decentralized marketplace for GPU compute resources."
+urls:
+  - label: "Official Site"
+    url: "https://vast.ai/"
+overview: |
+  Vast.ai provides a **marketplace connecting users to a decentralized network of GPU providers**, making high-performance compute accessible and affordable.  
+  It’s ideal for researchers, startups, or hobbyists who want **flexible GPU resources without investing in hardware**.  
+  Unlike traditional cloud providers, Vast.ai leverages **spot pricing and individual contributors**, often delivering lower costs.
+description: |
+  ## 🌟 Key Strengths  
+  - 🌐 **Decentralized Marketplace** – Rent GPUs from a global network of providers.  
+  - ⚡ **On-Demand Scaling** – Dynamically scale compute resources up or down.  
+  - 💰 **Cost-Efficient** – Spot-pricing model can be significantly cheaper than traditional clouds.  
+  - 🖥️ **Developer-Focused** – Supports Docker, CLI, and API for automation.  
+  - 📊 **Customizable Instances** – Choose GPU type, CPU, memory, and storage per workload.
+
+  ---
+
+  ## 🚀 Where Vast.ai Shines  
+  - AI researchers and small startups needing **cheap, on-demand GPUs** 🎯.  
+  - Experimentation with **large-scale ML training** on a budget 📈.  
+  - Teams comfortable managing **spot-instance variability** for cost savings ⚙️.
+
+  ---
+
+  ## ⚠️ Limitations  
+  - Instance availability varies; may not be suitable for **mission-critical production workloads** 🔒.  
+  - Requires more **developer management** compared to fully managed services like Lambda Cloud or Paperspace 👨‍💻.  
+  - Decentralized nature can result in **variable network performance** 🌐📉.
+
+  ---
+
+  ## 💡 Example in Action  
+  A small AI team could:  
+  1. Rent **RTX 3090 GPUs from multiple providers** through Vast.ai’s marketplace.  
+  2. Run distributed training on large datasets.  
+  3. Scale compute up or down dynamically while minimizing costs.
+
+  ---
+
+  ## ⚔️ Comparisons  
+  - **vs RunPod** → RunPod offers managed instances with predictable performance; Vast.ai is cheaper but more variable.  
+  - **vs Lambda Cloud** → Lambda Cloud is enterprise-ready with pre-configured stacks; Vast.ai is more experimental and cost-focused.  
+  - **vs Genesis Cloud** → Genesis emphasizes sustainability; Vast.ai emphasizes low-cost, decentralized compute.

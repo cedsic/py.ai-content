@@ -1,0 +1,159 @@
+name: "Unity ML-Agents"
+slug: "unity-ml-agents"
+headline: "AI-driven procedural content generation and game training."
+urls:
+  - label: "Github"
+    url: "https://github.com/Unity-Technologies/ml-agents"
+  - label: "Docs"
+    url: "https://unity.com/products/machine-learning-agents"
+overview: |
+  **Unity ML-Agents** is an open-source toolkit developed by Unity Technologies that bridges the gap between game development and artificial intelligence. It empowers developers, researchers, and simulation engineers to **train intelligent agents** and create **adaptive, data-driven behaviors** within rich 3D environments. Leveraging the power of **reinforcement learning (RL)**, imitation learning, and procedural content generation, ML-Agents transforms static game worlds into dynamic, evolving ecosystems.
+  <br>
+  Whether you're building smarter NPCs, simulating robotics, or experimenting with autonomous systems, Unity ML-Agents provides the tools to bring AI to life in your Unity scenes.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                     | Description                                                                                  |
+  |-----------------------------|----------------------------------------------------------------------------------------------|
+  | 🎯 **Reinforcement Learning**     | Train agents to learn optimal behaviors through trial and error using reward feedback.         |
+  | 🛠️ **Procedural Content Generation** | Dynamically generate levels, objects, and scenarios that adapt to player interactions or agent strategies. |
+  | 🐍 **Python API Integration**       | Seamlessly control training, environment setup, and data collection through a powerful Python interface. |
+  | ⚡ **Scalable Training**              | Supports GPU acceleration, multi-agent training, and distributed learning workflows.           |
+  | 🔄 **Multi-Agent Simulations**       | Train multiple agents simultaneously, enabling complex interactions and cooperative/competitive behaviors. |
+  | 📊 **TensorBoard Support**            | Visualize training metrics and agent performance in real-time.                                  |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Unity ML-Agents shines in domains where **intelligent behavior in simulated 3D environments** matters most:
+
+  - 🎮 **Game Development**  
+    Train NPCs with adaptive, human-like behaviors that evolve with player strategies.  
+    Generate procedural levels that respond dynamically to gameplay.
+
+  - 🤖 **Robotics Simulation**  
+    Prototype and train autonomous robots in realistic physics environments before real-world deployment.
+
+  - 🚗 **Autonomous Vehicles**  
+    Simulate self-driving cars navigating complex terrains and traffic scenarios.
+
+  - 🧠 **AI Research & Education**  
+    Experiment with cutting-edge RL algorithms in a visually rich, interactive setting.
+
+  - 🏗️ **Procedural Content Generation**  
+    Automate creation of game assets and scenarios, reducing manual design time.
+
+  ---
+
+  ## 💡 Why People Use Unity ML-Agents
+
+  - **Integration with Unity Engine**: Unity ML-Agents leverages the full power of the Unity Editor, allowing for rich environment design, physics simulation, and real-time visualization.
+  - **Flexibility & Extensibility**: Supports custom reward functions, observation spaces, and complex action sets.
+  - **Strong Python Ecosystem Support**: Easily integrates with popular ML frameworks like TensorFlow and PyTorch.
+  - **Open Source & Community-Driven**: Constantly evolving with contributions from AI researchers and developers worldwide.
+  - **Cross-Platform**: Train and deploy agents across desktop, mobile, VR/AR, and cloud environments.
+
+  ---
+
+  ## 🔗 How It Integrates With Other Tools
+
+  Unity ML-Agents acts as a **bridge between Unity and the Python machine learning ecosystem**:
+
+  - **Python API**: Controls environment resets, collects observations, sends actions, and retrieves rewards.
+  - **TensorFlow & PyTorch**: Use these frameworks to build custom neural networks for your agents.
+  - **TensorBoard**: Monitor training progress and debug agent behaviors.
+  - **Cloud Services & HPC**: Scale training using cloud GPU instances or on-premise clusters.
+  - **External Data Pipelines**: Feed real-world data into simulations or export training logs for further analysis.
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  At its core, Unity ML-Agents operates through a **client-server architecture**:
+
+  1. **Unity Environment (Server)**  
+    - Runs the simulation, physics, and rendering.  
+    - Defines agent observations (e.g., visual input, vector sensors).  
+    - Applies actions received from the Python client.  
+    - Computes rewards and manages episode lifecycles.
+
+  2. **Python API (Client)**  
+    - Implements RL algorithms (PPO, SAC, etc.) using frameworks like TensorFlow.  
+    - Sends actions to Unity and receives state information.  
+    - Handles training loops, policy updates, and checkpointing.
+
+  ---
+
+  ## 🐍 Sample Python Code: Training an Agent with ML-Agents
+
+  ```python
+  from mlagents_envs.environment import UnityEnvironment
+  from mlagents_envs.side_channel.engine_configuration_channel import EngineConfigurationChannel
+
+  # Configure Unity environment
+  engine_channel = EngineConfigurationChannel()
+  env = UnityEnvironment(file_name="YourUnityEnv.exe", side_channels=[engine_channel])
+  engine_channel.set_configuration_parameters(time_scale=20.0)  # Speed up simulation
+
+  env.reset()
+  behavior_name = list(env.behavior_specs)[0]
+  spec = env.behavior_specs[behavior_name]
+
+  for episode in range(10):
+      env.reset()
+      decision_steps, terminal_steps = env.get_steps(behavior_name)
+      done = False
+
+      while not done:
+          # Sample random actions for all agents
+          action = spec.action_spec.random_action(len(decision_steps))
+          env.set_actions(behavior_name, action)
+          env.step()
+
+          decision_steps, terminal_steps = env.get_steps(behavior_name)
+          done = len(terminal_steps) > 0
+
+  env.close()
+  ```
+  <br>
+  This snippet shows how to initialize a Unity environment, interact with agents, and step through episodes using the ML-Agents Python API.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool                     | Description                                                            | Pricing Model                  |
+  |--------------------------|------------------------------------------------------------------------|-------------------------------|
+  | **Unity ML-Agents**      | Open-source toolkit integrated with Unity for RL and procedural content. | Free and open-source           |
+  | **OpenAI Gym**           | Widely used RL environment toolkit with many 2D and abstract environments. | Free and open-source           |
+  | **NVIDIA Isaac Gym**     | High-performance robotics simulation with GPU acceleration.            | Free (with NVIDIA hardware)    |
+  | **Microsoft AirSim**     | Simulator for drones and autonomous vehicles with photorealistic environments. | Free and open-source           |
+  | **Amazon Sumerian**      | Cloud-based 3D simulation and AI services for AR/VR applications.       | Pay-as-you-go (cloud pricing) |
+
+  **Unity ML-Agents stands out** by combining **ease of use, seamless Unity integration, and a thriving community**, all at no cost.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  The Python API is a **cornerstone** of Unity ML-Agents, enabling:
+
+  - Use of **popular ML libraries** like TensorFlow, PyTorch, and Keras for custom model building.
+  - Integration with **data science tools** such as NumPy, Pandas, and Matplotlib for data analysis and visualization.
+  - Access to **reinforcement learning frameworks** (e.g., Stable Baselines3) for accelerated algorithm development.
+  - Support for **distributed training** and hyperparameter tuning workflows using tools like Ray or Optuna.
+
+  ---
+
+  ## 🔑 Summary
+
+  Unity ML-Agents is a **powerful, flexible, and accessible platform** for anyone looking to bring AI-driven intelligence into 3D simulations and games. Its deep integration with the Unity engine, combined with a robust Python API and support for state-of-the-art ML techniques, makes it a top choice for:
+
+  - Game developers creating smarter, adaptive gameplay  
+  - Researchers prototyping novel RL algorithms  
+  - Engineers simulating complex autonomous systems  
+
+  Unlock the potential of intelligent agents — **train, test, and deploy** with Unity ML-Agents.
+
+  ---

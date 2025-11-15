@@ -1,0 +1,125 @@
+name: "Jupyter"
+slug: "jupyter"
+headline: "Interactive notebooks for Python and data science."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/jupyter/notebook"
+  - label: "Docs"
+    url: "https://jupyter.org/"
+overview: |
+  Jupyter has revolutionized the way developers, data scientists, educators, and researchers write and share code by providing a **lively, interactive environment** that seamlessly combines code, output, and rich text. Born from the IPython project, Jupyter supports dozens of programming languages (with Python being the most popular), enabling users to **explore data, prototype ideas, and communicate results** all within a single, unified interface.
+description: |
+  ## 🚀 Core Capabilities
+
+  - 🧩 **Interactive Code Cells**: Write and execute code in discrete cells, with immediate inline output — whether text, tables, images, or interactive visualizations. 🖥️
+
+  - 📝 **Rich Text & Markdown Support**: Combine code with formatted documentation using Markdown, LaTeX equations, images, and hyperlinks to create well-documented, reproducible workflows. 📚
+
+  - 📊 **Visualization Integration**: Embed plots and charts directly using libraries like Matplotlib, Seaborn, Plotly, and Bokeh, making data exploration intuitive and visually appealing. 🎨
+
+  - 🛠️ **Extensibility with Widgets & Dashboards**: Use interactive widgets (sliders, buttons, dropdowns) to build dynamic applications and dashboards right inside your notebook. 🎛️
+
+  - 🌐 **Multi-language Support**: Although Python dominates, Jupyter supports over 40 languages via kernels—R, Julia, Scala, and more. 🌍
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  | Use Case                      | Description                                                                                  | Typical Users                   |
+  |------------------------------|----------------------------------------------------------------------------------------------|--------------------------------|
+  | **Data Exploration & Visualization** | Quickly iterate on data analysis, visualize trends, and test hypotheses interactively.        | Data Scientists, Analysts      |
+  | **Teaching & Learning**       | Create interactive lessons combining explanations, code examples, and exercises.            | Educators, Students            |
+  | **Research & Experimentation** | Document experiments, algorithms, and results in a single shareable document.               | Researchers, Academics         |
+  | **Symbolic Programming & Mathematics** | Perform algebraic manipulation, equation solving, and symbolic calculus using libraries like SymPy.               | Researchers, Mathematicians, Educators         |
+  | **Prototyping & Development** | Rapidly prototype new algorithms or machine learning models with immediate feedback.         | Developers, ML Engineers       |
+  | **Reproducible Science**      | Share complete computational narratives that can be rerun and verified by others.           | Open Science Community          |
+
+  ---
+
+  ## 💡 Why People Use Jupyter
+
+  - 🔄 **Unified Environment:** Code, results, and narrative live together, eliminating context switching.
+  - 🔎 **Reproducibility:** Easily share notebooks that capture the full computational process.
+  - 🌱 **Community & Ecosystem:** Massive user base with countless extensions, themes, and integrations.
+  - 🔧 **Flexibility:** Use it locally, in the cloud, or embedded in other platforms.
+  - 👐 **Open Source & Free:** Encourages collaboration and transparency.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Jupyter notebooks act as a **hub** that connects with many tools and platforms:
+
+  | Tool / Platform          | Integration Type                                  | Description                                      |
+  |-------------------------|-------------------------------------------------|------------------------------------------------|
+  | **Python Libraries**     | Native support                                   | Use any Python library (NumPy, Pandas, TensorFlow) seamlessly. |
+  | **Version Control**      | Extensions & nbconvert                           | Export notebooks as scripts or HTML for git-friendly workflows. |
+  | **Cloud Services**       | Hosted Jupyter environments (e.g., Google Colab, Azure Notebooks) | Run notebooks without local setup, with scalable compute. |
+  | **Big Data Platforms**   | Connectors & APIs                                | Interface with Spark, Hadoop, and databases.   |
+  | **Visualization Tools**  | Inline rendering                                 | Embed interactive Plotly, Bokeh, or Altair charts. |
+  | **IDE Integration**      | Plugins & extensions                             | Use Jupyter inside VSCode, PyCharm, or JupyterLab. |
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  - 🏗️ **Architecture:**: Jupyter consists of a **web-based frontend** (the notebook interface) and a **backend kernel** that executes code. The frontend sends code to the kernel, which runs it and returns output.
+
+  - 💾 **File Format:**: Notebooks are saved as `.ipynb` files — JSON documents that store code, output, and metadata, making them portable and version-controllable.
+
+  - 🔌 **Extensibility:**: Jupyter supports extensions for themes, spell-check, code formatting, and integration with other tools via the JupyterLab interface.
+
+  - 🔒 **Security:**: Supports authentication and sandboxing, but users should be cautious with notebooks from untrusted sources.
+
+  ---
+
+  ## 🐍 Example: Python Data Exploration in Jupyter
+
+  ```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+
+  # Load sample dataset
+  df = sns.load_dataset('penguins')
+
+  # Quick overview
+  print(df.head())
+
+  # Visualize species distribution
+  sns.countplot(data=df, x='species')
+  plt.title('Penguin Species Distribution')
+  plt.show()
+  ```
+  <br>
+  *In a Jupyter notebook, the output plot appears directly below the code cell, enabling immediate insight and iteration.*
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Tool              | Pricing Model           | Strengths                                   | Notes                              |
+  |-------------------|------------------------|---------------------------------------------|----------------------------------|
+  | **Jupyter**       | Free, Open Source      | Highly extensible, large ecosystem          | Requires some setup for local use |
+  | **Google Colab**  | Free + Paid tiers      | Cloud-based, GPU/TPU support, zero setup    | Limited session duration          |
+  | **Zeppelin**      | Open Source            | Multi-language, big data integration        | More enterprise-focused           |
+  | **RStudio Notebooks** | Free + Paid versions | Tight R integration, great for R users      | Less Python-centric               |
+  | **Deepnote**      | Freemium               | Collaborative notebooks, real-time editing  | Paid tiers for advanced features  |
+
+  ---
+
+  ## 🐍 Jupyter and the Python Ecosystem
+
+  Jupyter is **deeply embedded in the Python data science stack**:
+
+  - Works seamlessly with **Pandas** for data manipulation.
+  - Supports **NumPy** and **SciPy** for scientific computing.
+  - Integrates with **Matplotlib**, **Seaborn**, **Plotly** for visualization.
+  - Enables interactive machine learning with **scikit-learn**, **TensorFlow**, and **PyTorch**.
+  - Serves as a playground for Python developers to prototype and share code.
+
+  ---
+
+  ## Summary
+
+  Jupyter notebooks empower users to **write, visualize, and share code in an interactive, narrative-driven environment**. Its versatility, extensibility, and strong Python ecosystem integration make it the go-to tool for data science, education, and research. Whether you’re analyzing data, teaching a class, or documenting an experiment, Jupyter offers a rich, collaborative experience — all for free.

@@ -1,0 +1,52 @@
+name: "Lambda Labs"
+slug: "lambda-cloud"
+headline: "High-performance GPU cloud for deep learning workloads."
+urls:
+  - label: "Official Site"
+    url: "https://lambda.ai/"
+overview: |
+  Lambda Cloud is designed specifically for **AI research and production training**.  
+  Unlike generic cloud providers, it ships **GPU servers pre-loaded with CUDA, cuDNN, PyTorch, TensorFlow, and JAX**, letting ML teams start training immediately.  
+
+  Lambda positions itself between **big cloud vendors (AWS/GCP)** and **bare-metal GPU providers (Vast.ai, RunPod)** by offering **ease of use + predictable performance**.
+description: |
+  ## 🚀 Key Strengths  
+
+  - 🚀 **Pre-configured deep learning stack** – no setup headaches; supports PyTorch, TensorFlow, JAX out-of-the-box.  
+  - 💾 **Local + Cloud synergy** – Lambda also sells on-prem GPU workstations/servers, making hybrid setups seamless.  
+  - 📈 **Enterprise-grade scaling** – predictable multi-GPU training performance with NVLink-enabled clusters.  
+  - 🌍 **Global regions** – U.S. and Europe data centers for lower latency training.  
+  - 🧾 **Transparent pricing** – simpler than AWS, though typically higher than Vast.ai or RunPod spot instances.  
+
+  ---
+
+  ## ⚡ Where Lambda Cloud Shines  
+
+  - Teams that want **“plug-and-play” GPU training** without maintaining CUDA drivers.  
+  - Enterprises standardizing on Lambda’s **workstation + cloud** combo.  
+  - Researchers running **multi-GPU distributed training** with minimal config overhead.  
+
+  ---
+
+  ## ⚠️ Limitations  
+
+  - Less flexible pricing than Vast.ai/RunPod (no cheap spot market).  
+  - Fewer global regions than AWS or CoreWeave.  
+  - Not ideal for **one-off low-cost experiments** — better for steady workloads.  
+
+  ---
+
+  ## 🎯 Example in Action  
+
+  A **computer vision startup** building large-scale detection models could:  
+  1. Prototype locally on a Lambda workstation.  
+  2. Push experiments to Lambda Cloud’s A100 clusters for distributed training.  
+  3. Keep the same pre-configured environment across local + cloud, saving weeks of DevOps overhead.  
+
+  ---
+
+  ## ⚔️ Comparisons  
+
+  - **vs Genesis Cloud** → Genesis emphasizes **sustainability + affordability**; Lambda emphasizes **ready-to-use ML stack**.  
+  - **vs RunPod/Vast.ai** → Lambda is more **stable and enterprise-ready**, but less flexible on cost.  
+  - **vs CoreWeave** → CoreWeave focuses heavily on **VFX + large-scale GPU rentals**, Lambda is narrower on **AI workloads**.  

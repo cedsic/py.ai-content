@@ -1,0 +1,141 @@
+name: "Kubeflow"
+slug: "kubeflow"
+headline: "Orchestrate and scale machine learning pipelines on Kubernetes."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/kubeflow/kubeflow"
+  - label: "Docs"
+    url: "https://www.kubeflow.org/"
+overview: |
+  Kubeflow is an open-source platform designed to **make machine learning workflows portable and scalable** on Kubernetes. It empowers data scientists, ML engineers, and DevOps teams to build, deploy, and manage complex ML systems with ease — from experimentation to production. By leveraging Kubernetes’ powerful container orchestration capabilities, Kubeflow provides a unified solution for end-to-end ML lifecycle management.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Capability                  | Description                                                                                  |
+  |----------------------------|----------------------------------------------------------------------------------------------|
+  | **🔄 End-to-End Pipelines**    | Design, automate, and manage ML workflows covering data ingestion, training, tuning, and deployment. |
+  | **🤖 Multi-Framework Support** | Seamlessly integrates with TensorFlow, PyTorch, MXNet, XGBoost, and more.                    |
+  | **📊 Scalable Training**       | Distributed training on Kubernetes clusters using TFJob, PyTorchJob, MPIJob, etc.            |
+  | **🛠️ Model Serving**           | Deploy trained models at scale with KFServing (now KServe), supporting canary rollout, autoscaling, and load-balancing to efficiently distribute inference traffic. |
+  | **📈 Experiment Tracking**     | Track and compare model experiments, hyperparameters, and metrics with Katib and ML Metadata. |
+  | **📓 Notebook Management**     | Launch Jupyter notebooks directly in Kubernetes for interactive development and debugging.   |
+  | **⚙️ Hyperparameter Tuning**   | Automate tuning with Katib, supporting Bayesian optimization, grid search, and random search. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Kubeflow is ideal for organizations aiming to:
+
+  - **⚡ Scale ML workloads** across multi-node Kubernetes clusters.
+  - **🔁 Reproduce experiments** reliably across teams and environments.
+  - **🤖 Automate complex workflows**, from data preprocessing to model retraining.
+  - **📦 Deploy multiple models** simultaneously with robust versioning and monitoring.
+  - **🔄 Integrate ML into CI/CD pipelines** for continuous training and deployment.
+  - **🤝 Enable collaboration** among data scientists, ML engineers, and DevOps.
+
+  ---
+
+  ## 💡 Why People Use Kubeflow
+
+  - 🔥 **Kubernetes Native:** Leverages Kubernetes’ ecosystem for portability and scalability.
+  - ⚙️ **Modular & Extensible:** Pick and choose components relevant to your workflow.
+  - 🔄 **Reproducibility:** Ensures experiments and deployments can be reliably replicated.
+  - 🌐 **Multi-framework Support:** No vendor lock-in, works with your favorite ML tools.
+  - 📈 **Production Ready:** Designed for enterprise-grade ML systems with monitoring and rollout strategies.
+  - 🤝 **Open Source Community:** Backed by Google and a vibrant ecosystem.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Kubeflow plays nicely with a broad ecosystem:
+
+  | Tool / Ecosystem          | Integration Purpose                                          |
+  |---------------------------|--------------------------------------------------------------|
+  | **Kubernetes**            | Core orchestration and resource management                   |
+  | **TensorFlow, PyTorch**   | Native operators (TFJob, PyTorchJob) for distributed training |
+  | **Argo Workflows**        | Underlying engine for pipeline orchestration                 |
+  | **KServe (KFServing)**    | Model serving with autoscaling and rollout strategies        |
+  | **ML Metadata**           | Experiment and pipeline metadata tracking                     |
+  | **Prometheus & Grafana**  | Monitoring and alerting for ML workloads                      |
+  | **Jupyter Notebooks**     | Interactive development environment                           |
+  | **Cloud Providers**       | Managed Kubernetes services (GKE, EKS, AKS) support          |
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  Kubeflow is composed of microservices and CRDs (Custom Resource Definitions) deployed on Kubernetes. The architecture typically includes:
+
+  - **Pipeline Orchestration:** Pipelines defined as DAGs, executed by Argo.
+  - **Custom Controllers:** For managing distributed training jobs (e.g., TFJob).
+  - **Metadata Store:** Centralized tracking of experiments and artifacts.
+  - **Notebook Servers:** User-facing Jupyter environments running as pods.
+  - **Model Serving:** Scalable inference endpoints with autoscaling and traffic splitting.
+
+  Kubeflow leverages Kubernetes features such as namespaces, RBAC, and persistent volumes to isolate and secure workloads.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Kubeflow tightly integrates with Python, the lingua franca of ML:
+
+  - Pipelines are authored using the **Kubeflow Pipelines SDK**, a Python client library.
+  - Supports Python ML frameworks like TensorFlow, PyTorch, and scikit-learn.
+  - Enables embedding Python code in pipeline components for custom data processing or model logic.
+
+  ### Example: Defining a Simple Kubeflow Pipeline in Python
+
+  ```python
+  from kfp import dsl
+  from kfp.components import create_component_from_func
+
+  # Define a component
+  def preprocess_op():
+      print("Preprocessing data...")
+
+  def train_op():
+      print("Training model...")
+
+  @dsl.pipeline(
+      name='Simple ML Pipeline',
+      description='An example pipeline with preprocessing and training steps.'
+  )
+  def simple_pipeline():
+      preprocess = create_component_from_func(preprocess_op)()
+      train = create_component_from_func(train_op)()
+      train.after(preprocess)
+
+  if __name__ == '__main__':
+      import kfp.compiler as compiler
+      compiler.Compiler().compile(simple_pipeline, 'simple_pipeline.yaml')
+  ```
+  <br>
+  This pipeline can then be uploaded to Kubeflow Pipelines UI or triggered programmatically.
+
+  ---
+
+  ## 💰 Competitors and Pricing
+
+  | Tool                    | Focus Area                        | Pricing Model                         |
+  |-------------------------|---------------------------------|-------------------------------------|
+  | **Kubeflow**            | Kubernetes-native ML workflows   | Open source (free), cloud infra costs apply |
+  | **MLflow**              | Experiment tracking & lifecycle  | Open source, managed options (Databricks) |
+  | **SageMaker**           | End-to-end AWS ML platform       | Pay-as-you-go (AWS pricing)          |
+  | **Azure ML**             | Microsoft’s ML platform           | Subscription-based, pay per usage    |
+  | **Google Vertex AI**    | Google’s managed ML platform      | Pay per usage (training, prediction) |
+  | **Metaflow**            | Workflow orchestration for ML     | Open source, with managed AWS option |
+
+  Kubeflow is **free and open-source**, but deploying it requires Kubernetes infrastructure, which can be on-premises or cloud-based, incurring typical compute/storage costs.
+
+  ---
+
+  ## 📝 Summary
+
+  Kubeflow is a powerful, Kubernetes-native platform that **bridges the gap between ML experimentation and production deployment**. Its modular design, multi-framework support, and deep integration with Kubernetes make it a top choice for organizations seeking scalable, reproducible, and automated ML workflows.
+
+  Whether you’re running distributed training jobs, managing complex pipelines, or deploying models at scale, Kubeflow provides the tools and flexibility to accelerate your ML journey.
+
+  ---

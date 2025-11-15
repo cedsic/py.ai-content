@@ -1,0 +1,197 @@
+name: "SmolAgents"
+slug: "smolagents"
+headline: "Lightweight AI agents for quick prototyping and automation."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/huggingface/smolagents"
+overview: |
+  **SmolAgents** is a cutting-edge toolkit designed to empower developers, researchers, and AI enthusiasts to build **small-footprint autonomous AI agents** capable of reasoning, planning, and executing tasks in a coordinated, efficient manner. Unlike bulky frameworks, SmolAgents focuses on **modularity**, **simplicity**, and **speed**, enabling rapid prototyping and deployment of intelligent agents without the overhead of complex infrastructure.
+description: |
+  ## 🧩 Core Capabilities
+
+  | Capability              | Description                                                                                  |
+  |------------------------|----------------------------------------------------------------------------------------------|
+  | 🧩 **Modular Components**   | Reasoning modules, planning utilities, and execution tools that you can mix and match.        |
+  | ⚡ **Lightweight & Efficient** | Designed to run with minimal resource consumption, perfect for edge devices or embedded systems. |
+  | 🚀 **Quick Prototyping**      | Intuitive APIs and reusable building blocks to test agent behaviors rapidly.                 |
+  | 🔗 **Easy Integration**       | Seamlessly plugs into existing Python applications and workflows.                            |
+  | 🧠 **Autonomous Reasoning**   | Supports multi-step reasoning and dynamic planning for complex tasks.                        |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  SmolAgents fits perfectly in scenarios where lightweight, task-oriented AI agents are needed:
+
+  - **Personal AI Assistants:** Automate scheduling, reminders, and task management with customizable logic.
+  - **Experimental Research:** Prototype and evaluate novel reasoning and planning algorithms quickly.
+  - **IoT & Edge Devices:** Deploy intelligent agents that operate locally with minimal footprint.
+  - **Task Automation:** Build autonomous agents that coordinate multi-step workflows like data fetching, processing, and action triggering.
+  - **Education & Learning:** Ideal for students and hobbyists to learn AI concepts through hands-on agent creation.
+
+  ---
+
+  ## 💡 Why People Choose SmolAgents
+
+  - **Simplicity without Sacrifice:** Get powerful reasoning and planning capabilities without complex setup.
+  - **Flexibility:** Modular design lets you tailor agents exactly to your use case.
+  - **Performance:** Minimal resource usage means agents run smoothly on constrained environments.
+  - **Python Native:** Designed for the Python ecosystem, making it easy to integrate with popular libraries.
+  - **Open for Experimentation:** Perfect playground for testing new AI ideas quickly.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  SmolAgents is designed to fit naturally into your Python projects and AI pipelines:
+
+  - **LangChain, LlamaIndex, or similar frameworks:** Use SmolAgents for the agent logic layer while leveraging these for language model orchestration.
+  - **Async frameworks (e.g., `asyncio`):** Supports asynchronous execution for responsive agents.
+  - **Web frameworks (FastAPI, Flask):** Easily embed agents into web apps or APIs.
+  - **Data processing libraries (Pandas, NumPy):** Combine data manipulation with autonomous decision making.
+  - **Cloud & Edge platforms:** Deploy agents on AWS Lambda, Raspberry Pi, or other environments.
+
+  ---
+
+  ## 🏗️ Technical Architecture
+
+  SmolAgents is architected around **three core pillars**:
+
+  1. **Reasoning Modules:** Components that interpret inputs, infer context, and decide next steps.
+  2. **Planning Utilities:** Tools that break down goals into actionable sub-tasks and sequence them efficiently.
+  3. **Execution Tools:** Interfaces to trigger actions, interact with APIs, or manipulate data.
+
+  This modularity allows developers to **mix, extend, or replace** parts without rewriting the entire agent.
+
+  ---
+
+  ## 📝 Example: Building a Simple Reminder Agent in Python
+
+  ```python
+  from smolagents import Reasoner, Planner, Executor, Agent
+
+  # Define a reasoning module that parses user input
+  class ReminderReasoner(Reasoner):
+      def reason(self, input_text):
+          # Simple keyword-based reasoning
+          if "remind me" in input_text.lower():
+              return {"action": "set_reminder", "details": input_text}
+          return {"action": "unknown"}
+
+  # Define a planner that schedules the reminder
+  class ReminderPlanner(Planner):
+      def plan(self, reasoning_output):
+          if reasoning_output["action"] == "set_reminder":
+              # Extract time & message (simplified)
+              return [{"task": "schedule_reminder", "payload": reasoning_output["details"]}]
+          return []
+
+  # Define an executor that performs the reminder scheduling
+  class ReminderExecutor(Executor):
+      def execute(self, tasks):
+          for task in tasks:
+              if task["task"] == "schedule_reminder":
+                  print(f"Reminder scheduled: {task['payload']}")
+
+  # Assemble the agent
+  agent = Agent(
+      reasoner=ReminderReasoner(),
+      planner=ReminderPlanner(),
+      executor=ReminderExecutor()
+  )
+
+  # Run the agent with some input
+  agent.run("Please remind me to call Alice at 5 PM")
+  ```
+
+  ---
+
+  ## 🤝 Integrating Letta and Swarms in SmolAgents
+
+  SmolAgents can be extended and enhanced by integrating with powerful complementary tools like **Letta** and **Swarms**, enabling more advanced multi-agent coordination and distributed reasoning capabilities.
+
+  - **Letta:** A lightweight toolkit for orchestrating language model workflows and chaining reasoning steps. Integrate Letta modules as custom reasoning or planning components within SmolAgents to leverage its expressive workflow definitions and reusable logic blocks.
+
+  - **Swarms:** A framework for coordinating multiple autonomous agents that collaborate, compete, or share knowledge. Use Swarms to manage groups of SmolAgents instances working in parallel or distributed environments, enabling scalable and resilient multi-agent systems.
+
+  ### How to integrate:
+
+  ```python
+  from smolagents import Agent
+  from letta import Workflow
+  from swarms import SwarmManager
+
+  # Define a Letta workflow for reasoning
+  lettra_workflow = Workflow(...)
+  # Wrap Letta workflow as a SmolAgents Reasoner or Planner
+  class LettaReasoner:
+      def reason(self, input_text):
+          return lettra_workflow.run(input_text)
+
+  # Initialize SwarmManager to coordinate multiple agents
+  swarm = SwarmManager()
+
+  # Create agents with Letta-powered reasoners
+  agent1 = Agent(reasoner=LettaReasoner(), planner=..., executor=...)
+  agent2 = Agent(reasoner=LettaReasoner(), planner=..., executor=...)
+
+  # Register agents with the swarm
+  swarm.add_agent(agent1)
+  swarm.add_agent(agent2)
+
+  # Run swarm coordination loop
+  swarm.run()
+  ```
+  <br>
+  ### Benefits of this integration:
+
+  - Combine SmolAgents' lightweight modularity with Letta's expressive workflows for enhanced reasoning.
+  - Leverage Swarms to build distributed multi-agent systems that collaborate to solve complex tasks.
+  - Scale autonomous AI deployments across edge devices or cloud clusters with coordinated agents.
+  - Experiment with new agent interaction patterns and emergent behaviors using Swarms' flexible coordination.
+
+  This integration empowers developers to build **next-level autonomous AI systems** by combining SmolAgents' core strengths with Letta's workflow orchestration and Swarms' multi-agent coordination.
+
+  ---
+
+  ## 💰 Competitors & Pricing
+
+  | Tool           | Focus Area                    | Pricing Model          | Strengths                           | Limitations                          |
+  |----------------|------------------------------|-----------------------|-----------------------------------|------------------------------------|
+  | **AutoGPT**      | Autonomous LLM agents         | Free / Open Source     | Powerful, community-driven         | Heavy resource usage, complex setup|
+  | **LangChain Agents** | Language model orchestration | Open Source / Paid tiers | Rich ecosystem, versatile          | Larger footprint, more dependencies|
+  | **AgentGPT**     | Web-based autonomous agents   | Subscription-based     | User-friendly UI, cloud-hosted     | Less flexible for custom dev       |
+  | **SmolAgents**   | Lightweight modular agents    | Open Source / Free     | Minimal footprint, modular, Python native | Smaller ecosystem, early-stage     |
+
+  SmolAgents is **free and open source**, making it accessible for hobbyists, researchers, and startups looking for a **lean, customizable agent framework**.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  SmolAgents is **deeply integrated with the Python ecosystem**, leveraging Python’s:
+
+  - **Rich AI/ML libraries** (e.g., scikit-learn, PyTorch, TensorFlow) for advanced reasoning extensions.
+  - **Async programming capabilities** for responsive agents.
+  - **Data science stack** (Pandas, NumPy) to process and reason over complex datasets.
+  - **Web and automation frameworks** to deploy agents as services or bots.
+
+  This makes SmolAgents a natural choice for Python developers aiming to build **autonomous AI agents** without leaving their familiar environment.
+
+  ---
+
+  ## 📋 Summary
+
+  | Feature               | SmolAgents Highlight                                   |
+  |-----------------------|-------------------------------------------------------|
+  | Modularity            | ✓ Mix & match reasoning, planning, execution modules  |
+  | Lightweight           | ✓ Runs efficiently on minimal hardware                 |
+  | Python Native         | ✓ Seamless integration with Python ecosystem           |
+  | Rapid Prototyping     | ✓ Build and test agents quickly                         |
+  | Open Source           | ✓ Free to use and extend                                |
+  | Use Cases             | AI assistants, IoT agents, research, education         |
+
+  ---
+
+  **Ready to build your own autonomous AI agents?**  
+  Explore SmolAgents today and bring your intelligent ideas to life with minimal fuss and maximum flexibility!

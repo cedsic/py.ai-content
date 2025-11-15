@@ -1,0 +1,172 @@
+name: "Eidolon AI"
+slug: "eidolon-ai"
+headline: "Multi-agent systems for complex reasoning and collaboration."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/eidolon-ai"
+overview: |
+  In an era where artificial intelligence is rapidly evolving, **collaborative intelligence**—multiple AI agents working together—is becoming the next frontier. **Eidolon AI** is a cutting-edge framework designed to build, coordinate, and manage multi-agent systems that excel at complex reasoning and collaborative problem-solving.
+  <br>
+  By providing a structured environment for agent orchestration, communication, and integration with large language models, Eidolon AI transforms isolated AI capabilities into a symphony of intelligent teamwork.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Capability                   | Description                                                                                   | Benefits                                    |
+  |-----------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------|
+  |-----------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------|
+  | **🤖 Multi-Agent Coordination**| Orchestrates multiple AI agents to achieve shared goals through task distribution and planning.| Efficient division of labor and scalability.|
+  | **💬 Communication Framework** | Implements standardized protocols for agent-to-agent messaging and synchronization.            | Seamless, error-resilient collaboration.    |
+  | **🧠 LLM Integration**          | Connects state-of-the-art large language models to enhance reasoning, decision-making, and natural language understanding.| Amplifies agent intelligence and adaptability.|
+  | **⚙️ Scalable Experimentation**| Supports iterative testing of complex agent architectures in simulated or real environments.   | Rapid prototyping and performance tuning.   |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Eidolon AI is tailored for AI researchers, software engineers, and innovation teams exploring multi-agent ecosystems. Common applications include:
+
+  - **🔬 Collaborative Research Assistants**  
+    Multiple agents monitor scientific publications, extract insights, summarize findings, and brainstorm novel hypotheses together.
+
+  - **🌐 Distributed Problem-Solving Networks**  
+    Agents tackle different aspects of a complex problem, such as supply chain optimization or disaster response coordination.
+
+  - **📊 Automated Monitoring & Analysis**  
+    Teams of agents continuously scan data streams (e.g., social media, sensor data), detect anomalies, and generate actionable reports collaboratively.
+
+  ---
+
+  ## 💡 Why People Use Eidolon AI
+
+  - **🔧 Simplifies Multi-Agent Complexity**  
+    Managing communication, coordination, and planning across agents is notoriously difficult. Eidolon AI abstracts these challenges into a coherent framework.
+
+  - **🤝 Enhances AI Collaboration with LLMs**  
+    Integrates seamlessly with leading LLMs (like OpenAI GPT, Anthropic Claude, etc.), empowering agents with advanced language understanding and reasoning.
+
+  - **🛠️ Flexible & Extensible**  
+    Modular design allows users to customize agents, communication protocols, and workflows to fit unique project needs.
+
+  - **🚀 Accelerates Research & Development**  
+    Provides tools to prototype, simulate, and iterate on multi-agent architectures faster than building from scratch.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Eidolon AI is designed to fit naturally into modern AI and software ecosystems:
+
+  - **🐍 Python Ecosystem**  
+    Native Python API ensures compatibility with popular ML libraries (e.g., PyTorch, TensorFlow), data tools (Pandas, NumPy), and deployment frameworks.
+
+  - **🧩 LLM Providers**  
+    Plug-and-play connectors for OpenAI, Hugging Face, Anthropic, and custom LLM endpoints.
+
+  - **📡 Messaging & Orchestration**  
+    Supports integration with message brokers (RabbitMQ, Kafka) and workflow orchestrators (Airflow, Prefect) for scalable deployment.
+
+  - **📈 Monitoring & Logging**  
+    Compatible with observability tools like Prometheus, Grafana, and ELK stack for real-time system insights.
+
+  ---
+
+  ## 🧩 **Eidolon AI in the Multi-Agent Ecosystem**
+
+  Eidolon AI frequently collaborates with frameworks like **CrewAI**, **Agno**, **LangGraph**, and **Max.AI** to form end-to-end intelligent systems.  
+  While CrewAI handles **agent orchestration and shared memory**, Eidolon AI provides the **coordination logic and communication backbone** that enables complex, distributed reasoning across agents.  
+
+  When combined with **Agno**, developers gain both **autonomous reasoning** and **structured collaboration**, ideal for research networks or multi-domain decision systems.  
+  **LangGraph** complements this setup by offering a **graph-based visualization** of agent relationships and workflow dependencies.  
+  **Max.AI** adds predictive intelligence and advanced analytics, feeding actionable insights into Eidolon’s multi-agent workflows to optimize decisions, resource allocation, and task prioritization across the network.
+
+  ---
+
+  ## ⚙️ Technical Architecture
+
+  At its core, Eidolon AI consists of:
+
+  - **🗂️ Agent Manager:** Coordinates lifecycle, states, and task assignments of agents.
+  - **🔄 Communication Bus:** Implements a publish-subscribe messaging layer with standardized protocols.
+  - **📝 Planner Module:** Generates and updates strategic plans based on agent feedback and environmental changes.
+  - **🔗 LLM Interface:** Abstracts calls to various large language models, managing context, prompt templates, and response parsing.
+
+  This modular design allows horizontal scaling and fault tolerance in distributed environments.
+
+  ---
+
+  ## 🐍 Python Example: Creating a Simple Multi-Agent Workflow
+
+  ```python
+  from eidolon_ai import Agent, AgentManager, LLMConnector
+
+  # Define a simple agent that summarizes text using an LLM
+  class SummarizerAgent(Agent):
+      def __init__(self, name, llm):
+          super().__init__(name)
+          self.llm = llm
+
+      def process(self, input_text):
+          prompt = f"Summarize the following text:\n{input_text}"
+          summary = self.llm.generate(prompt)
+          return summary
+
+  # Initialize LLM connector (e.g., OpenAI GPT)
+  llm = LLMConnector(provider="openai", model="gpt-4", api_key="YOUR_API_KEY")
+
+  # Create agents
+  agent1 = SummarizerAgent("ResearchSummarizer1", llm)
+  agent2 = SummarizerAgent("ResearchSummarizer2", llm)
+
+  # Create agent manager and register agents
+  manager = AgentManager()
+  manager.register(agent1)
+  manager.register(agent2)
+
+  # Define input data
+  documents = [
+      "Recent study on quantum computing shows promising results...",
+      "New AI model achieves state-of-the-art performance in NLP tasks..."
+  ]
+
+  # Distribute documents to agents and collect summaries
+  summaries = []
+  for doc, agent in zip(documents, manager.agents):
+      summary = agent.process(doc)
+      summaries.append(summary)
+
+  for i, summary in enumerate(summaries, 1):
+      print(f"Summary {i}:\n{summary}\n")
+  ```
+
+  ---
+
+  ## 🏆 Competitors and Pricing
+
+  | Tool                 | Focus Area                          | Pricing Model                     | Key Differentiators                    |
+  |----------------------|-----------------------------------|---------------------------------|-------------------------------------|
+  | **Eidolon AI**       | Multi-agent coordination + LLM integration | Open-source / Subscription tiers TBD | Modular, LLM-native, Python-friendly |
+  | **LangChain**        | LLM workflows and agent orchestration | Free tier + Paid plans           | Strong LLM pipeline, less multi-agent focused |
+  | **AutoGPT**          | Autonomous agent execution         | Open-source                     | Autonomous single-agent focus         |
+  | **Hivemind**          | Decentralized multi-agent learning | Research / Custom pricing        | Peer-to-peer training & inference    |
+
+  *Eidolon AI is positioned as a specialized framework for multi-agent collaboration with deep LLM integration and scalable experimentation capabilities.*
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Eidolon AI is **deeply integrated with the Python ecosystem**, leveraging:
+
+  - Popular ML frameworks (PyTorch, TensorFlow)
+  - Data processing libraries (Pandas, NumPy)
+  - Async programming (asyncio) for efficient agent communication
+  - REST and WebSocket APIs for interoperability
+  - Jupyter notebooks for interactive experimentation
+
+  This ensures developers can embed Eidolon AI into existing Python-based AI pipelines with minimal friction.
+
+  ---
+
+  ## Summary
+
+  Eidolon AI is your go-to framework for building **collaborative, intelligent multi-agent systems** that harness the power of advanced LLMs. Whether you are a researcher prototyping next-gen AI assistants or a developer building distributed problem-solving networks, Eidolon AI provides the tools, architecture, and integrations to accelerate your vision.

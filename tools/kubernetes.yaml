@@ -1,0 +1,131 @@
+name: "Kubernetes"
+slug: "kubernetes"
+headline: "Automate deployment, scaling, and management of containerized applications."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/kubernetes/kubernetes"
+  - label: "Docs"
+    url: "https://kubernetes.io/docs/"
+overview: |
+  **Kubernetes** (often abbreviated as **K8s**) is the industry-leading open-source platform designed to **automate deployment, scaling, and management of containerized applications**. Originally developed by Google and now maintained by the Cloud Native Computing Foundation (CNCF), Kubernetes abstracts away the complexity of managing infrastructure, empowering developers and operators to focus on building resilient, scalable applications that run consistently across cloud and on-premises environments.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability                        | Description                                                                                     |
+  |---------------------------------|-------------------------------------------------------------------------------------------------|
+  | **Pod & Container Orchestration** | Groups one or more containers into Pods and schedules them intelligently across cluster nodes.  |
+  | **Self-Healing**                 | Automatically restarts failed containers, replaces unhealthy nodes, and reschedules workloads. |
+  | **Service Discovery & Load Balancing** | Provides built-in DNS and load balancing to route traffic to healthy Pods seamlessly.          |
+  | **Declarative Configuration**   | Uses YAML or JSON manifests to declare desired cluster states, enabling GitOps and automation. |
+  | **Extensibility**               | Supports Helm charts, Custom Resource Definitions (CRDs), operators, and integrates with tools like Kubeflow and Istio. |
+  | **Multi-Cloud & Hybrid Support** | Runs workloads consistently across AWS, Azure, GCP, bare metal, or edge environments.           |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Kubernetes shines in scenarios where **scalability, reliability, and automation** are critical:
+
+  - **Microservices orchestration:** Manage complex microservices architectures with automatic scaling and rolling updates. ⚙️
+  - **Machine Learning pipelines:** Use Kubeflow on Kubernetes to build distributed training and inference workflows. 🤖
+  - **CI/CD automation:** Integrate with Jenkins, GitLab CI, or ArgoCD to enable continuous deployment pipelines. 🔄
+  - **Hybrid & multi-cloud deployments:** Deploy apps across different cloud providers to avoid vendor lock-in. ☁️
+  - **Real-time data and API scaling:** Automatically scale APIs or streaming data services with load balancing. 📈
+  - **Big Data orchestration:** Run Spark, Hadoop, or Flink clusters on Kubernetes for scalable analytics workloads. 📊
+
+  ---
+
+  ## 💡 Why People Use Kubernetes
+
+  - **Infrastructure abstraction:** Developers don’t worry about physical machines or VMs.
+  - **Scalability & resilience:** Auto-scaling, self-healing, and rolling updates ensure uptime and performance.
+  - **Portability:** Run the same workloads anywhere — cloud, on-prem, or hybrid.
+  - **Ecosystem & community:** Rich ecosystem with Helm charts, operators, and integrations.
+  - **Declarative & automated:** Infrastructure as code with GitOps-friendly workflows.
+
+  ---
+
+  ## 🔄 Integration with Other Tools
+
+  Kubernetes is often the **central orchestration hub** in modern cloud-native stacks:
+
+  | Tool/Technology      | Integration Purpose                                      |
+  |---------------------|---------------------------------------------------------|
+  | **Helm**            | Package manager for Kubernetes applications (charts).  |
+  | **Kubeflow**        | Machine learning toolkit running on Kubernetes.         |
+  | **Istio**           | Service mesh for advanced traffic management & security.|
+  | **Prometheus & Grafana** | Monitoring and visualization of cluster metrics.          |
+  | **ArgoCD / Jenkins X** | GitOps and CI/CD pipelines for automated deployments.   |
+  | **Docker / container runtimes** | Container building and runtime engines.                  |
+  | **Airflow**              | Workflow orchestration and pipeline management on Kubernetes clusters. |
+  | **MLflow**               | Experiment tracking and model lifecycle management integrated with Kubernetes deployments. |
+  | **Prefect**              | Dataflow automation and orchestration that can run on Kubernetes. |
+  | **Comet.ml**             | Monitoring and visualization of ML experiments running in Kubernetes pods. |
+
+  ---
+
+  ## ⚙️ Technical Architecture Overview
+
+  Kubernetes architecture consists of two main components:
+
+  | Component      | Role                                                                                   |
+  |----------------|----------------------------------------------------------------------------------------|
+  | **Control Plane (Master)** | Manages cluster state, scheduling, API server, controller manager, and etcd (key-value store). |
+  | **Worker Nodes**           | Run the application Pods. Each node has a kubelet agent and container runtime.          |
+
+  ### How it works:
+
+  1. Developers write **declarative YAML manifests** describing desired resources (Pods, Services, Deployments).
+  2. The **API server** receives these manifests.
+  3. The **scheduler** assigns Pods to nodes based on resource availability and constraints.
+  4. The **controller manager** ensures the cluster matches the desired state, handling scaling, updates, and failures.
+  5. The **kubelet** on each node manages Pod lifecycle and communicates node status back to the control plane.
+
+  ---
+
+  ## 🐍 Kubernetes & Python Ecosystem
+
+  Python developers benefit greatly from Kubernetes, especially in:
+
+  - **ML/AI workflows:** Using Kubeflow, which is Python-friendly for model training and deployment.
+  - **Automation & scripting:** The official [Kubernetes Python client](https://github.com/kubernetes-client/python) allows programmatic interaction with clusters.
+
+  ### Example: Python script to list all Pods in a namespace
+
+  ```python
+  from kubernetes import client, config
+
+  # Load kubeconfig and initialize client
+  config.load_kube_config()
+  v1 = client.CoreV1Api()
+
+  namespace = 'default'
+  pods = v1.list_namespaced_pod(namespace)
+
+  print(f"Pods in namespace '{namespace}':")
+  for pod in pods.items:
+      print(f" - {pod.metadata.name} (Status: {pod.status.phase})")
+  ```
+
+  ---
+
+  ## 💸 Competitors & Pricing
+
+  | Platform            | Description                                           | Pricing Model                                  |
+  |---------------------|-------------------------------------------------------|-----------------------------------------------|
+  | **OpenShift (Red Hat)** | Enterprise Kubernetes with enhanced security, UI, and support | Subscription-based, starts at approx. $50/node/month |
+  | **Amazon EKS**      | Managed Kubernetes service on AWS                      | $0.10 per cluster-hour + AWS resource costs   |
+  | **Google GKE**      | Managed Kubernetes on Google Cloud                     | $0.10 per cluster-hour + cloud resource fees  |
+  | **Azure AKS**       | Managed Kubernetes on Azure                            | Free control plane, pay for nodes/resources   |
+  | **Docker Swarm**    | Simpler container orchestration, less feature-rich    | Free, included with Docker                     |
+  | **Nomad (HashiCorp)** | Lightweight scheduler for containers and non-containerized apps | Open-source (free) and enterprise versions    |
+
+  > **Note:** Kubernetes itself is **free and open-source**, but managed services and enterprise distributions typically charge based on usage or subscriptions.
+
+  ---
+
+  ## 🌟 Summary
+
+  Kubernetes is the **cornerstone of modern cloud-native infrastructure** — offering unmatched automation, flexibility, and scalability for containerized applications. Its rich ecosystem and declarative model make it a natural fit for Python developers, especially in data science and ML domains. Whether you’re running microservices, big data pipelines, or AI workloads, Kubernetes provides the foundation to build resilient, portable, and scalable systems.
+
+  ---

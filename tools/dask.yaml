@@ -1,0 +1,124 @@
+name: "Dask"
+slug: "dask"
+headline: "Parallel computing framework for large datasets in Python."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/dask/dask"
+  - label: "Docs"
+    url: "https://docs.dask.org/"
+overview: |
+  In today’s data-driven world, handling **large-scale datasets** efficiently is a critical challenge. Enter **Dask** — an open-source Python library designed to extend the familiar interfaces of NumPy, pandas, and scikit-learn, enabling **parallel and distributed computing** on datasets that exceed a single machine’s memory.
+  <br>
+  Dask empowers data scientists, engineers, and researchers to scale their workflows seamlessly — from a laptop to a cluster — with minimal code changes. Whether you’re crunching terabytes of data or accelerating complex computations, Dask is built to make large-scale data processing accessible and performant.
+description: |
+  ## ⚙️ Core Capabilities
+
+  | Feature                | Description                                                                                   |
+  |------------------------|-----------------------------------------------------------------------------------------------|
+  | **🗃️ Distributed Collections** | Scalable versions of NumPy arrays, pandas DataFrames, and Python iterables (bags) that operate in parallel across machines. |
+  | **⚙️ Dynamic Task Scheduling** | A flexible task scheduler that intelligently manages computation graphs and parallelizes tasks on multicore or distributed clusters. |
+  | **📚 Familiar APIs**           | Mimics the syntax and semantics of popular Python libraries like pandas, NumPy, and scikit-learn for easy adoption. |
+  | **☁️ Flexible Deployment**     | Runs on a single machine, multi-core servers, or distributed clusters in cloud or on-premises environments. |
+  | **📈 Adaptive Scaling**        | Automatically scales resources up or down based on workload and cluster availability. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Dask shines in scenarios where data size or computational complexity outgrows conventional tools:
+
+  - **📊 Big Data Analytics:** Process and analyze datasets larger than memory across multiple nodes.
+  - **⏱️ Real-time & Streaming Pipelines:** Integrate with streaming data sources for near-real-time processing.
+  - **🔬 Scientific Computing:** Accelerate simulations, numerical computations, and data-heavy experiments.
+  - **🤖 Machine Learning at Scale:** Parallelize training and hyperparameter tuning using Dask-ML.
+  - **🔄 ETL Pipelines:** Efficient data ingestion, cleaning, and transformation on large datasets.
+
+  ---
+
+  ## 💡 Why People Use Dask
+
+  - **🚀 Scale Without Rewriting:** Transition from small prototype code to large-scale production without changing APIs.
+  - **💰 Cost Efficiency:** Use commodity hardware and cloud resources effectively by parallelizing workloads.
+  - **🔗 Interoperability:** Seamlessly integrates with the broader Python data ecosystem.
+  - **⚡ Performance:** Optimizes task execution with intelligent scheduling and memory management.
+  - **🌍 Community & Ecosystem:** Backed by an active open-source community and continuous development.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Dask plays well with many popular Python and big data libraries:
+
+  | Tool / Library       | Integration Description                                      |
+  |----------------------|--------------------------------------------------------------|
+  | **Pandas / NumPy**   | Provides parallelized, out-of-core versions of these libraries’ core data structures. |
+  | **Scikit-learn**     | Dask-ML extends scikit-learn for distributed machine learning. |
+  | **XGBoost / LightGBM** | Supports distributed training on Dask clusters.               |
+  | **Jupyter Notebooks** | Native support for interactive parallel computing and dashboards. |
+  | **Apache Arrow / Parquet** | Efficient on-disk formats supported for fast I/O.              |
+  | **Cloud Platforms**  | Deploy on Kubernetes, AWS, GCP, Azure with tools like Dask Gateway. |
+  | **Polars**           | High-performance DataFrame library with Rust-based execution, complementary to Dask for fast single-node and multi-threaded data processing. |
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  Dask is built around two main components:
+
+  1. **Collections:** High-level parallel data structures (e.g., `dask.array`, `dask.dataframe`, `dask.bag`) that mimic NumPy, pandas, and Python iterables but operate lazily and in parallel.
+  2. **Scheduler:** Executes task graphs using one of several schedulers:
+      - **Single-machine schedulers:** Threaded, multiprocessing, synchronous.
+      - **Distributed scheduler:** A robust, scalable scheduler for clusters with fault tolerance and diagnostics.
+
+  The **lazy evaluation** model lets Dask build a task graph before execution, optimizing the computation plan and minimizing memory use.
+
+  ---
+
+  ## 🐍 Example: Parallel DataFrame Processing with Dask
+
+  ```python
+  import dask.dataframe as dd
+
+  # Load a large CSV dataset (e.g., multi-GB file)
+  df = dd.read_csv('s3://my-bucket/large-dataset-*.csv')
+
+  # Compute average value grouped by a column
+  result = df.groupby('category')['value'].mean().compute()
+
+  print(result)
+  ```
+  <br>
+  This example shows how you can process datasets larger than memory using familiar pandas-like syntax. The `.compute()` triggers parallel execution.
+
+  ---
+
+  ## 🥊 Competitors & Pricing
+
+  | Tool               | Description                                  | Pricing Model                       |
+  |--------------------|----------------------------------------------|-----------------------------------|
+  | **Apache Spark**    | Industry-standard big data processing engine with Java/Scala/Python APIs. | Open source; managed cloud versions (Databricks, EMR) charge per usage. |
+  | **Ray**            | General-purpose distributed computing framework with strong ML focus. | Open source; commercial support available. |
+  | **Modin**           | Parallelizes pandas operations using Ray or Dask as backend. | Open source; commercial enterprise edition. |
+  | **Vaex**            | Out-of-core DataFrame for fast visualization and exploration. | Open source; enterprise features paid. |
+
+  **Dask itself is free and open source** under the BSD license. Costs arise from the infrastructure you run it on (cloud VMs, clusters).
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Dask is a **cornerstone of scalable Python data science**:
+
+  - Extends core libraries (pandas, NumPy, scikit-learn) for big data.
+  - Integrates with visualization tools like **Bokeh** for live dashboards.
+  - Works alongside **Jupyter** for interactive, scalable notebooks.
+  - Plays a critical role in modern ML pipelines by enabling distributed training and hyperparameter tuning.
+  - Supports emerging data formats and cloud-native workflows.
+
+  ---
+
+  ## 🔥 Summary
+
+  Dask is the go-to tool for Python users who want to **scale their data workflows effortlessly**. By combining familiar APIs with powerful parallel and distributed computing capabilities, Dask bridges the gap between single-machine prototyping and cluster-scale production.
+
+  ---

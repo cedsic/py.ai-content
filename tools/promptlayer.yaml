@@ -1,0 +1,122 @@
+name: "PromptLayer"
+slug: "promptlayer"
+headline: "Version, analyze, and manage prompts for LLM applications."
+urls:
+  - label: "Official Site"
+    url: "https://promptlayer.com/"
+overview: |
+  In the rapidly evolving world of Large Language Models (LLMs), **prompt engineering** has become a critical skill—and managing prompts effectively is no small feat. Enter **PromptLayer**: a powerful platform designed to **track, manage, and optimize prompts** across your LLM workflows. Whether you're iterating on prompt versions, analyzing output quality, or collaborating with a team, PromptLayer ensures every prompt is **versioned, logged, and reproducible**.
+  <br>
+  By turning prompt management into a systematic, data-driven process, PromptLayer empowers developers, prompt engineers, and AI teams to build better, more consistent LLM-powered applications.
+description: |
+  ## 🎛️ Core Capabilities
+
+  | Feature                     | Description                                                                                   |
+  |-----------------------------|-----------------------------------------------------------------------------------------------|
+  | 🎯 **Prompt Versioning & Logging**  | Automatically track every prompt and its corresponding outputs with precise timestamps.       |
+  | 📊 **Analytics & Comparison Tools** | Visualize performance metrics, compare prompt variations, and identify the best-performing prompts. |
+  | 🤝 **Collaboration Support**          | Share prompt histories and insights across teams, enabling smooth iteration and knowledge exchange. |
+  | 🔄 **Reproducibility**                | Guarantee consistent model behavior by recording exact prompts and their environment details. |
+  | 🔍 **Searchable Prompt History**     | Quickly find past prompts and results to understand what worked and why.                     |
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  - **Prompt Experimentation:** Test multiple prompt variations to optimize responses for chatbots, content generation, or recommendation systems. 🧪
+  - **Quality Analysis:** Analyze output quality, detect regressions, and evaluate engagement metrics across prompt versions. 📈
+  - **Team Collaboration:** Coordinate prompt development efforts across distributed teams with shared access to prompt logs and analytics. 👥
+  - **Compliance & Auditing:** Maintain detailed prompt logs for governance, reproducibility, and debugging in production systems. 📜
+  - **Marketing & Content:** Optimize ad copy, social media posts, or email campaigns by iterating on prompts and measuring engagement. 📣
+
+  ---
+
+  ## 💡 Why People Use PromptLayer
+
+  - **Maintain Control Over Prompt Evolution:** Avoid "prompt drift" by versioning and tracking changes systematically. 🛡️
+  - **Data-Driven Prompt Optimization:** Use analytics to make informed decisions rather than guesswork. 📊
+  - **Simplify Collaboration:** Centralize prompt management so teams can build on shared knowledge. 🤝
+  - **Increase Reliability:** Reproduce results exactly by capturing prompt inputs and model outputs together. 🔄
+  - **Save Time:** Automate logging and comparison, reducing manual overhead. ⏳
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  PromptLayer is designed to **seamlessly integrate** with popular LLM frameworks and APIs, including:
+
+  - **OpenAI API** (GPT-3, GPT-4, etc.)
+  - **LangChain** — Easily wrap your chains with PromptLayer for automatic prompt tracking.
+  - **Hugging Face** — Log prompts when using Hugging Face transformers.
+  - **Custom APIs** — Use PromptLayer’s SDK or REST API to instrument any LLM-based system.
+
+  This flexibility makes it ideal for embedding prompt tracking into existing workflows without disrupting development.
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  PromptLayer provides:
+
+  - A **Python SDK** for effortless prompt logging and retrieval.
+  - A **web dashboard** for visualizing prompt history and analytics.
+  - **RESTful APIs** for custom integrations and automation.
+  - Support for **metadata tagging** (e.g., experiment names, user IDs) to organize prompts contextually.
+  - **Version control** for prompts, enabling rollback and side-by-side comparisons.
+
+  ---
+
+  ## 💻 Example: Using PromptLayer with Python & OpenAI
+
+  ```python
+  import openai
+  from promptlayer import promptlayer_openai
+
+  # Wrap OpenAI API calls with PromptLayer to enable automatic prompt logging
+  openai.api_key = "your-openai-api-key"
+  promptlayer_openai.api_key = "your-promptlayer-api-key"
+
+  response = promptlayer_openai.Completion.create(
+      engine="text-davinci-003",
+      prompt="Write a creative tagline for a new eco-friendly water bottle.",
+      max_tokens=20,
+      temperature=0.7
+  )
+
+  print("Generated Tagline:", response.choices[0].text.strip())
+  ```
+  <br>
+  This snippet shows how simply wrapping your OpenAI calls with `promptlayer_openai` captures prompt inputs and outputs automatically, enabling full traceability and analytics.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool            | Focus                      | Pricing Model                        | Key Differentiator                      |
+  |-----------------|----------------------------|------------------------------------|---------------------------------------|
+  | **PromptLayer** | Prompt tracking & analytics| Free tier + usage-based pricing    | Deep prompt versioning + analytics    |
+  | PromptBase      | Prompt marketplace         | Pay-per-prompt or subscription     | Marketplace for buying/selling prompts|
+  | LangSmith       | Prompt & chain debugging   | Subscription-based                  | Debugging & monitoring for LangChain  |
+  | Weights & Biases| Experiment tracking        | Free tier + paid tiers              | Broad ML experiment tracking, not prompt-specific |
+  | Pinecone        | Vector DB & metadata       | Usage-based                       | Metadata-focused but not prompt-centric|
+
+  **PromptLayer** stands out by focusing solely on **prompt lifecycle management** and analytics, making it a niche but powerful tool for prompt engineers.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  PromptLayer fits naturally into the **Python AI/ML ecosystem**, where most LLM development happens. Its Python SDK:
+
+  - Plays well with popular libraries like **OpenAI Python SDK**, **LangChain**, and **Transformers**.
+  - Enables **rapid prototyping** and experimentation.
+  - Facilitates **integration into ML pipelines** (e.g., with Airflow, Prefect).
+  - Supports **notebook workflows** for data scientists iterating on prompts interactively.
+
+  ---
+
+  ## 📝 Summary
+
+  PromptLayer is the **go-to platform for anyone serious about prompt engineering**. By combining version control, detailed logging, analytics, and collaboration features in a lightweight yet powerful package, it transforms prompt management from a manual chore into a **scientific, repeatable process**.
+
+  Whether you're a solo developer refining your prompts or a team scaling LLM-powered products, PromptLayer helps you **track, analyze, and optimize prompts with confidence**.

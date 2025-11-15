@@ -1,0 +1,48 @@
+name: "Paperspace"
+slug: "paperspace"
+headline: "Cloud GPUs and ML pipelines for AI research and development."
+urls:
+  - label: "Official Site"
+    url: "https://www.paperspace.com/"
+overview: |
+  Paperspace is now **part of <a href="https://www.digitalocean.com" target="_blank" rel="noopener noreferrer">DigitalOcean</a>**, but continues to operate as a standalone platform focused on **GPU cloud computing, virtual desktops, and ML pipelines**.  
+  It removes the need for complex local infrastructure, offering **pre-configured environments for Python, TensorFlow, PyTorch, and Jupyter notebooks**, so AI teams can start training models immediately.  
+
+  By combining **ease of use** with **DigitalOcean’s cloud reliability**, Paperspace is ideal for prototyping, research, and small-to-medium AI workloads.
+description: |
+  ## Key Strengths  
+  - 💻 **Virtual Desktops (Core/Workstation)** – Access full desktop environments with GPU acceleration remotely.  
+  - 🚀 **Gradient Notebooks & ML Pipelines** – Managed Jupyter notebooks with GPU support for rapid experimentation.  
+  - 📈 **Flexible GPU Options** – From consumer GPUs (RTX 3080/3090) to enterprise-grade A100s.  
+  - 🌍 **Global Availability** – Data centers in the U.S., Europe, and Asia for low-latency access.  
+  - 🔧 **API & CLI Integration** – Automate provisioning and workflow execution.  
+  - 🤝 **DigitalOcean Integration** – Benefit from DigitalOcean’s cloud ecosystem while using Paperspace’s specialized GPU services.  
+
+  ---
+
+  ## 🌟 Where Paperspace Shines  
+  - Teams needing **immediate cloud GPU access** without setup overhead.  
+  - Researchers or startups running **small-to-medium experiments**.  
+  - Developers who want **remote desktop environments** for collaboration or testing.  
+
+  ---
+
+  ## ⚠️ Limitations  
+  - Pricing can be **higher than spot-instance marketplaces** like Vast.ai or RunPod.  
+  - Less specialized for **multi-node distributed AI training** compared to Lambda Cloud or CoreWeave.  
+  - GPU availability may vary by region during peak demand.  
+
+  ---
+
+  ## 🎯 Example in Action  
+  A small AI startup could:  
+  1. Spin up a **Gradient notebook with an A100 GPU** for model training.  
+  2. Share access with team members via **virtual desktops**, allowing collaborative experimentation.  
+  3. Use the **Paperspace API** to automate batch training jobs and deployment pipelines — now benefiting from DigitalOcean’s reliability and cloud network.
+
+  ---
+
+  ## 🔍 Comparisons  
+  - **vs Lambda Cloud** → Lambda targets enterprise-grade AI workloads; Paperspace is more approachable for prototyping.  
+  - **vs Genesis Cloud** → Genesis emphasizes sustainability; Paperspace emphasizes workflow integration and virtual desktops.  
+  - **vs CoreWeave** → CoreWeave excels at large-scale GPU clusters; Paperspace is ideal for small/medium AI workloads with ease-of-use.  

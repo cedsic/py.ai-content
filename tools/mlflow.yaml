@@ -1,0 +1,154 @@
+name: "MLflow"
+slug: "mlflow"
+headline: "Manage the complete machine learning lifecycle with ease."
+urls:
+  - label: "Official Site"
+    url: "https://mlflow.org/"
+  - label: "Github"
+    url: "https://github.com/mlflow/mlflow"
+overview: |
+  MLflow is a versatile platform that **streamlines machine learning workflows** by providing tools to track experiments, package code into reproducible runs, and deploy models reliably. It was originally developed by Databricks and has become a cornerstone in the ML operations (MLOps) ecosystem.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                      | Description                                                                                      |
+  |------------------------------|--------------------------------------------------------------------------------------------------|
+  | **🧪 Experiment Tracking**       | Log and compare parameters, metrics, and artifacts to keep experiments organized and reproducible. |
+  | **📦 Model Packaging (MLflow Projects)** | Package ML code in a reusable and reproducible format, facilitating collaboration and sharing. |
+  | **📚 Model Registry**            | Centralized model store to version, stage (e.g., staging, production), and annotate models.        |
+  | **🚀 Model Deployment**          | Deploy models to various platforms such as REST APIs, cloud services, or edge devices.            |
+  | **🔗 Multi-framework Support**  | Compatible with popular ML libraries like TensorFlow, PyTorch, Scikit-learn, XGBoost, and more.  |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  - **📝 Experiment Management:** Track hyperparameters, metrics, and artifacts across multiple runs to identify the best model.
+  - **♻️ Reproducibility:** Share projects with teammates ensuring that experiments can be reproduced anywhere.
+  - **🛡️ Model Governance:** Manage model lifecycle stages (e.g., staging, production) and maintain audit trails.
+  - **⚡ Seamless Deployment:** Push models to production environments with minimal friction.
+  - **🤝 Collaboration:** Facilitate teamwork by sharing experiment results and models via a centralized registry.
+
+  ---
+
+  ## 🤔 Why Use MLflow?
+
+  - **🧩 Unified Platform:** Combines tracking, packaging, and deployment under one roof.
+  - **🌐 Framework Agnostic:** Works with any ML library or language (Python, R, Java, etc.).
+  - **📈 Scalable:** Suitable for individual data scientists as well as enterprise teams.
+  - **🛠️ Open Source & Extensible:** Customize and extend to fit your unique workflow.
+  - **🐍 Python Ecosystem Friendly:** Deep integration with Python ML tools and libraries makes it a natural choice for Python users.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  MLflow integrates seamlessly with popular tools, enabling smooth workflows:
+
+  | Integration Type       | Examples                                           |
+  |------------------------|----------------------------------------------------|
+  | 🧠 ML Frameworks          | TensorFlow, PyTorch, Scikit-learn, XGBoost         |
+  | ☁️ Cloud Platforms        | AWS SageMaker, Azure ML, Google Cloud AI Platform  |
+  | ⚙️ Orchestration Tools    | Apache Airflow, Kubeflow Pipelines                   |
+  | 🖥️ Model Serving          | MLflow Models serving, Seldon Core, TorchServe      |
+  | 📊 Experiment Tracking    | Can be combined with tools like Weights & Biases    |
+  | 🔄 Version Control & Collaboration | Git, DagsHub                                  |
+
+  ---
+
+  ## 🛠️ Technical Overview
+
+  MLflow is composed of four main components:
+
+  1. **📊 MLflow Tracking:**  
+    A REST API and UI to log and query experiments, parameters, metrics, and artifacts.
+
+  2. **📦 MLflow Projects:**  
+    Define reusable and reproducible projects using a standardized `MLproject` file.
+
+  3. **🤖 MLflow Models:**  
+    Standardized format to package models for deployment across diverse platforms.
+
+  4. **📚 MLflow Model Registry:**   
+    Collaborative hub to register, annotate, and manage model lifecycle stages.
+
+  ---
+
+  ## 🐍 Example: Tracking Experiments with MLflow in Python
+
+  ```python
+  import mlflow
+  import mlflow.sklearn
+  from sklearn.ensemble import RandomForestClassifier
+  from sklearn.datasets import load_iris
+  from sklearn.model_selection import train_test_split
+  from sklearn.metrics import accuracy_score
+
+  # Load data
+  iris = load_iris()
+  X_train, X_test, y_train, y_test = train_test_split(
+      iris.data, iris.target, test_size=0.2, random_state=42
+  )
+
+  # Start MLflow experiment
+  with mlflow.start_run():
+      # Train model
+      clf = RandomForestClassifier(n_estimators=100, max_depth=3)
+      clf.fit(X_train, y_train)
+
+      # Predict and evaluate
+      preds = clf.predict(X_test)
+      acc = accuracy_score(y_test, preds)
+
+      # Log parameters and metrics
+      mlflow.log_param("n_estimators", 100)
+      mlflow.log_param("max_depth", 3)
+      mlflow.log_metric("accuracy", acc)
+
+      # Log model
+      mlflow.sklearn.log_model(clf, "random_forest_model")
+
+      print(f"Logged model with accuracy: {acc:.4f}")
+  ```
+  <br>
+  This snippet demonstrates how easily MLflow can track a simple model training experiment, capturing parameters, metrics, and the model artifact automatically.
+
+  ---
+
+  ## 💡 Competitors and Pricing
+
+  | Tool              | Description                                  | Pricing Model                          |
+  |-------------------|----------------------------------------------|--------------------------------------|
+  | **MLflow**        | Open-source, full ML lifecycle platform      | Free (Open Source)                    |
+  | **Weights & Biases** | Experiment tracking and collaboration       | Free tier + Paid plans                |
+  | **Neptune.ai**     | Experiment tracking focused on collaboration | Free tier + Subscription              |
+  | **Comet.ml**      | Experiment management with rich UI            | Free tier + Paid plans                |
+  | **Kubeflow**       | End-to-end ML orchestration on Kubernetes    | Open source, requires infrastructure  |
+
+  > **Note:** MLflow itself is free and open source. Costs may arise from hosting the tracking server, model registry, or deploying models on cloud infrastructure.
+
+  ---
+
+  ## 🐍 MLflow in the Python Ecosystem
+
+  MLflow is tightly woven into the Python data science stack:
+
+  - Supports logging from libraries like **scikit-learn**, **TensorFlow**, **PyTorch**, **XGBoost**, and more.
+  - Works smoothly with Python packaging tools and virtual environments.
+  - Integrates well with Jupyter notebooks, enabling interactive experiment tracking.
+  - Python SDK is mature and widely adopted, making it a default choice for many ML practitioners.
+
+  ---
+
+  ## 🚀 Summary
+
+  MLflow empowers teams to:
+
+  - Track and compare ML experiments effortlessly.
+  - Package and share reproducible ML projects.
+  - Manage model lifecycles with a centralized registry.
+  - Deploy models seamlessly to production.
+
+  Whether you're an individual data scientist or part of a large ML engineering team, MLflow offers a **flexible, scalable, and open platform** that simplifies the complexities of machine learning operations.
+
+  ---

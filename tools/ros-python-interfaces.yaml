@@ -1,0 +1,140 @@
+name: "ROS Python interfaces"
+slug: "ros-python-interfaces"
+headline: "Python APIs for Robot Operating System (ROS)."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/ros/ros_comm"
+  - label: "Docs"
+    url: "http://wiki.ros.org/rospy"
+overview: |
+  **ROS Python interfaces** provide a powerful and user-friendly bridge between the versatile Python programming language and the Robot Operating System (ROS) framework. By enabling seamless interaction with ROS components such as topics, services, and actions, these interfaces empower developers, researchers, and engineers to build sophisticated robotic applications without delving into low-level hardware complexities.
+  <br>
+  With Python’s simplicity and ROS’s modular architecture, ROS Python interfaces unlock rapid prototyping, testing, and deployment of robotic behaviors — from sensor data processing to autonomous navigation.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability               | Description                                                                                  |
+  |-------------------------|----------------------------------------------------------------------------------------------|
+  | 🕹️ **Standardized Robot Control** | Access and manipulate ROS topics, services, and actions using idiomatic Python APIs.        |
+  | 📡 **Sensor & Actuator Integration** | Read sensor data streams and send commands to actuators—often controlled via microcontrollers—with minimal boilerplate. |
+  | 🧪 **Simulation & Testing**         | Develop and validate robot behaviors in virtual environments like Gazebo before real-world deployment. |
+  | 🤖 **Flexible Algorithm Development** | Focus on AI, perception, or control algorithms without worrying about hardware specifics.     |
+  | 🔄 **Inter-process Communication** | Leverage ROS’s pub/sub and request/response patterns directly from Python scripts.            |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  ROS Python interfaces are widely used in scenarios such as:
+
+  - 🚗 **Autonomous Navigation:** Implementing path planning and obstacle avoidance algorithms for mobile robots.
+  - 📊 **Sensor Monitoring & Data Processing:** Collecting, filtering, and analyzing sensor inputs (e.g., LiDAR, cameras, IMUs).
+  - 🎛️ **Robot Control & Actuation:** Sending commands to motors, grippers, and other actuators in real-time.
+  - 🕹️ **Simulation Prototyping:** Testing robot behaviors in simulated environments before hardware deployment.
+  - 🎓 **Research & Education:** Teaching robotics concepts with hands-on Python coding and ROS integration.
+
+  ---
+
+  ## 💡 Why People Use ROS Python Interfaces
+
+  - ✨ **Ease of Use:** Python’s readability and ROS’s modular design drastically reduce development time.
+  - 🌐 **Rich Ecosystem:** Access to ROS packages, Python libraries (NumPy, OpenCV, TensorFlow), and simulation tools.
+  - ⚡ **Rapid Prototyping:** Quickly iterate on algorithms and test in simulation without recompilation or complex builds.
+  - 🤝 **Community & Support:** Backed by a large, active ROS and Python community with extensive documentation and tutorials.
+  - 💻 **Cross-Platform Compatibility:** Works on Ubuntu, Windows (ROS2), and other platforms supported by ROS.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  ROS Python interfaces seamlessly integrate with:
+
+  | Tool/Platform       | Integration Purpose                                               |
+  |---------------------|------------------------------------------------------------------|
+  | **Gazebo**          | Simulate robots and environments, with Python controlling simulated entities. |
+  | **RViz**            | Visualize robot state, sensor data, and debug information in real-time. |
+  | **OpenCV**          | Process camera images and perform computer vision tasks.          |
+  | **TensorFlow / PyTorch** | Incorporate machine learning models into robot perception and decision-making. |
+  | **Docker & CI/CD Pipelines** | Automate testing and deployment of Python-based ROS nodes.               |
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  ROS Python interfaces are primarily provided via the `rospy` client library (ROS1) and `rclpy` (ROS2). These libraries expose ROS communication primitives:
+
+  - 📢 **Publishers/Subscribers:** Publish or subscribe to topics for asynchronous data exchange.
+  - 🔄 **Services:** Synchronous request/response communication.
+  - 🎯 **Actions:** Preemptible long-running tasks with feedback and result reporting.
+
+  They handle serialization/deserialization of ROS messages and manage node lifecycle, enabling Python scripts to act as fully-fledged ROS nodes.
+
+  ---
+
+  ## 🐍 Example: Basic ROS Python Publisher
+
+  ```python
+  import rclpy
+  from rclpy.node import Node
+  from std_msgs.msg import String
+
+  class MinimalPublisher(Node):
+      def __init__(self):
+          super().__init__('minimal_publisher')
+          self.publisher_ = self.create_publisher(String, 'topic', 10)
+          timer_period = 1  # seconds
+          self.timer = self.create_timer(timer_period, self.timer_callback)
+          self.i = 0
+
+      def timer_callback(self):
+          msg = String()
+          msg.data = f'Hello ROS {self.i}'
+          self.publisher_.publish(msg)
+          self.get_logger().info(f'Publishing: "{msg.data}"')
+          self.i += 1
+
+  def main(args=None):
+      rclpy.init(args=args)
+      minimal_publisher = MinimalPublisher()
+      rclpy.spin(minimal_publisher)
+      minimal_publisher.destroy_node()
+      rclpy.shutdown()
+
+  if __name__ == '__main__':
+      main()
+  ```
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Tool/Library                 | Description                                      | Pricing Model          |
+  |------------------------------|------------------------------------------------|-----------------------|
+  | **ROS Python Interfaces**    | Official ROS client libraries (`rospy`, `rclpy`) | Open Source (Free)    |
+  | **Microsoft Robotics Developer Studio** | Windows-focused robotics framework (less active) | Free (discontinued)   |
+  | **Player/Stage/Gazebo**      | Robot simulation and control (Python bindings available) | Open Source (Free)    |
+  | **Webots**                   | Professional robot simulator with Python API   | Free & Paid licenses   |
+  | **Custom C++ ROS Nodes**     | High performance but more complex development  | Depends on development |
+
+  **ROS Python interfaces stand out for their zero cost, community support, and seamless ROS integration.**
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Python’s extensive ecosystem complements ROS interfaces by enabling:
+
+  - **Data Science & ML Integration:** Use libraries like `scikit-learn`, `TensorFlow`, or `PyTorch` for perception and decision-making.
+  - **Visualization:** Use `matplotlib` or `Plotly` for in-depth data analysis.
+  - **Automation & Scripting:** Easy automation of robot workflows and testing.
+  - **Rapid Prototyping:** Python’s dynamic nature accelerates development cycles.
+
+  This synergy makes ROS Python interfaces the go-to choice for robotics developers who want the best of both worlds: ROS’s robustness and Python’s agility.
+
+  ---
+
+  # Summary
+
+  ROS Python interfaces offer a **powerful, accessible, and versatile toolkit** for roboticists to develop, test, and deploy robot applications efficiently. Their integration with the broader Python ecosystem and ROS tools creates a rich environment for innovation — from research labs to industrial deployments.
+
+  ---

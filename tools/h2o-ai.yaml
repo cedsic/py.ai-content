@@ -1,0 +1,141 @@
+name: "H2O.ai"
+slug: "h2o-ai"
+headline: "Enterprise-grade AI platform for automated machine learning."
+urls:
+  - label: "Website"
+    url: "https://www.h2o.ai/"
+  - label: "GitHub"
+    url: "https://github.com/h2oai/h2o-3"
+overview: |
+  **H2O.ai** is a leading open-source and enterprise AI platform designed to simplify and accelerate the development of machine learning models. By harnessing the power of **Automated Machine Learning (AutoML)**, H2O.ai empowers data scientists, ML engineers, and business analysts to build highly accurate predictive models at scale — without the need for extensive manual coding or deep expertise in algorithm tuning.
+  <br>
+  Whether you’re working with small datasets or massive enterprise-scale data lakes, H2O.ai streamlines the entire ML lifecycle, from data ingestion and feature engineering to model training, optimization, and deployment.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability                 | Description                                                                                  |
+  |----------------------------|----------------------------------------------------------------------------------------------|
+  | **🤖 AutoML Automation**       | Automatically builds and compares hundreds of models using state-of-the-art algorithms.      |
+  | **🛠️ Feature Engineering**     | Transforms raw data into meaningful features with minimal manual intervention.                |
+  | **⚙️ Model Optimization**      | Hyperparameter tuning and ensemble methods based on decision trees to maximize model accuracy and robustness.        |
+  | **📈 Scalability**             | Distributed computing support for handling large datasets across clusters and cloud platforms.|
+  | **🔍 Explainability & Interpretability** | Tools like SHAP and LIME integration to make AI models transparent and trustworthy.     |
+  | **🚀 Deployment & Monitoring** | Easy deployment of models as REST APIs and continuous monitoring for model drift.             |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  H2O.ai is versatile and applicable across industries and functions, including:
+
+  - **📊 Customer Analytics:** Predict churn, segment customers, and personalize marketing campaigns.
+  - **💰 Financial Services:** Credit scoring, fraud detection, risk forecasting, and portfolio optimization.
+  - **🩺 Healthcare:** Patient outcome prediction, disease progression modeling, and resource optimization.
+  - **🛒 Retail & Supply Chain:** Demand forecasting, inventory optimization, and price elasticity modeling.
+  - **🏭 Manufacturing:** Predictive maintenance and quality control.
+
+  ---
+
+  ## 💡 Why Choose H2O.ai?
+
+  - **⚡ Speed & Efficiency:** Automates time-consuming ML tasks, accelerating time-to-value.
+  - **🌐 Accessibility:** Enables users with varying expertise levels to build sophisticated models.
+  - **🔄 Flexibility:** Supports a broad range of algorithms (GBMs, Deep Learning, GLMs, XGBoost, etc.).
+  - **🆓 Open Source & Enterprise Ready:** Offers both a free, community-driven platform and robust enterprise solutions.
+  - **🔗 Integration Friendly:** Works seamlessly with popular data science and big data ecosystems.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  H2O.ai integrates smoothly into existing data workflows and platforms:
+
+  | Tool / Ecosystem     | Integration Type                              | Benefits                                      |
+  |---------------------|-----------------------------------------------|-----------------------------------------------|
+  | **Python (PySpark, Pandas)** | Native APIs and wrappers                    | Easy model building and deployment within Python environments. |
+  | **R**               | R package interface                            | Enables R users to leverage H2O’s AutoML capabilities.          |
+  | **Apache Spark**    | Sparkling Water integration                     | Combines Spark’s distributed processing with H2O’s ML.          |
+  | **Cloud Platforms** | AWS, Azure, GCP support                         | Scalable cloud deployments and managed services.                |
+  | **BI Tools**        | REST APIs & MLOps platforms                     | Embed models into production pipelines and dashboards.          |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **📝 Languages:** Core engine in Java/Scala; APIs for Python, R, and REST.
+  - **📚 Algorithms:** Gradient Boosting Machines (GBM), Distributed Random Forest (DRF), Deep Learning (neural nets), GLM, XGBoost, Stacked Ensembles.
+  - **🔄 AutoML Workflow:** Data preprocessing → Feature engineering → Model training → Hyperparameter tuning → Model selection → Explainability → Deployment.
+  - **🌐 Scalability:** Supports multi-node clusters with distributed in-memory processing.
+  - **🔎 Explainability:** Built-in model explainers (SHAP, Partial Dependence Plots).
+
+  ---
+
+  ## 🐍 Python Example: Getting Started with H2O AutoML
+
+  ```python
+  import h2o
+  from h2o.automl import H2OAutoML
+
+  # Initialize H2O cluster
+  h2o.init()
+
+  # Load dataset
+  data = h2o.import_file("https://h2o-public-test-data.s3.amazonaws.com/smalldata/iris/iris_wheader.csv")
+
+  # Specify features and target
+  x = data.columns[:-1]
+  y = "class"
+
+  # Convert target to factor for classification
+  data[y] = data[y].asfactor()
+
+  # Split data into train and test
+  train, test = data.split_frame(ratios=[.8], seed=1234)
+
+  # Run AutoML for 20 base models
+  aml = H2OAutoML(max_models=20, seed=1)
+  aml.train(x=x, y=y, training_frame=train)
+
+  # View leaderboard
+  lb = aml.leaderboard
+  print(lb.head())
+
+  # Predict on test set
+  preds = aml.leader.predict(test)
+  print(preds.head())
+
+  # Shutdown H2O cluster
+  h2o.shutdown(prompt=False)
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Platform         | Description                                      | Pricing Model                          |
+  |------------------|-------------------------------------------------|--------------------------------------|
+  | **H2O.ai**       | AutoML platform with open-source and enterprise tiers. | Free (open-source); Enterprise pricing customized based on usage. |
+  | **DataRobot**    | End-to-end AutoML with enterprise focus.         | Subscription-based, premium pricing. |
+  | **Google AutoML**| Cloud-native AutoML for vision, language, and tabular data. | Pay-as-you-go cloud pricing.          |
+  | **Amazon SageMaker Autopilot** | Fully managed AutoML within AWS ecosystem. | Pay-as-you-go cloud pricing.          |
+  | **Azure AutoML** | Microsoft’s AutoML service integrated with Azure ML. | Pay-as-you-go cloud pricing.          |
+  | **FLAML** | Lightweight, fast AutoML library focused on cost-effective and efficient model training. | Open-source, free to use. |
+
+  **H2O.ai’s open-source foundation makes it highly cost-effective** for organizations wanting to avoid vendor lock-in while maintaining flexibility and scalability.
+
+  ---
+
+  ## 🐍 Relevance in the Python Ecosystem
+
+  - **🐍 Native Python API:** H2O’s Python bindings allow seamless integration into Jupyter notebooks and Python ML pipelines.
+  - **🔗 Compatibility:** Works well with pandas, NumPy, scikit-learn, and Spark, enabling hybrid workflows.
+  - **🛠️ Extensibility:** Python users can easily extend H2O models with custom preprocessing or postprocessing.
+  - **👥 Community:** Active Python user community and extensive documentation/tutorials.
+
+  ---
+
+  ## ✨ Summary
+
+  H2O.ai is a powerful, flexible, and scalable AutoML platform that democratizes AI development. It accelerates model building, delivers high accuracy, and integrates effortlessly into modern data science ecosystems — making it a top choice for enterprises and data teams looking to operationalize AI efficiently.
+
+  ---

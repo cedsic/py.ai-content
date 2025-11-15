@@ -1,0 +1,140 @@
+name: "Stable Baselines3"
+slug: "stable-baselines3"
+headline: "Reliable implementations of popular RL algorithms in Python."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/DLR-RM/stable-baselines3"
+  - label: "Docs"
+    url: "https://stable-baselines3.readthedocs.io/"
+overview: |
+  **Stable Baselines3 (SB3)** is a cutting-edge, open-source library that provides a collection of **state-of-the-art reinforcement learning (RL) algorithms** implemented in Python. Designed to simplify and accelerate RL research and development, SB3 empowers students, researchers, and engineers to avoid the complexities and pitfalls of building RL algorithms from scratch. With a focus on **robustness, reproducibility, and ease of use**, it has become a go-to toolkit in the RL community.
+description: |
+  ## ⚙️ Core Capabilities
+
+  - **Pre-Implemented, Tested Algorithms:**  🧪  
+    Includes popular model-free RL algorithms such as  🧠  
+      - Proximal Policy Optimization (PPO)  🔄  
+      - Deep Q-Network (DQN)  🎯  
+      - Advantage Actor-Critic (A2C)  🎭  
+      - Soft Actor-Critic (SAC)  🔥  
+      - Twin Delayed DDPG (TD3)  ⏳  
+
+  - **Unified and Consistent API:**  🔗  
+    A streamlined interface for training, evaluation, saving/loading models, and hyperparameter tuning — regardless of the algorithm. ⚙️
+
+  - **Reproducibility & Reliability:**  🔒  
+    Ensures experiments can be replicated easily, with deterministic training and evaluation pipelines. 🎯
+
+  - **OpenAI Gym Compatibility:**  🏋️‍♂️  
+    Seamlessly integrates with OpenAI Gym environments and supports custom environments out-of-the-box. 🧩
+
+  - **Extensible & Modular:**  🧩  
+    Easily extend or customize algorithms and components for advanced research. 🔧
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  | Use Case                         | Description                                                                                  |
+  |---------------------------------|----------------------------------------------------------------------------------------------|
+  | **Research & Benchmarking**     | Compare RL algorithms on control tasks or new environments with consistent baselines.        🔍 |
+  | **Prototyping & Experimentation** | Quickly test new ideas or tweaks without reinventing the wheel.                              ⚡ |
+  | **Education & Learning**         | Ideal for students and educators to understand RL concepts with hands-on examples.           🎓 |
+  | **Industrial Applications**      | Develop and deploy RL-based solutions in robotics, gaming, finance, and autonomous systems.  🏭 |
+
+  ---
+
+  ## 🌟 Why Choose Stable Baselines3?
+
+  - ✅ **Saves Development Time:** Avoid reinventing complex RL algorithms — focus on innovation instead.  
+  - ✅ **Community-Driven:** Backed by a vibrant community ensuring continuous improvements and support.  
+  - ✅ **Well-Documented:** Extensive tutorials, examples, and API docs make onboarding smooth.  
+  - ✅ **Robust & Tested:** Used in academic papers and industry projects, proven reliable.  
+  - ✅ **Cross-Platform:** Runs on CPU and GPU, compatible with Linux, Windows, and macOS.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Stable Baselines3 fits naturally into the broader Python ML ecosystem:
+
+  - **OpenAI Gym:** Native support for Gym environments and wrappers.  
+  - **PyTorch:** Built on PyTorch, enabling easy customization and GPU acceleration.  
+  - **TensorBoard:** Supports logging metrics for visualization and monitoring.  
+  - **RL Baselines3 Zoo:** A collection of pre-trained models and scripts to benchmark and reproduce results.  
+  - **Custom Environments:** Easily plug in your own environments following Gym’s API.  
+  - **Hyperparameter Optimization:** Integrates with tools like Optuna for automated tuning.
+
+  ---
+
+  ## 🛠️ Technical Overview
+
+  SB3 implements **model-free RL algorithms** using modern deep learning techniques with PyTorch. The codebase emphasizes:
+
+  - **Modularity:** Core components (policy networks, replay buffers, schedulers) are abstracted for easy swapping or extension.  
+  - **Deterministic Behavior:** Seeds and environment wrappers control randomness for reproducible experiments.  
+  - **Training Pipeline:** Unified `.learn()` method handles training loops, callbacks, and evaluation seamlessly.  
+  - **Policy Classes:** Supports both discrete and continuous action spaces with customizable policies (MLP, CNN).  
+
+  ---
+
+  ## 🐍 Quick Start Example in Python
+
+  ```python
+  import gym
+  from stable_baselines3 import PPO
+
+  # Create environment
+  env = gym.make("CartPole-v1")
+
+  # Initialize model
+  model = PPO("MlpPolicy", env, verbose=1)
+
+  # Train the agent
+  model.learn(total_timesteps=10000)
+
+  # Save the trained model
+  model.save("ppo_cartpole")
+
+  # Load and evaluate
+  model = PPO.load("ppo_cartpole")
+  obs = env.reset()
+  for _ in range(1000):
+      action, _states = model.predict(obs)
+      obs, rewards, done, info = env.step(action)
+      env.render()
+      if done:
+          obs = env.reset()
+  env.close()
+  ```
+
+  ---
+
+  ## 💡 Competitors & Pricing
+
+  | Library                  | Highlights                              | Pricing            |
+  |--------------------------|---------------------------------------|--------------------|
+  | **Stable Baselines3**    | PyTorch-based, easy API, active community | **Free & Open Source** |
+  | RLlib (Ray)              | Scalable RL, distributed training     | Open source, enterprise options |
+  | Tensorforce              | TensorFlow-based, flexible             | Open source        |
+  | Dopamine (Google)        | Research-focused, TensorFlow           | Open source        |
+  | Coach (Intel)            | Modular, supports many algorithms      | Open source        |
+
+  > **Stable Baselines3** stands out by balancing simplicity, performance, and community support — all at zero cost.
+
+  ---
+
+  ## 🐍 Stable Baselines3 in the Python Ecosystem
+
+  - **Deep Integration with PyTorch:** Leverages PyTorch’s dynamic computation graph for flexibility and performance.  
+  - **Perfect for Jupyter Notebooks:** Interactive experimentation and visualization.  
+  - **Ecosystem Synergy:** Works well alongside libraries like NumPy, Pandas, Matplotlib, and scikit-learn for data handling and analysis.  
+  - **Supports Deployment Pipelines:** Models can be exported and integrated into production ML pipelines with ease.
+
+  ---
+
+  ## 📌 Summary
+
+  > Stable Baselines3 is the **go-to RL library** for anyone looking to implement, benchmark, or deploy reinforcement learning algorithms with confidence and ease. Its combination of **robust algorithms**, **clear API**, and **deep ecosystem integration** makes it a cornerstone in the Python RL landscape.
+
+  ---

@@ -1,0 +1,128 @@
+name: "Agno"
+slug: "agno"
+headline: "Build autonomous AI agents that think, plan, and act."
+urls:
+  - label: "Github"
+    url: "https://github.com/agno-agi/agno/"
+  - label: "Docs"
+    url: "https://docs.agno.com/introduction/"
+overview: |
+  🚀 **Agno** is a powerful, full-stack framework that enables you to build autonomous AI agents capable of **reasoning**, **planning**, and **acting** across complex, multi-step workflows.  
+  🧩 By unifying diverse AI components into a single platform, Agno simplifies the process of assembling, testing, and deploying intelligent agents without the hassle of managing multiple libraries.  
+  🤖 Whether you're an AI researcher, developer, or automation engineer, Agno empowers you to create adaptable, stateful agents that operate independently and efficiently in real-world environments.  
+  ⚙️ Its modular design and seamless integrations accelerate development from prototype to production, making advanced AI automation accessible and scalable.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability             | Description                                                                                      | Benefit                              |
+  |-----------------------|------------------------------------------------------------------------------------------------|------------------------------------|
+  | **Modular Architecture** | Combine reasoning engines, planners, and connectors to build customized AI agents.              | Tailor agents precisely to your needs. |
+  | **Context Management**   | Persistent, stateful memory for multi-step workflows ensures coherent and continuous interactions. | Maintain long-term context effortlessly. |
+  | **Flexible Deployment**  | Prototype quickly and scale to production without rewriting your codebase.                      | Save time and resources during development. |
+  | **Extensive Integrations** | Connect easily with APIs, databases, and third-party services with minimal setup.              | Expand agent capabilities with external data and services. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Agno is ideal for scenarios requiring **complex autonomous decision-making** and **multi-step task execution**:
+
+  - **Automating business workflows:** Streamline processes like customer support, order fulfillment, or compliance checks.
+  - **Research assistants:** Automatically gather, analyze, and summarize scientific literature or market data.
+  - **Real-time intelligent pipelines:** Build data-processing agents that react dynamically to events, anomalies, or user inputs.
+  - **Smart data orchestration:** Coordinate multi-source data ingestion, transformation, and reporting without manual intervention.
+
+  ---
+
+  ## 💡 Why People Use Agno
+
+  - **Unified framework:** No need to juggle multiple libraries or frameworks — everything you need is in one place.
+  - **Rapid prototyping to production:** Start small, iterate fast, and scale smoothly.
+  - **Stateful reasoning:** Agents don’t just execute commands; they remember context and adapt intelligently.
+  - **Plug & play integrations:** Easily connect to your existing infrastructure and third-party APIs.
+  - **Open and extensible:** Build on top of Agno’s modular components or replace parts to fit your unique requirements.
+
+  ---
+
+  ## 🔄 Integration with Other Tools
+
+  Agno is designed to fit naturally into modern AI and software ecosystems:
+
+  - **APIs & Webhooks:** Integrate with RESTful APIs, GraphQL endpoints, and webhook-based services.
+  - **Databases:** Connect to SQL/NoSQL databases for persistent data storage and retrieval.
+  - **Cloud services:** Deploy agents on cloud platforms like AWS, GCP, or Azure with containerization support.
+  - **AI/ML frameworks:** Use models from TensorFlow, PyTorch, or Hugging Face as reasoning or planning engines.
+  - **Task schedulers & message queues:** Coordinate workflows with tools like Celery, RabbitMQ, or Kafka.
+
+  ---
+
+  ## 🧠 Agno in the Multi-Agent Ecosystem
+
+  Agno naturally complements frameworks like **CrewAI** and **Eidolon AI** for scenarios requiring **multi-agent orchestration**.  
+  While Agno focuses on building autonomous, reasoning-capable agents, CrewAI and Eidolon extend this autonomy to **coordinated, collaborative systems**.
+
+  Developers also frequently integrate Agno with **LangChain** or **LangGraph** to structure reasoning pipelines, prompt chains, or visualize multi-step task flows.
+
+  Together, these tools form a powerful ecosystem for building **intelligent, interconnected agent systems** capable of reasoning, planning, and acting collaboratively.
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  Agno’s architecture centers around **three main components**:
+
+  1. **Reasoning Core:** Executes logic and decision-making algorithms.
+  2. **Planning Layer:** Breaks down complex tasks into actionable steps.
+  3. **Connectors:** Interfaces with external data sources, APIs, and services.
+
+  The framework maintains **contextual memory** across these layers, enabling agents to perform multi-turn conversations, iterative planning, and adaptive execution.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance & Example
+
+  Agno is **Python-native**, making it a natural fit for developers working in the Python AI ecosystem. You can leverage popular Python libraries alongside Agno’s modular components to build powerful agents effortlessly.
+
+  <br>
+  ### Example: Building a Simple Autonomous Agent with Agno
+
+  ```python
+  from agno import Agent, ReasoningEngine, Planner, APIConnector
+
+  # Initialize components
+  reasoner = ReasoningEngine(model="gpt-4")
+  planner = Planner()
+  connector = APIConnector(api_url="https://api.example.com/data")
+
+  # Compose the agent
+  agent = Agent(reasoner=reasoner, planner=planner, connectors=[connector])
+
+  # Define a task
+  task = "Monitor new scientific publications, extract key findings, and summarize."
+
+  # Run the agent
+  result = agent.run(task)
+
+  print("Agent Output:", result)
+  ```
+  <br>
+  This snippet shows how Agno’s modular design lets you compose an autonomous agent with minimal code—connecting reasoning, planning, and external data seamlessly.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool           | Description                                      | Pricing Model                        | Differentiator                          |
+  |----------------|------------------------------------------------|------------------------------------|---------------------------------------|
+  | **LangChain**  | Framework for building LLM-powered apps         | Open source + enterprise plans     | Focus on LLM chaining and prompts     |
+  | **AutoGPT**    | Autonomous AI agent using GPT models             | Open source                       | Emphasis on autonomous task execution |
+  | **BabyAGI**    | Minimal autonomous agent framework               | Open source                       | Lightweight and experimental          |
+  | **Agno**       | Full-stack, modular AI agent framework           | Flexible pricing (free tier + enterprise) | Unified context management + modularity |
+
+  Agno stands out by providing a **full-stack, modular approach** with built-in context management and extensive integrations, making it production-ready from day one.
+
+  ---
+
+  ## 🔮 Summary
+
+  Agno is the **go-to framework** for anyone looking to build **intelligent, autonomous AI agents** that can reason, plan, and act in complex environments. Its modular architecture, seamless integration capabilities, and Python-native design make it a powerful choice for accelerating AI-driven automation and research.

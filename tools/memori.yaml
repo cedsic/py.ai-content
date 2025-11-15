@@ -1,0 +1,145 @@
+name: "Memori"
+slug: "memori"
+headline: "Contextual memory for chatbots and intelligent agents."
+urls:
+  - label: "Official Site"
+    url: "https://memori.gibsonai.com/"
+  - label: "GitHub"
+    url: "https://github.com/GibsonAI/memori/"
+overview: |
+  In the world of conversational AI, **memory is everything**. Most chatbots and virtual assistants start fresh with every session, forgetting previous interactions and forcing users to repeat themselves. This leads to robotic, impersonal experiences that frustrate users and limit engagement.
+  <br>
+  **Memori** changes the game by giving your AI a **true, persistent memory**—a structured and contextual knowledge layer that remembers and recalls information across conversations. This enables deeply personalized, human-like interactions that evolve over time.
+description: |
+  ## 🧠 Core Capabilities
+
+  | Feature                 | Description                                                                                  | Benefit                                  |
+  |-------------------------|----------------------------------------------------------------------------------------------|------------------------------------------|
+  | **💾 Persistent Memory**   | Stores information across sessions, preserving context indefinitely.                         | No more lost context or repeated info.  |
+  | **🔍 Contextual Recall**   | Instantly retrieves relevant facts, preferences, and history tailored to the conversation.   | Smarter, more relevant responses.       |
+  | **📚 Structured Knowledge**| Organizes memory in an efficient, queryable format for rapid updates and retrieval.          | Scalable and maintainable memory base.  |
+  | **🎯 Personalization**     | Builds profiles and adapts responses based on user behavior and preferences.                 | Creates engaging, human-like experiences.|
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  Memori is ideal for developers and organizations aiming to build conversational AI that **learns and grows** with every interaction:
+
+  - 🎓 **Personalized Coaching & Tutoring Bots**  
+    Remember learner progress, preferences, and challenges to tailor lessons dynamically.
+
+  - 🛠️ **Customer Support Assistants**  
+    Recall previous tickets, preferences, and feedback to resolve issues faster and more empathetically.
+
+  - 🤖 **Adaptive Conversational Agents**  
+    Track user behavior and context to offer proactive, relevant suggestions and responses.
+
+  - 🧘 **Wellness & Health Apps**  
+    Store goals, habits, and history to provide personalized guidance and motivation.
+
+  ---
+
+  ## 💡 Why People Choose Memori
+
+  - **🔄 End Repetitive Conversations:** Users no longer have to repeat information every time they interact.
+  - **❤️ Deep Personalization:** AI becomes more human-like, building rapport and trust.
+  - **⚙️ Flexible & Scalable:** Works for small projects and enterprise-grade applications alike.
+  - **🔗 Easy Integration:** Designed to fit seamlessly into existing AI and chatbot ecosystems.
+
+  ---
+
+  ## 🔌 Integration with Other Tools
+
+  Memori acts as a **plug-and-play knowledge layer** that enhances your existing AI stack:
+
+  - Connects with popular chatbot frameworks (e.g., Rasa, Botpress, Microsoft Bot Framework)
+  - Integrates with NLP platforms and LLMs (like OpenAI GPT models, Hugging Face transformers)
+  - Works alongside CRM, ticketing, and analytics tools for enriched user profiles
+  - Supports REST APIs and SDKs for easy embedding in web and mobile apps
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  At its core, Memori provides:
+
+  - **🗃️ A structured, queryable memory store** that supports fast inserts, updates, and retrievals.
+  - **📈 Context-aware indexing** that understands conversational relevance and prioritizes facts accordingly.
+  - **🔒 Secure, scalable backend** with encryption and compliance for sensitive data.
+  - **🧩 Extensible architecture** allowing custom memory schemas and integration adapters.
+
+  ---
+
+  ### 🔎 Explore Memori in Action
+
+  Memori powers the <a href="https://github.com/Boburmirzo/personal-diary-assistant" target="_blank" rel="noopener noreferrer">Personal Diary Assistant</a>, a comprehensive application that:
+
+  - Tracks daily experiences
+  - Analyzes mood patterns
+  - Provides personalized recommendations for well-being
+
+  By leveraging Memori's advanced memory capabilities, the assistant offers persistent memory storage, ensuring that each interaction builds upon the last for a more personalized experience.
+
+  ---
+
+  ### 🐍 Python Example: Using Memori with an LLM
+
+  ```python
+  from memori import MemoriClient
+  from openai import OpenAI
+
+  # Initialize clients
+  memori = MemoriClient(api_key="your_memori_api_key")
+  llm = OpenAI(api_key="your_openai_api_key")
+
+  # Store user info persistently
+  user_id = "user_123"
+  memori.store(user_id, {"goals": "Lose 5kg", "last_workout": "2024-06-01"})
+
+  # Retrieve context before generating response
+  context = memori.retrieve(user_id)
+
+  # Generate personalized response with context
+  prompt = f"""
+  User goals: {context.get('goals')}
+  Last workout: {context.get('last_workout')}
+
+  Provide a motivational message based on this info.
+  """
+  response = llm.chat(prompt)
+  print(response)
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool               | Key Differentiator                                  | Pricing Model                     |
+  |--------------------|----------------------------------------------------|----------------------------------|
+  | **Memori**         | Persistent, structured conversational memory layer | Usage-based, starting with free tier |
+  | **Pinecone**       | Vector search & memory for embeddings              | Pay-as-you-go, focused on vector DB |
+  | **Weaviate**       | Open-source vector DB with memory capabilities      | Free open-source + cloud pricing  |
+  | **Redis AI**       | In-memory database with AI extensions               | Open-source + enterprise options  |
+
+  > **Memori** stands out by focusing specifically on **conversational memory**—structured, contextual, and designed for chatbots and assistants rather than generic vector search.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Memori fits naturally in the Python AI ecosystem:
+
+  - Python’s rich AI/ML libraries (transformers, OpenAI SDK, LangChain) can call Memori for persistent context management.
+  - Enables **stateful conversational agents** in frameworks like Rasa or custom Flask/Django apps.
+  - Supports Python developers with a simple SDK and REST API for seamless memory integration.
+
+  ---
+
+  ## Summary
+
+  Memori is the **missing piece** for truly intelligent conversational AI. By providing persistent, structured memory that remembers user context across sessions, it transforms chatbots from forgetful scripts into engaging, personalized assistants that build meaningful relationships over time.
+
+  > **Give your AI a brain that remembers — build with Memori.** 🧠🚀
+
+  ---

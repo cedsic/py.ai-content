@@ -1,0 +1,148 @@
+name: "PyBullet"
+slug: "pybullet"
+headline: "Physics simulation for robotics and AI research."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/bulletphysics/bullet3"
+  - label: "Docs"
+    url: "https://pybullet.org/"
+overview: |
+  **PyBullet** is a powerful, open-source Python library that provides a high-fidelity physics simulation environment primarily designed for robotics, reinforcement learning, and virtual prototyping. Built on top of the Bullet Physics SDK, PyBullet enables researchers and developers to simulate complex robotic systems, test control algorithms, and train AI agents—all within a safe, cost-effective, and fully programmable virtual world.
+  <br>
+  Whether you're developing robotic arms, drones, or autonomous vehicles, PyBullet offers an accessible platform to model realistic physics interactions without the risks and expenses associated with physical hardware.
+description: |
+  ## ⚙️ Core Capabilities
+
+  - **🔧 Accurate Rigid Body Dynamics**  
+    Simulates realistic collisions, friction, gravity, and multi-body dynamics with high precision.
+
+  - **🤖 Robot Kinematics & Dynamics**  
+    Supports forward and inverse kinematics, joint motors, constraints, and articulated robot models.
+
+  - **📡 Sensor & Actuator Simulation**  
+    Emulates cameras, LIDAR, force sensors, and motors to enable rich interaction with virtual environments.
+
+  - **🔗 Control Interface Integration**  
+    Provides APIs to interface with control algorithms, reinforcement learning frameworks, and external software.
+
+  - **🖥️ Multi-Environment Support**  
+    Runs headless or with OpenGL-based visualization for debugging and demonstration.
+
+  - **⏱️ Real-Time and Accelerated Simulation**  
+    Offers both real-time stepping and faster-than-real-time simulation for rapid experimentation.
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  | Use Case                         | Description                                                                                 |
+  |---------------------------------|---------------------------------------------------------------------------------------------|
+  | **🤖 Robotics Research**            | Prototype and validate robotic control algorithms before deploying on physical robots.      |
+  | **🎯 Reinforcement Learning (RL)** | Train RL agents in safe, repeatable simulated environments to speed up learning cycles.      |
+  | **🚗 Autonomous Systems Testing**  | Simulate drones, self-driving cars, and robotic arms to evaluate behavior under various conditions. |
+  | **🎓 Education & Prototyping**     | Provide students and developers a hands-on tool to learn robotics and physics simulation.    |
+  | **📊 Virtual Sensor Testing**      | Experiment with sensor fusion and perception algorithms using simulated sensor data.         |
+
+  ---
+
+  ## 💡 Why People Use PyBullet
+
+  - **💰 Cost Efficiency**: Avoid expensive hardware damage and maintenance by testing virtually.
+  - **🛡️ Safety**: Safely experiment with risky maneuvers or failure cases without real-world consequences.
+  - **🔄 Flexibility**: Simulate anything from simple rigid bodies to complex robotic assemblies.
+  - **🐍 Python Friendly**: Seamlessly integrate with Python-based AI and robotics toolkits.
+  - **🌐 Community & Open Source**: Benefit from a vibrant community and continuous improvements.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  PyBullet fits naturally into the Python ecosystem and integrates smoothly with:
+
+  - **📚 Machine Learning Frameworks**: TensorFlow, PyTorch, Stable Baselines3 for RL agent training.
+  - **🤖 Robotics Middleware**: ROS (Robot Operating System) through bridges or custom interfaces.
+  - **🖼️ Visualization Tools**: Open3D, Matplotlib, or custom OpenGL GUIs.
+  - **🔄 Simulation Pipelines**: Combine with other simulators like Gazebo or Unity via data exchange or co-simulation.
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  - **Language**: Python bindings over Bullet Physics C++ engine.
+  - **Supported Platforms**: Windows, Linux, macOS.
+  - **Physics Features**: Collision detection, soft and rigid body dynamics, constraints, and joints.
+  - **File Formats**: Supports URDF, SDF, MJCF robot description files.
+  - **Visualization**: Built-in OpenGL viewer and support for offscreen rendering.
+
+  ---
+
+  ## 🎬 PyBullet in Action: Sample Python Code
+
+  ```python
+  import pybullet as p
+  import pybullet_data
+  import time
+
+  # Connect to physics server with GUI
+  physicsClient = p.connect(p.GUI)
+
+  # Set gravity
+  p.setGravity(0, 0, -9.8)
+
+  # Load plane and robot URDFs
+  p.setAdditionalSearchPath(pybullet_data.getDataPath())
+  planeId = p.loadURDF("plane.urdf")
+  robotId = p.loadURDF("kuka_iiwa/model.urdf", useFixedBase=True)
+
+  # Simple control loop: move joint 2 back and forth
+  for i in range(1000):
+      targetPos = 0.5 * (1 + p.sin(i * 0.01))
+      p.setJointMotorControl2(robotId, 2, p.POSITION_CONTROL, targetPosition=targetPos)
+      p.stepSimulation()
+      time.sleep(1./240.)
+
+  p.disconnect()
+  ```
+  <br>
+  This example loads a robotic arm and commands one of its joints to oscillate smoothly, demonstrating how easy it is to simulate and control robots with PyBullet.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Simulator           | Highlights                          | Pricing Model                  |
+  |---------------------|-----------------------------------|-------------------------------|
+  | **PyBullet**        | Open-source, Python-native, real-time physics | Free (MIT License)             |
+  | Gazebo              | Full robotics simulation with ROS integration | Free, open-source             |
+  | MuJoCo              | High-performance physics for robotics & biomechanics | Commercial, licenses start at ~$500/year |
+  | Webots              | Robot simulation with GUI and sensors | Free & commercial versions    |
+  | Unity ML-Agents     | Game engine-based, rich visuals   | Free for personal use, paid for enterprise |
+
+  PyBullet stands out for being **free**, lightweight, and deeply integrated with Python, making it the go-to choice for many academic and hobbyist projects.
+
+  ---
+
+  ## 🐍 PyBullet & the Python Ecosystem
+
+  - **Seamless Python Integration**: PyBullet's native Python API enables rapid prototyping and easy debugging.
+  - **Interoperability**: Works hand-in-hand with popular Python ML libraries like NumPy, OpenAI Gym, and RL toolkits.
+  - **Community Packages**: Extensions and wrappers exist for enhanced robotics workflows (e.g., `pybullet_envs` for OpenAI Gym environments).
+  - **Jupyter Friendly**: Run simulations and visualize results inline in Jupyter notebooks for interactive development.
+
+  ---
+
+  ## 📋 Summary
+
+  | Feature                    | Why It Matters                                     |
+  |----------------------------|---------------------------------------------------|
+  | High-fidelity physics      | Realistic simulation of robot dynamics and collisions |
+  | Python-first API           | Easy to learn, script, and integrate with AI tools |
+  | Sensor & actuator modeling | Enables end-to-end robotics system simulation     |
+  | Open-source & free         | Accessible for academia, startups, and hobbyists  |
+  | Cross-platform             | Works on all major OS for flexible deployment     |
+
+  ---
+
+  **PyBullet** empowers developers and researchers to accelerate robotics innovation by bridging the gap between algorithms and real-world deployment—without the cost or risk. Its blend of accuracy, flexibility, and Python friendliness makes it a cornerstone tool in modern robotics and AI research.
+
+  ---

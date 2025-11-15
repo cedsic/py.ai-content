@@ -30,7 +30,7 @@ You can contribute by improving or adding:
 - 🧰 Tools and libraries (in /tools/)
 - 🔗 Interesting links (in /links/)
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for full details.  
+See the [Contributing](https://github.com/cedsic/py.ai-content?tab=contributing-ov-file) section for full details.  
 Outstanding contributors will also be acknowledged on the [Py.AI](https://py.ai) website 🌟 in the future.
 
 ## ⚖️ License

@@ -1,0 +1,147 @@
+name: "QuantLib"
+slug: "quantlib"
+headline: "Open-source library for quantitative finance."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/lballabio/QuantLib"
+overview: |
+  In the fast-paced world of finance, precision and speed in modeling complex instruments are paramount. **QuantLib** is an open-source library designed to empower quantitative analysts, developers, and financial engineers with a **comprehensive, reliable, and flexible toolkit** for financial modeling, pricing, and risk management. Originally developed in C++, QuantLib has grown into a mature ecosystem with Python bindings, making sophisticated quantitative finance accessible to a wider audience.
+description: |
+  ## 🔑 Core Capabilities ⚙️
+
+  QuantLib offers a rich set of features that cover the entire spectrum of quantitative finance:
+
+  | Feature                          | Description                                                                                  |
+  |---------------------------------|----------------------------------------------------------------------------------------------|
+  | **Derivatives Pricing** 🏦        | Pricing engines for vanilla and exotic options, swaps, bonds, and structured products.      |
+  | **Interest Rate Models** 📈       | Extensive support for yield curves, forward curves, and short-rate models (Hull-White, etc.).|
+  | **Risk Metrics & Sensitivities** 📊| Calculation of Greeks, Value-at-Risk (VaR), and scenario analysis.                            |
+  | **Term Structures & Calendars** 📅 | Market conventions, day count conventions, and holiday calendars for global markets.        |
+  | **Monte Carlo & Finite Differences** 🎲 | Numerical methods for pricing and risk analysis of complex instruments.                   |
+  | **Date & Calendar Utilities** ⏰   | Robust date-time handling tailored for financial markets.                                   |
+
+  ---
+
+  ## 🎯 Key Use Cases 🚀
+
+  QuantLib shines in scenarios where **accuracy, flexibility, and transparency** are critical:
+
+  - **Pricing Complex Derivatives:** Exotic options, interest rate swaps, credit derivatives, and structured products. 💡
+  - **Risk Management:** Computing sensitivities (Greeks), stress testing, and scenario analysis. 🛡️
+  - **Quantitative Research:** Developing new pricing models and validating financial theories. 🔬
+  - **Portfolio Valuation:** Aggregating instrument valuations with market data integration. 💼
+  - **Financial Education:** Teaching quantitative finance concepts with hands-on coding. 🎓
+
+  ---
+
+  ## 💡 Why People Use QuantLib 🌟
+
+  - **Open Source & Free:** No licensing fees, with a vibrant community contributing and maintaining the codebase. 🤝
+  - **Highly Accurate & Tested:** Continuous validation against market standards and academic benchmarks. ✔️
+  - **Flexible & Extensible:** Easily add custom instruments, models, or pricing engines. 🔧
+  - **Cross-Language Support:** Native C++ core with Python bindings (QuantLib-Python), enabling integration with data science workflows. 🐍
+  - **Production Ready:** Used by banks, hedge funds, and fintech startups worldwide. 🌍
+
+  ---
+
+  ## 🔗 Integration with Other Tools 🔌
+
+  QuantLib fits seamlessly into modern financial technology stacks:
+
+  | Integration Target      | Description                                                                                  |
+  |------------------------|----------------------------------------------------------------------------------------------|
+  | **Python Ecosystem**    | Via `QuantLib-Python`, integrates with pandas, NumPy, SciPy, Jupyter notebooks for interactive analysis.|
+  | **Data Providers**      | Compatible with market data feeds (Bloomberg, Reuters) through custom adapters.              |
+  | **Risk Engines**        | Can be embedded within larger risk management platforms or custom analytics pipelines.       |
+  | **Quantitative Libraries** | Works alongside libraries like PyMC3, scikit-learn for advanced statistical modeling.       |
+  | **C++ Applications**    | Native C++ API allows embedding in high-performance trading and risk systems.                |
+
+  ---
+
+  ## ⚙️ Technical Aspects 🛠️
+
+  - **Core Language:** C++ for performance-critical computations.
+  - **Python Bindings:** Generated via SWIG, making QuantLib accessible to Python users.
+  - **Object-Oriented Design:** Modular classes for instruments, pricing engines, and market data.
+  - **Extensible Architecture:** Easily add new models or instruments by subclassing.
+  - **Build System:** Uses CMake for cross-platform compilation.
+  - **Documentation:** Comprehensive API docs and numerous examples.
+
+  ---
+
+  ## 🐍 QuantLib in Python: Sample Code 💻
+
+  Here’s a simple example demonstrating how to price a European call option using QuantLib’s Python bindings:
+
+  ```python
+  import QuantLib as ql
+
+  # Set evaluation date
+  today = ql.Date(15, 6, 2024)
+  ql.Settings.instance().evaluationDate = today
+
+  # Option parameters
+  spot_price = 100
+  strike_price = 105
+  volatility = 0.20  # 20%
+  risk_free_rate = 0.01  # 1%
+  dividend_rate = 0.00
+  maturity = ql.Date(15, 9, 2024)
+
+  # Construct the option payoff and exercise
+  payoff = ql.PlainVanillaPayoff(ql.Option.Call, strike_price)
+  exercise = ql.EuropeanExercise(maturity)
+
+  # Create the option
+  european_option = ql.VanillaOption(payoff, exercise)
+
+  # Market data
+  spot_handle = ql.QuoteHandle(ql.SimpleQuote(spot_price))
+  flat_ts = ql.YieldTermStructureHandle(ql.FlatForward(today, risk_free_rate, ql.Actual365Fixed()))
+  dividend_ts = ql.YieldTermStructureHandle(ql.FlatForward(today, dividend_rate, ql.Actual365Fixed()))
+  vol_ts = ql.BlackVolTermStructureHandle(ql.BlackConstantVol(today, ql.TARGET(), volatility, ql.Actual365Fixed()))
+
+  # Black-Scholes-Merton process
+  bsm_process = ql.BlackScholesMertonProcess(spot_handle, dividend_ts, flat_ts, vol_ts)
+
+  # Pricing engine
+  engine = ql.AnalyticEuropeanEngine(bsm_process)
+  european_option.setPricingEngine(engine)
+
+  # Calculate and print the option price
+  npv = european_option.NPV()
+  print(f"European Call Option Price: {npv:.2f}")
+  ```
+
+  ---
+
+  ## 🏆 Competitors and Pricing 💰
+
+  | Tool                 | Description                                   | Pricing Model          | Notes                                   |
+  |----------------------|-----------------------------------------------|-----------------------|-----------------------------------------|
+  | **QuantLib**         | Open-source comprehensive quant finance library | Free (Open Source)    | Strong community, widely adopted        |
+  | **FINCAD**           | Commercial quantitative finance analytics    | Subscription / License | Enterprise-grade, extensive support     |
+  | **Numerix**          | Advanced pricing and risk analytics platform  | License-based          | High-end solution for large institutions|
+  | **QuantConnect Lean**| Cloud-based quant research & trading platform | Free + Paid tiers      | Focus on algo trading and backtesting   |
+  | **Bloomberg API**    | Market data and analytics                      | Subscription           | Industry standard for data & analytics  |
+
+  QuantLib stands out by being **completely free and open-source**, making it ideal for startups, academia, and independent quants.
+
+  ---
+
+  ## 🐍 Relevance in the Python Ecosystem 🌐
+
+  QuantLib’s Python bindings unlock its powerful capabilities for data scientists and quants who rely heavily on Python’s rich ecosystem:
+
+  - **Seamless Integration:** Works alongside pandas for data manipulation, NumPy for numerical operations, and matplotlib for visualization.
+  - **Jupyter Friendly:** Enables interactive financial modeling and teaching.
+  - **Complementary to Machine Learning:** Can be combined with scikit-learn, TensorFlow, or PyTorch for hybrid quantitative models.
+  - **Extensive Community Support:** Numerous tutorials, forums, and open-source projects leverage QuantLib-Python.
+
+  ---
+
+  ## 🎯 Summary 🏅
+
+  QuantLib is a **robust, flexible, and open-source toolkit** that bridges the gap between academic quantitative finance and real-world financial applications. Its comprehensive model library, combined with Python accessibility, makes it a top choice for pricing, risk analysis, and quantitative research — all without the burden of costly licenses.
+
+  ---

@@ -1,0 +1,127 @@
+name: "MuJoCo"
+slug: "mujoco"
+headline: "High-fidelity physics engine for robotics and biomechanics."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/deepmind/mujoco"
+  - label: "Docs"
+    url: "https://mujoco.org/"
+overview: |
+  **MuJoCo** (Multi-Joint dynamics with Contact) is a cutting-edge physics engine designed to deliver **high-fidelity, fast, and stable simulations** of complex robotic systems and biomechanical models. It enables researchers, engineers, and AI practitioners to **experiment virtually with intricate dynamics and control algorithms**—bypassing the limitations, risks, and costs of real-world hardware testing.
+  <br>
+  With its precise modeling capabilities, MuJoCo has become a cornerstone tool for **robotics research, reinforcement learning, biomechanics, and control system development**.
+description: |
+  ## 🔧 Core Capabilities
+
+  | Feature                         | Description                                                                                  |
+  |--------------------------------|----------------------------------------------------------------------------------------------|
+  | 🔬 **High-Fidelity Physics**     | Accurate simulation of rigid body dynamics, multi-body contacts, friction, and constraints. |
+  | 🎛️ **Advanced Actuation & Control** | Supports complex actuators, sensors, and customizable control schemes.                      |
+  | ⚡ **Fast & Stable Simulation**    | Efficient numerical solvers enable real-time or accelerated simulation speeds.               |
+  | 🔁 **Reproducibility**             | Deterministic simulation outcomes to ensure consistent experimental results.                 |
+  | 🧩 **Extensibility**               | Flexible XML-based model description and APIs for custom extensions.                         |
+  | 🌐 **Cross-Platform Support**       | Runs on Windows, Linux, and macOS with GPU acceleration options.                             |
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  MuJoCo’s versatility makes it ideal for:
+
+  - 🤖 **Robotics research:** Training and validating control policies for manipulators, legged robots, drones, and humanoids.
+  - 🎯 **Reinforcement Learning:** Providing a stable environment for policy learning and benchmarking.
+  - 🦾 **Biomechanics:** Simulating human and animal musculoskeletal systems for gait analysis or prosthetics design.
+  - 🏗️ **Virtual prototyping:** Testing mechanical designs and interaction scenarios before physical fabrication.
+  - 🎓 **Education:** Teaching dynamics, control, and robotics with interactive simulation.
+
+  ---
+
+  ## 💡 Why People Use MuJoCo
+
+  - 🎯 **Precision:** Ensures simulations closely match real-world physics, critical for transferring learned policies to hardware.
+  - ⚡ **Speed:** Allows rapid iteration and experimentation without hardware wear or risk.
+  - 🛡️ **Reliability:** Stable solvers prevent simulation crashes or unrealistic artifacts.
+  - 🌍 **Community & Ecosystem:** Strong adoption in research and AI communities, supported by active development and documentation.
+  - 🔗 **Integration Friendly:** Works seamlessly with popular AI frameworks and robotics middleware.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  MuJoCo integrates smoothly into modern robotics and AI pipelines:
+
+  | Tool / Framework         | Integration Type                                  | Description                                                   |
+  |-------------------------|-------------------------------------------------|---------------------------------------------------------------|
+  | **OpenAI Gym**           | Environment backend                              | Many RL environments (e.g., `Humanoid-v2`, `Ant-v2`) use MuJoCo. |
+  | **Stable Baselines3**   | RL algorithm implementations                     | Compatible with MuJoCo-based environments for training agents.  |
+  | **ROS (Robot Operating System)** | Middleware bridge via plugins or wrappers        | Enables real-time simulation with robot control stacks.         |
+  | **Python API**          | Direct scripting and simulation control          | Full access to simulation, model loading, and data extraction.  |
+  | **Deep Learning Frameworks** | Indirect via Gym or custom wrappers              | Supports training neural networks on MuJoCo-generated data.     |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  MuJoCo simulates physics by solving **multi-body dynamics equations** with contact constraints using a **variational integrator** and **complementarity problem solvers** for contacts and friction. The core engine is written in highly optimized C for performance, with bindings for Python and other languages.
+
+  ---
+
+  ### 📝 Model Description
+
+  Models are defined in an XML format specifying bodies, joints, actuators, sensors, and contact parameters. This allows flexible and detailed robot descriptions.
+
+  ---
+
+  ## 🐍 Example: Using MuJoCo with Python
+
+  ```python
+  import mujoco_py
+  from mujoco_py import load_model_from_path, MjSim, MjViewer
+
+  # Load a predefined MuJoCo model (e.g., a humanoid robot)
+  model = load_model_from_path("humanoid.xml")
+  sim = MjSim(model)
+  viewer = MjViewer(sim)
+
+  # Simulate 1000 steps with simple control
+  for _ in range(1000):
+      # Example: apply zero control (torques)
+      sim.data.ctrl[:] = 0
+      sim.step()
+      viewer.render()
+  ```
+  <br>
+  This snippet loads a humanoid robot model, runs the simulation, and visualizes it in real-time.
+
+  ---
+
+  ## 🥇 Competitors and Pricing
+
+  | Tool               | Strengths                             | Pricing Model                     |
+  |--------------------|-------------------------------------|----------------------------------|
+  | **MuJoCo**         | High accuracy, speed, research-grade | Subscription-based (free tier available) |
+  | **Bullet Physics**  | Open-source, broad use in games/robotics | Free, open-source                 |
+  | **PyBullet**       | Python bindings for Bullet           | Free, open-source                 |
+  | **DART**           | Articulated dynamics with contacts   | Free, open-source                 |
+  | **Isaac Sim (NVIDIA)** | Photorealistic graphics + physics    | Free with NVIDIA hardware focus  |
+
+  MuJoCo is **commercial software** owned by DeepMind, recently made more accessible with a free tier for academics and hobbyists, while enterprises can opt for paid licenses with advanced support.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  MuJoCo is deeply embedded in the Python AI and robotics ecosystem:
+
+  - 🐍 **Python bindings (`mujoco-py`)** provide easy access to simulation control and data extraction.
+  - 📊 Popular RL libraries like **OpenAI Gym** rely on MuJoCo environments for benchmarking.
+  - 🔄 Works well alongside **NumPy, PyTorch, TensorFlow** for data processing and neural network training.
+  - 🛠️ Python’s scripting flexibility accelerates prototyping and experimentation.
+
+  ---
+
+  ## 📋 Summary
+
+  MuJoCo stands out as a **state-of-the-art physics engine** that balances **accuracy, speed, and usability** for robotics and biomechanics simulation. Its seamless Python integration and compatibility with AI frameworks make it a favorite among researchers and engineers pushing the boundaries of robot control and learning.
+
+  ---

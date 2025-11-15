@@ -1,0 +1,145 @@
+name: "Keras"
+slug: "keras"
+headline: "User-friendly deep learning for rapid prototyping."
+urls:
+  - label: "Website"
+    url: "https://keras.io/"
+  - label: "GitHub"
+    url: "https://github.com/keras-team/keras"
+overview: |
+  Keras is a **high-level neural networks API**, written in Python, designed to enable fast experimentation and effortless development of deep learning models. Originally developed by François Chollet, Keras has become one of the most popular frameworks in the AI community due to its **user-friendly interface**, **modularity**, and seamless integration with powerful backends like TensorFlow.
+  <br>
+  Building complex neural networks can often feel daunting, but Keras abstracts away much of the complexity, allowing developers, researchers, and students to focus on innovation rather than boilerplate code.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                      | Description                                                                                   |
+  |------------------------------|-----------------------------------------------------------------------------------------------|
+  | **✨ Intuitive API**             | Clean, consistent, and simple interface for defining neural network layers and models.        |
+  | **🧩 Modularity**                | Models are built by connecting configurable building blocks (layers, optimizers, losses).     |
+  | **⚙️ Multiple Backends**         | Primarily runs on TensorFlow but also supports Theano and CNTK (historically).                |
+  | **📦 Pre-trained Models**        | Access to popular architectures like VGG, ResNet, Inception for transfer learning.            |
+  | **🛠️ Custom Layers & Callbacks** | Easily extendable with user-defined layers, metrics, and training callbacks.                  |
+  | **💻 Multi-GPU & TPU Support**   | Scales training across multiple GPUs or TPUs effortlessly.                                    |
+  | **🔄 Data Pipeline Integration** | Works smoothly with TensorFlow `tf.data` pipelines for efficient data loading and augmentation.|
+  | **🤖 AutoML Integration**        | Compatible with AutoKeras for automated model search and hyperparameter tuning, enabling even faster prototyping without deep expertise. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Keras shines in scenarios where **speed, simplicity, and flexibility** are essential:
+
+  - **⚡ Rapid Prototyping:** Quickly build and iterate on deep learning models to validate ideas.
+  - **📚 Educational Projects:** Its simplicity makes it ideal for teaching and learning neural networks.
+  - **🔬 Research:** Experiment with novel architectures or custom layers without heavy engineering overhead.
+  - **🚀 Production Deployment:** With TensorFlow backend, Keras models can be deployed at scale, including mobile and embedded devices.
+  - **🔄 Transfer Learning:** Leverage pre-trained models for image classification, NLP, and more.
+  - **🖼️ Computer Vision & NLP:** Widely used in supervised learning tasks like image recognition, text classification, and sequence modeling, as well as unsupervised learning tasks like clustering and anomaly detection.
+  - **🎨 Generative Models:** Build and train Generative Adversarial Networks (GANs) for tasks like image synthesis, style transfer, and data augmentation.
+  - **🎼 Creative AI & Generative Art:** Build and experiment with generative models for music, art, and other creative applications using Keras, with support from projects like Magenta.
+
+  ---
+
+  ## 💡 Why People Use Keras
+
+  - **🧑‍💻 Simplicity & Readability:** Code is clean and expressive, resembling natural language.
+  - **⚡ Fast Experimentation:** Minimal boilerplate means you can prototype ideas in hours, not days.
+  - **🌐 Strong Community & Ecosystem:** Extensive tutorials, pre-trained models, and third-party tools.
+  - **🔗 Seamless TensorFlow Integration:** Access to TensorFlow’s advanced features like eager execution, distributed training, and TensorBoard.
+  - **💾 Cross-platform:** Works on CPUs, GPUs, and TPUs, enabling broad hardware compatibility.
+  - **🐍 Pythonic Design:** Fits naturally into the Python data science ecosystem.
+
+  ---
+
+  ## 🔗 How Keras Integrates with Other Tools
+
+  Keras is more than just a standalone library; it’s a **core component of the TensorFlow ecosystem**:
+
+  - **TensorFlow:** Keras is TensorFlow’s official high-level API (`tf.keras`), enabling tight integration with TensorFlow’s graph execution, distributed training, and deployment tools.
+  - **TensorBoard:** Easily visualize model graphs, metrics, and training progress.
+  - **TF Lite:** Convert Keras models to TensorFlow Lite for mobile and embedded deployment.
+  - **TF Hub:** Import reusable model components to accelerate development.
+  - **Other Python Libraries:** Works seamlessly with NumPy, Pandas, Matplotlib, and scikit-learn for data processing and visualization.
+  - **Cloud Platforms:** Supported natively on Google Cloud AI Platform, AWS SageMaker, and Azure ML.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  At its core, Keras abstracts the complexity of neural network computation with:
+
+  - **Layer API:** Compose models by stacking layers like `Dense`, `Conv2D`, `LSTM`.
+  - **Model API:** Two main styles:
+      - **Sequential API:** For simple linear stacks of layers.
+      - **Functional API:** For complex architectures with multiple inputs/outputs and shared layers.
+  - **Compile Step:** Specify loss functions, optimizers (SGD, Adam, RMSprop), and evaluation metrics.
+  - **Fit Method:** Train models with flexible batch sizes, epochs, and callbacks.
+  - **Customizability:** Define custom layers, losses, and metrics using Python subclasses.
+
+  ---
+
+  ## 🖥️ Example: Simple Image Classifier in Keras
+
+  ```python
+  import tensorflow as tf
+  from tensorflow.keras import layers, models
+
+  # Define a simple CNN for image classification
+  model = models.Sequential([
+      layers.Conv2D(32, (3,3), activation='relu', input_shape=(28, 28, 1)),
+      layers.MaxPooling2D((2, 2)),
+      layers.Conv2D(64, (3,3), activation='relu'),
+      layers.MaxPooling2D((2, 2)),
+      layers.Flatten(),
+      layers.Dense(64, activation='relu'),
+      layers.Dense(10, activation='softmax')
+  ])
+
+  # Compile the model
+  model.compile(optimizer='adam',
+                loss='sparse_categorical_crossentropy',
+                metrics=['accuracy'])
+
+  # Summary of the model
+  model.summary()
+  ```
+  <br>
+  This snippet illustrates how Keras lets you build and compile a convolutional neural network in just a few lines, ready for training on datasets like MNIST.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Framework       | Description                                      | Pricing               |
+  |-----------------|------------------------------------------------|-----------------------|
+  | **PyTorch**     | Dynamic computation graph, favored for research | Open-source, free     |
+  | **TensorFlow**  | Comprehensive ML platform, supports Keras API   | Open-source, free     |
+  | **MXNet**       | Scalable deep learning, backed by AWS           | Open-source, free     |
+  | **Caffe**       | Focused on vision tasks, less flexible           | Open-source, free     |
+  | **FastAI**      | Built on PyTorch, high-level API for quick DL   | Open-source, free     |
+
+  > **Keras itself is free and open-source**, bundled within TensorFlow (`tf.keras`). There are no licensing costs, making it accessible for individuals, academia, and enterprises.
+
+  ---
+
+  ## 🐍 Keras in the Python Ecosystem
+
+  Keras is deeply embedded in the Python scientific stack, complementing:
+
+  - **NumPy & SciPy:** For numerical operations and scientific computing.
+  - **Pandas:** Data manipulation and preprocessing.
+  - **Matplotlib & Seaborn:** Visualization of training results and model performance.
+  - **Scikit-learn:** Preprocessing, model evaluation, and pipeline integration.
+  - **Jupyter Notebooks:** Interactive experimentation and prototyping.
+
+  This synergy makes Keras a natural choice for Python developers venturing into machine learning and AI.
+
+  ---
+
+  ## ✨ Summary
+
+  > **Keras empowers developers to build powerful deep learning models with minimal fuss.**  
+  > Its elegant API, backed by TensorFlow’s robustness, makes it ideal for beginners and experts alike. Whether you're prototyping a research idea, teaching neural networks, or deploying production models, Keras offers the perfect balance of simplicity and power.
+
+  ---

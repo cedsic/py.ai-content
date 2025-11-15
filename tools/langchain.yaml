@@ -1,0 +1,120 @@
+name: "LangChain"
+slug: "langchain"
+headline: "Framework for building applications with LLMs using chains, memory, and agents."
+urls:
+  - label: "Official Site"
+    url: "https://www.langchain.com/"
+overview: |
+  **LangChain connects large language models (LLMs) to external data sources, APIs, and workflows, enabling developers to build intelligent, context-aware applications.**  
+  Instead of manually coding complex orchestration logic for LLMs, LangChain provides a unified framework with reusable components like chains, agents, and memory, simplifying development and scaling.
+
+  In other words:  
+  - It helps you **combine prompts, tools, and data** into seamless workflows.  
+  - It manages **state and context** automatically to create natural, multi-turn interactions.  
+  - It integrates easily with databases, APIs, search engines, and more.
+description: |
+  ## 🔑 Key Features
+
+  | Feature            | Description                                      |
+  |--------------------|------------------------------------------------|
+  | **🔗 Chains & Agents** | Build multi-step workflows linking prompts and tools. Agents decide which tools to use dynamically. |
+  | **🧠 Memory Management** | Maintain conversational context across sessions or turns. |
+  | **🛠️ Tool Integration** | Connect LLMs to APIs, databases, search engines, and custom tools. |
+  | **📄 Prompt Templates** | Create reusable, parameterized prompts. |
+  | **📊 Callbacks & Tracing** | Monitor and debug chain executions. |
+  | **📈 Prompt Tracking & Management** | Integrate with tools like PromptLayer to log, track, and analyze prompt performance and usage. |
+
+  ---
+
+  ## 👥 Who Should Use LangChain?
+
+  LangChain is designed for **developers, data scientists, startups, and enterprises** building applications powered by large language models. Common use cases include:
+
+  - **💬 Conversational Agents:** Chatbots that remember context and use external data.  
+  - **📚 Research Assistants:** Tools that summarize and analyze documents or datasets.  
+  - **📖 Knowledge-Driven Applications:** Apps that integrate domain-specific knowledge bases with LLMs.  
+  - **⚙️ Automation & Workflow Orchestration:** Automate tasks combining LLMs with APIs and databases.
+
+  ---
+
+  ## ⚙️ How Does LangChain Work?
+
+  LangChain abstracts the complexity of LLM orchestration by modularizing components:
+
+  - **Chains:** Sequences of calls to prompts, LLMs, or other chains, passing outputs as inputs.  
+  - **Agents:** Autonomous entities that decide which tools to call based on user input and context.  
+  - **Memory:** Stores conversation history or external state, enabling context-aware responses.  
+  - **Tools:** External APIs, databases, or functions that agents can invoke dynamically.
+
+  This modular design allows developers to mix and match components, scale applications, and maintain clean, testable codebases.
+
+  ---
+
+  ## 💰 Pricing and Competitor Comparison
+
+  | Platform      | Pricing Model                          | Key Strengths                         | Notes                              |
+  |---------------|--------------------------------------|-------------------------------------|-----------------------------------|
+  | **LangChain** | Open-source (free core library) + paid cloud services | Highly modular, strong community, flexible integrations | Often used with OpenAI API (separate cost) |
+  | **Hugging Face** | Free for open models; paid for hosted inference | Large model hub, easy deployment | Focus on model hosting & fine-tuning |
+  | **OpenAI API** | Pay-as-you-go per token usage        | State-of-the-art models, easy API   | No built-in orchestration tools   |
+  | **Microsoft Bot Framework** | Free + Azure usage costs    | Enterprise-grade bot development    | Less focused on LLM orchestration |
+  | **Rasa**      | Open-source + enterprise plans       | Conversational AI with NLU          | More rule-based, less LLM-centric |
+  | **Memori**    | Free tier + Pro plans                 | Contextual memory for AI agents and chatbots | Focus on persistent memory and context management |
+
+  LangChain stands out by focusing on **workflow orchestration and tool integration** rather than just providing models or chat frameworks.
+
+  ---
+
+  ## 🏗️ Technical Architecture
+
+  - **Core Components:**
+      - LLM classes wrap calls to language models (OpenAI, Hugging Face, etc.).
+      - Support for models like Llama enables flexible use of open-source LLMs within LangChain workflows.
+      - PromptTemplate defines dynamic prompts.
+      - Chains link prompts, LLMs, and tools into workflows.
+      - Agents use LLMs to decide which tools to invoke dynamically.
+      - Memory stores conversation state (in-memory, Redis, or vector DBs).
+      - Tools connect to external APIs or functions.
+      - Data models and configurations leverage pydantic for robust validation and type enforcement.
+
+  - **Execution Flow:**
+      - User input → Agent interprets intent.
+      - Agent selects tools to call.
+      - Tools return data → Agent formats response using LLM.
+      - Memory updates context for next interaction.
+
+  - **Extensibility:**
+      - Easily add custom tools, memory backends, prompt templates, or chain types.
+
+  ---
+
+  ## 💻 Example: Simple Conversational Chain in Python
+
+  ```python
+  from langchain import OpenAI, LLMChain, PromptTemplate
+
+  # Initialize LLM with your OpenAI API key
+  llm = OpenAI(temperature=0)
+
+  # Define a prompt template with a variable input
+  template = PromptTemplate(
+      input_variables=["question"],
+      template="You are a helpful assistant. Answer this question:\n{question}"
+  )
+
+  # Create a chain that combines the prompt and LLM
+  chain = LLMChain(llm=llm, prompt=template)
+
+  # Run the chain with a user question
+  response = chain.run("What is LangChain and why is it useful?")
+
+  print(response)
+  ```
+
+  ---
+
+  ## 📌 Summary
+
+  LangChain is a **powerful orchestration framework** that bridges LLMs with real-world tools, multi-agent systems, and external reasoning engines. By integrating with platforms like **Agno** for autonomous reasoning, **CrewAI** or **Swarms** for multi-agent coordination, **Eidolon AI** for collaborative workflows, **LangGraph** for visual pipeline mapping, **Letta** for knowledge retrieval, and **Max.AI** for predictive intelligence, LangChain enables **end-to-end, scalable AI workflows**.  
+
+  Whether building conversational agents, research assistants, or automated pipelines, LangChain’s **flexible, modular, and integrative design** allows developers to leverage the best of the AI ecosystem while maintaining clean, efficient, and extensible code.

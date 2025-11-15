@@ -1,0 +1,137 @@
+name: "CrewAI"
+slug: "crewai"
+headline: "Coordinate multiple AI agents to work together seamlessly."
+urls:
+  - label: "Official Site"
+    url: "https://www.crewai.com/"
+overview: |
+  Imagine an entire **team of AI agents** working seamlessly together — each specializing in a unique skill, communicating effortlessly, and collaborating to solve complex problems. That’s **CrewAI**: a powerful platform that transforms isolated AI agents into a **well-coordinated crew**, unlocking new levels of automation and efficiency.
+  <br>
+  CrewAI eliminates the chaos of fragmented AI workflows by providing a **centralized orchestration layer** where agents **delegate tasks, share knowledge, plan collectively**, and execute complex missions with precision.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                  | Description                                                                                  |
+  |--------------------------|----------------------------------------------------------------------------------------------|
+  | 🧑‍🤝‍🧑 **Multi-Agent Coordination** | Assign roles, manage task dependencies, and enable real-time communication among agents.      |
+  | 🧠 **Shared Memory & Planning** | Maintain a collective knowledge base so agents make informed, context-aware decisions.       |
+  | 🎛️ **Centralized Control**       | Monitor progress, intervene when necessary, and adapt strategies dynamically.                 |
+  | 📈 **Scalable Automation**       | Easily scale from a handful to dozens of agents to tackle workflows of any complexity.        |
+  | 🎭 **Role-Based Task Delegation**| Define agent specialties (e.g., researcher, writer, analyst) to optimize workflow efficiency. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  CrewAI is designed for AI engineers, automation architects, digital agencies, and businesses that require **multi-disciplinary AI collaboration**:
+
+  - 🔍 **Research Aggregation & Analysis:** Automate data gathering, summarization, and insight extraction by coordinating researcher and analyst agents.  
+  - ✍️ **Creative Content Generation:** Orchestrate writers, editors, and SEO specialists to produce high-quality marketing materials.  
+  - 🔄 **Complex Workflow Management:** Manage multi-step processes like product launches, customer support automation, or data pipeline orchestration.  
+  - 📊 **AI-Driven Project Management:** Delegate tasks to specialized agents and track progress in real time.
+
+  ---
+
+  ## 💡 Why People Use CrewAI
+
+  - ⚡ **Efficiency & Speed:** Accelerate project timelines by parallelizing tasks across AI agents.  
+  - 🔄 **Consistency:** Shared memory ensures agents work from the same knowledge base, reducing errors and redundancy.  
+  - 🔧 **Flexibility:** Easily reassign roles or scale agent count based on project demands.  
+  - 👁️ **Transparency:** Centralized dashboards provide full visibility into agent activities and workflow status.  
+  - 💰 **Cost-Effective Automation:** Reduce manual overhead by automating complex, multi-agent workflows.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  CrewAI is built to play well with your existing ecosystem:
+
+  - **APIs & Webhooks:** Seamlessly connect with CRMs, CMSs, cloud services, and databases.  
+  - **Python SDK:** Programmatically define agents, workflows, and monitor executions.  
+  - **Popular AI Models:** Integrate with OpenAI, Hugging Face, or custom ML models for agent intelligence.  
+  - **Workflow Automation:** Connect with tools like Zapier, Airflow, or Apache NiFi for end-to-end automation.  
+
+  ---
+
+  ## 🧠 CrewAI in the Multi-Agent Ecosystem
+
+  CrewAI often works hand-in-hand with frameworks like **Agno**, **Eidolon AI**, and **LangGraph** to enable **coordinated multi-agent reasoning**.  
+  While Agno provides the foundation for **autonomous reasoning agents**, CrewAI extends that foundation into **structured teamwork and orchestration** — enabling agents to collaborate, share memory, and achieve goals collectively.
+
+  Eidolon AI complements CrewAI in **hierarchical task planning**, while LangGraph provides **graph-based visualization** of complex agent interactions.  
+  Together, they form a **powerful ecosystem for building and coordinating intelligent, interconnected agents**.
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  At its core, CrewAI operates a **multi-agent orchestration engine** featuring:
+
+  - 🎭 **Role-based agent abstraction:** Each agent is assigned a role with specific capabilities and permissions.  
+  - 🧠 **Shared Memory Layer:** A persistent, queryable knowledge base accessible to all agents for context sharing.  
+  - ⏰ **Task Scheduler:** Manages dependencies, priorities, and parallel execution of agent tasks.  
+  - 📡 **Communication Bus:** Enables asynchronous message passing and event-driven coordination.  
+  - 📊 **Monitoring Dashboard:** Real-time logs, metrics, and alerts for mission oversight.
+
+  ---
+
+  ## 🐍 Python Example: Coordinating Agents with CrewAI SDK
+
+  ```python
+  from crewai import Crew, Agent
+
+  # Define specialized agents
+  researcher = Agent(name="Researcher", role="data_gatherer")
+  writer = Agent(name="Writer", role="content_creator")
+  seo = Agent(name="SEO Specialist", role="optimizer")
+
+  # Create a Crew instance and add agents
+  crew = Crew(name="MarketingCampaign")
+  crew.add_agents([researcher, writer, seo])
+
+  # Define a collaborative workflow
+  def campaign_workflow():
+      data = researcher.collect_data(topic="AI trends 2024")
+      draft = writer.create_content(data)
+      optimized_content = seo.optimize(draft)
+      return optimized_content
+
+  # Execute workflow
+  result = crew.execute(campaign_workflow)
+  print("Final Output:", result)
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Platform           | Key Strengths                      | Pricing Model                         |
+  |--------------------|----------------------------------|-------------------------------------|
+  | **CrewAI**         | Multi-agent orchestration, shared memory, flexible roles | Subscription-based, tiered by agent count and usage |
+  | LangChain          | Agent chaining, LLM integration  | Open-source + enterprise options    |
+  | AutoGPT            | Autonomous agent execution       | Free (open-source)                   |
+  | AgentGPT           | User-friendly multi-agent setup  | Freemium with premium plans          |
+  | Microsoft Power Automate | Enterprise-grade automation   | Per user/per flow licensing           |
+
+  **Why CrewAI?**  
+  Unlike many competitors, CrewAI focuses on **agent collaboration with shared memory and centralized control**, making it ideal for **complex, multi-agent workflows** rather than linear chains or single-agent automation.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  CrewAI’s **Python SDK** makes it a natural choice for developers embedded in the Python ecosystem, enabling:
+
+  - Integration with popular Python ML libraries (e.g., transformers, scikit-learn)  
+  - Custom agent development using Python’s rich data processing and AI tooling  
+  - Easy embedding into existing Python workflows, pipelines, and automation scripts
+
+  ---
+
+  ## Summary
+
+  CrewAI revolutionizes AI automation by transforming isolated AI agents into a **collaborative, intelligent crew**. With robust multi-agent coordination, shared memory, and centralized control, it empowers teams to automate complex workflows efficiently and transparently.
+
+  Whether you’re automating research, content creation, or multi-step business processes, CrewAI offers the **flexibility, scalability, and control** to get the job done — faster and smarter.
+
+  ---

@@ -1,0 +1,125 @@
+name: "Letta"
+slug: "letta"
+headline: "Persistent AI agents with long-term memory and modular tools."
+urls:
+  - label: "Official Site"
+    url: "https://www.letta.com/"
+  - label: "GitHub"
+    url: "https://github.com/letta-ai/letta"
+  - label: "Docs"
+    url: "https://docs.letta.com/"
+overview: |
+  In a world where AI systems often forget what happened just moments ago, **Letta** empowers developers to build **persistent AI agents** that remember, learn, and evolve across multiple sessions. Unlike traditional AI tools that reset context after each interaction, Letta enables **long-term memory retention** and **modular intelligence**, making continuous workflows smarter, more reliable, and deeply personalized.
+  <br>
+  By bridging the gap between ephemeral AI chats and truly context-aware agents, Letta transforms how intelligent assistants operate—whether you're building research tools, workflow automations, or customer-facing bots.
+description: |
+  ## 🚀 Core Capabilities 🚀
+
+  | Feature               | Description                                                                                  |
+  |-----------------------|----------------------------------------------------------------------------------------------|
+  | **🧠 Persistent Memory** | Retains conversation and task context across sessions, enabling continuity and coherence.    |
+  | **🧩 Modular Toolkit**   | Compose AI agents from flexible, reusable components tailored to specific tasks and domains.  |
+  | **📊 Context Management**| Dynamically manages and updates relevant state information for multi-step reasoning.          |
+  | **🔒 Secure Data Access**| Integrates safely with external APIs, databases, and data sources while protecting privacy.   |
+  | **🔄 Multi-Session Support** | Ensures AI agents can pick up exactly where they left off, even after long pauses.         |
+
+  ---
+
+  ## 🎯 Key Use Cases 🎯
+
+  Letta is designed for developers, researchers, and teams who need AI agents that **remember and reason over time**:
+
+  - **🤖 AI Assistants with Memory:** Build chatbots and virtual assistants that recall user preferences, past conversations, and ongoing tasks.
+  - **⏳ Multi-Session Workflows:** Create intelligent workflows that span multiple interactions or days without losing context.
+  - **📚 Knowledge Workers:** Assist researchers or analysts by maintaining thread continuity across complex projects.
+  - **🎯 Personalized Recommendations:** Deliver contextual suggestions based on historical user data and interaction patterns.
+  - **🔐 Secure Data-Driven Actions:** Automate decisions with access to real-time, sensitive data through secure integrations.
+
+  ---
+
+  ## 🌟 Why Choose Letta? 🌟
+
+  - **🧠 True Persistence:** Unlike many AI platforms that "forget" after each session, Letta’s memory modules ensure continuity.
+  - **🧩 Flexible & Modular:** Developers can customize agents by mixing and matching tools, making it adaptable to any domain.
+  - **🔒 Security-First:** Built-in mechanisms safeguard sensitive data when connecting to external sources.
+  - **⚙️ Developer-Friendly:** Intuitive APIs and integration points reduce time-to-market for intelligent agents.
+  - **🧠 Context-Aware Reasoning:** Enables multi-step problem solving with up-to-date, relevant context.
+
+  ---
+
+  ## 🔗 Integration with Other Tools 🔗
+
+  Letta is designed to seamlessly fit into your existing tech stack:
+
+  - **APIs & SDKs:** Easy-to-use RESTful APIs and SDKs for Python and other languages.
+  - **Data Sources:** Connects securely to SQL/NoSQL databases, cloud storage, CRMs, and more.
+  - **Workflow Orchestration:** Integrates with automation tools like Zapier, Apache Airflow, and custom pipelines.
+  - **AI Models:** Compatible with popular LLMs (OpenAI, Hugging Face, etc.) and custom AI models for flexible intelligence.
+  - **Messaging Platforms:** Embed agents into Slack, Microsoft Teams, or custom chat interfaces.
+
+  ---
+
+  ## ⚙️ Technical Architecture ⚙️
+
+  At its core, Letta combines:
+
+  - **Memory Modules:** Persistent stores that log and retrieve interaction history with efficient indexing.
+  - **Context Managers:** Track state, user intents, and task progress dynamically.
+  - **Secure Connectors:** API gateways with encryption and access controls for external data.
+  - **Modular Agent Framework:** Plugin-based architecture allowing developers to add or swap components easily.
+
+  ---
+
+  ## 🐍 Python Example: Building a Persistent AI Assistant with Letta 🐍
+
+  ```python
+  from letta import Agent, MemoryModule, SecureConnector
+
+  # Initialize persistent memory (e.g., backed by Redis or a database)
+  memory = MemoryModule(storage_uri="redis://localhost:6379/0")
+
+  # Setup secure connector to external financial API
+  finance_api = SecureConnector(api_key="YOUR_API_KEY", endpoint="https://api.finance.com")
+
+  # Define the AI agent with memory and external data access
+  agent = Agent(memory=memory, connectors=[finance_api])
+
+  # Sample interaction: remembering user's portfolio and providing updates
+  response = agent.chat("Remember my portfolio: 100 shares of AAPL and 50 shares of TSLA.")
+  print(response)
+
+  # Later session: agent recalls portfolio and fetches latest prices
+  response = agent.chat("What's the current value of my portfolio?")
+  print(response)
+  ```
+
+  ---
+
+  | Platform           | Strengths                                        | Pricing Model                 |
+  |--------------------|--------------------------------------------------|------------------------------|
+  | **LangChain**      | Extensive LLM orchestration tools                | Open-source + cloud services |
+  | **Replika**        | Consumer-focused AI companions                   | Subscription-based           |
+  | **Memori**         | Contextual memory for AI agents and chatbots     | Free tier + Pro plans        |
+  | **smolagents**     | Lightweight, minimalist agent framework          | Open-source                  |
+  | **OpenAI Plugins** | Rich integrations with GPT models                | Pay-as-you-go API pricing    |
+
+  **Letta** stands out with its **modular memory-first architecture** and **enterprise-grade security**, offering flexible pricing tailored to developer needs, from free tiers for experimentation to premium enterprise plans with advanced integrations.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance 🐍
+
+  Letta fits naturally into the Python AI ecosystem:
+
+  - **Native Python SDK:** Simplifies agent creation and memory management.
+  - **Compatibility:** Works alongside popular Python AI libraries like `transformers`, `langchain`, and `fastapi`.
+  - **Extensibility:** Developers can build custom memory modules or connectors using Python’s rich ecosystem.
+  - **Community:** Encourages open-source contributions and integration examples in Python.
+
+  ---
+
+  ## 📝 Summary
+
+  Letta is the **next-generation AI agent platform** that solves the persistent memory problem, enabling developers to build **context-aware, modular, and secure AI assistants**. Whether you're creating personalized chatbots, research aides, or workflow automations, Letta’s powerful toolkit ensures your AI never forgets, always adapts, and securely connects to the data it needs.
+
+  ---

@@ -1,0 +1,138 @@
+name: "Bokeh"
+slug: "bokeh"
+headline: "Python library for interactive visualizations in web browsers."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/bokeh/bokeh"
+  - label: "Docs"
+    url: "https://docs.bokeh.org/"
+overview: |
+  **Bokeh** is a powerful, open-source Python library designed to create **rich, interactive visualizations** that run seamlessly in modern web browsers. Unlike static charts, Bokeh transforms your data into dynamic, explorable graphics, enabling users to interact with data through zooming, panning, tooltips, and real-time updates — all without needing to write complex JavaScript.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                         | Description                                                                                  |
+  |--------------------------------|----------------------------------------------------------------------------------------------|
+  | **🖱️ Interactive Visualizations** | Pan, zoom, hover tooltips, selection, and linked brushing for deep data exploration          |
+  | **🌐 Web Integration**             | Embed plots easily into web apps, dashboards, or Jupyter notebooks                           |
+  | **🔄 Streaming & Real-time Data** | Visualize live or updating datasets with smooth transitions and updates                      |
+  | **🔗 Python-to-JavaScript Linking** | Automatically sync Python data sources with dynamic JavaScript-driven plots                 |
+  | **📤 Multiple Output Options**    | Export to HTML, embed in Flask/Django apps, or serve standalone interactive dashboards       |
+  | **⚙️ Customizable Widgets & Layouts** | Build complex dashboards with sliders, dropdowns, buttons, and responsive layouts         |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Bokeh is ideal for anyone who needs **interactive, web-ready visualizations** without diving into front-end development:
+
+  - **👩‍🔬 Data Scientists & Analysts:** Create explorable dashboards to communicate insights with stakeholders.
+  - **👨‍💻 Engineers & Developers:** Integrate live-updating charts into monitoring tools or web applications.
+  - **🔬 Researchers:** Visualize streaming or experimental data in real-time.
+  - **📊 Business Intelligence:** Build interactive reports that empower decision-makers to drill down into data.
+
+  ---
+
+  ## 💡 Why People Use Bokeh
+
+  - **🚫 No JavaScript Required:** Write Python code and get interactive web visualizations automatically.
+  - **🎨 Highly Customizable:** Fine-tune every aspect of your plot, from colors and glyphs to interactivity.
+  - **⚡ Scalable & Performant:** Handles large datasets and streaming data efficiently.
+  - **🔄 Rich Ecosystem Integration:** Works well with other Python tools and frameworks.
+  - **👐 Open Source & Free:** Supported by an active community and backed by Anaconda, Inc.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Bokeh fits naturally into the Python data ecosystem and web development workflows:
+
+  | Tool/Framework       | Integration Mode                                | Notes                                      |
+  |----------------------|------------------------------------------------|--------------------------------------------|
+  | **Pandas**           | Directly plot DataFrames                        | Simplifies exploratory data analysis       |
+  | **Jupyter Notebooks**| Inline interactive plots                        | Great for iterative data exploration       |
+  | **Flask / Django**   | Embed Bokeh server apps or components           | Build full-stack web apps with interactive visuals |
+  | **NumPy / SciPy**    | Use numerical arrays as data sources            | Efficient data handling                     |
+  | **Holoviews / Panel**| Higher-level declarative APIs on top of Bokeh  | Simplifies dashboard building               |
+  | **Dask**             | Visualize parallel and distributed datasets     | Scales to big data                          |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **🏛️ Architecture:** Bokeh uses a **client-server model** where Python runs on the server side, generating JSON data and JavaScript code that renders plots in the browser.
+  - **🖥️ Bokeh Server:** Enables real-time interactivity and streaming data by maintaining a websocket connection.
+  - **📄 Output Modes:** 
+      - Static HTML files
+      - Embeddable components (JavaScript + HTML snippets)
+      - Full Bokeh server apps for dynamic dashboards
+  - **🧩 Custom Extensions:** Users can write custom JavaScript or TypeScript extensions to extend Bokeh’s capabilities.
+
+  ---
+
+  ## 🐍 Example: Creating an Interactive Scatter Plot in Python
+
+  ```python
+  from bokeh.plotting import figure, show
+  from bokeh.models import HoverTool, ColumnDataSource
+
+  # Sample data
+  data = {
+      'x': [1, 2, 3, 4, 5],
+      'y': [6, 7, 2, 4, 5],
+      'desc': ['A', 'B', 'C', 'D', 'E']
+  }
+
+  source = ColumnDataSource(data=data)
+
+  # Create figure
+  p = figure(title="Interactive Scatter Plot", tools="pan,wheel_zoom,box_zoom,reset")
+
+  # Add circle glyphs
+  p.circle('x', 'y', size=15, source=source, fill_alpha=0.6)
+
+  # Add hover tooltips
+  hover = HoverTool(tooltips=[("Index", "$index"), ("(x,y)", "(@x, @y)"), ("Desc", "@desc")])
+  p.add_tools(hover)
+
+  # Show plot
+  show(p)
+  ```
+  <br>
+  > This simple example demonstrates how Bokeh allows you to add interactivity such as zooming and tooltips with just a few lines of Python.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool          | Description                                            | Pricing                     | Notes                               |
+  |---------------|--------------------------------------------------------|-----------------------------|------------------------------------|
+  | **Plotly**    | Interactive, web-based visualizations with Python and JS | Free & Paid tiers (Plotly Cloud) | More polished UI, commercial support |
+  | **Altair**    | Declarative statistical visualization library          | Free & Open Source           | Simpler syntax, less flexible for complex apps |
+  | **Matplotlib**| Static and some interactive plots                       | Free & Open Source           | Widely used but limited interactivity |
+  | **Dash**      | Framework for building web apps with Plotly            | Free & Paid tiers            | Focuses on full app development    |
+  | **Bokeh**     | Interactive visualization library                       | Free & Open Source           | Great balance of flexibility & ease |
+
+  **Bokeh is completely free and open-source**, making it an accessible choice for individuals and organizations without costly licensing fees.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Bokeh is deeply embedded in the Python data science ecosystem. It complements libraries like:
+
+  - **Pandas** for data manipulation
+  - **NumPy** for numerical computations
+  - **SciPy** for scientific computing
+  - **Jupyter** for interactive notebooks
+  - **Panel & Holoviews** for building dashboards and complex visualizations on top of Bokeh
+
+  This synergy makes Bokeh a natural choice for Python users who want to extend their data analysis workflows into interactive, web-friendly visualizations.
+
+  ---
+
+  ## 🔮 Summary
+
+  Bokeh is a **versatile, Python-native visualization library** that bridges the gap between static charts and complex web-based interactive graphics. Its ease of use, powerful interactivity, and seamless integration with the Python ecosystem make it a top choice for data scientists, engineers, and developers aiming to create engaging, explorable data experiences on the web.
+
+  ---

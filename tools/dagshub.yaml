@@ -1,0 +1,140 @@
+name: "Dagshub"
+slug: "dagshub"
+headline: "Version, track, and collaborate on datasets and ML projects."
+urls:
+  - label: "Official Site"
+    url: "https://dagshub.com/"
+  - label: "Github"
+    url: "https://github.com/DagsHub"
+overview: |
+  In the fast-evolving world of machine learning, managing datasets, models, and experiments can quickly become chaotic—especially when working across teams or scaling projects. **Dagshub** is a cutting-edge platform designed to bring order to this complexity by providing seamless **versioning**, **collaboration**, and **reproducibility** tools tailored for ML projects.
+  <br>
+  By centralizing workflows and integrating deeply with the ML ecosystem, Dagshub empowers data scientists, ML engineers, and researchers to focus on what matters most: building better models faster and more reliably.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                        | Description                                                                                 | Benefit                                    |
+  |-------------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------|
+  | **📊 Dataset & Model Version Control** | Track every change in datasets and models with Git-like precision, including large files.    | Ensures data integrity and reproducible results. |
+  | **📈 Experiment Tracking**        | Log metrics, hyperparameters, code versions, and outputs automatically.                      | Simplifies comparison and optimization of experiments. |
+  | **🤝 Integrated Collaboration**  | Git-based environment where teams can share code, data, and experiments in one place.       | Facilitates smooth teamwork and knowledge sharing. |
+  | **🔗 ML Ecosystem Compatibility**| Supports popular frameworks (PyTorch, TensorFlow, Scikit-learn) and tools (DVC, MLflow).    | Fits naturally into existing workflows without disruption. |
+  | **🔍 Reproducibility & Auditability** | Complete history of changes with easy rollback and audit trails.                           | Builds trust and transparency in ML pipelines. |
+
+  ---
+
+  ## 💡 Key Use Cases
+
+  Dagshub shines in scenarios such as:
+
+  - **🌍 Coordinating experiments across distributed teams:** Share datasets and experiment results effortlessly, no matter where your collaborators are.
+  - **📚 Maintaining consistent datasets and model versions:** Avoid "it works on my machine" issues with robust version control.
+  - **📢 Sharing reproducible research results:** Publish and review experiments with full transparency, accelerating peer collaboration.
+  - **⚡ Rapid prototyping and iteration:** Quickly test new ideas and track their impact with automated experiment tracking.
+  - **🛡️ Compliance and governance:** Keep an immutable record of data and model lineage for regulatory requirements.
+
+  ---
+
+  ## 🤖 Why People Use Dagshub
+
+  - **🔧 Unified platform:** Combines version control, experiment tracking, and collaboration into a single, intuitive interface.
+  - **🐙 Git-inspired workflow:** Familiar to developers and data scientists, reducing the learning curve.
+  - **📦 Handles large data efficiently:** Built to manage large datasets and models without slowing down workflows.
+  - **🚀 Boosts productivity:** Automates mundane tasks like logging metrics and syncing data.
+  - **🧩 Open & extensible:** Integrates with popular ML tools and supports custom workflows.
+
+  ---
+
+  ## 🔄 Integration with Other Tools
+
+  Dagshub plays well with your existing ML stack:
+
+  | Tool/Framework       | Integration Type                         | Description                                      |
+  |----------------------|----------------------------------------|-------------------------------------------------|
+  | **Git & GitHub**     | Native Git support                      | Version control for code, datasets, and models. |
+  | **DVC (Data Version Control)** | Seamless compatibility             | Use DVC pipelines and storage with Dagshub’s UI. |
+  | **MLflow**           | Experiment tracking interoperability   | Import/export MLflow runs for unified tracking. |
+  | **Jupyter Notebooks**| Direct integration                     | Push/pull datasets and models directly from notebooks. |
+  | **Python SDK**       | Programmatic control                    | Automate experiment logging and data versioning. |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  Dagshub is built on top of Git and DVC, extending their capabilities with a rich UI, collaboration features, and cloud storage. It supports:
+
+  - **Large file storage (LFS)** for datasets and models.
+  - **Experiment tracking** with metadata logging.
+  - **REST API and Python SDK** for automation.
+  - **Role-based access control** for secure collaboration.
+  - **Cloud & on-premise deployment options** for flexibility.
+
+  ---
+
+  ### Example: Tracking an Experiment with Dagshub Python SDK
+
+  ```python
+  from dagshub import DAGsHub
+
+  # Initialize Dagshub client (replace with your repo URL)
+  client = DAGsHub(repo_url="https://dagshub.com/username/project")
+
+  # Log hyperparameters
+  client.log_params({
+      "learning_rate": 0.01,
+      "batch_size": 32,
+      "epochs": 10
+  })
+
+  # Log metrics after training
+  client.log_metrics({
+      "accuracy": 0.92,
+      "loss": 0.15
+  })
+
+  # Push changes to Dagshub
+  client.push()
+  ```
+  <br>
+  This snippet shows how easy it is to log experiment metadata programmatically, enabling automated tracking and reproducibility.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Platform        | Focus Area                  | Pricing Model                         | Strengths                                  |
+  |-----------------|-----------------------------|-------------------------------------|--------------------------------------------|
+  | **Dagshub**     | Versioning + Collaboration  | Free tier + Paid plans (starts ~$10/user/month) | Unified platform, Git-based, strong dataset versioning |
+  | **Weights & Biases** | Experiment tracking        | Freemium + Enterprise               | Advanced experiment tracking and visualization |
+  | **Neptune.ai**  | Experiment management       | Freemium + Paid tiers               | Flexible metadata tracking, integrations    |
+  | **MLflow**      | Open-source experiment tracking | Free                              | Open-source, extensible                      |
+  | **DVC**         | Data & model versioning     | Open-source + Paid cloud storage    | Strong data versioning, CLI-based            |
+
+  Dagshub stands out by combining **version control, experiment tracking, and collaboration** into a single platform with a strong focus on reproducibility and team workflows.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Dagshub is **deeply embedded in the Python data science ecosystem**:
+
+  - Supports popular ML libraries like **PyTorch**, **TensorFlow**, **Scikit-learn**, and **XGBoost**.
+  - Provides a **Python SDK** for seamless experiment tracking and data versioning.
+  - Integrates with **Jupyter Notebooks** for interactive workflow management.
+  - Compatible with **DVC**, a Python-friendly data versioning tool.
+  - Enables Python users to adopt Git-based workflows for datasets and models without friction.
+
+  ---
+
+  ## 📋 Summary
+
+  Dagshub is an all-in-one platform designed to:
+
+  - Bring **order and transparency** to machine learning projects.
+  - Enable **collaborative, reproducible workflows** across teams.
+  - Integrate **seamlessly with existing tools** and the Python ecosystem.
+  - Provide **robust version control** for datasets, models, and experiments.
+
+  If your team struggles with managing ML projects at scale or wants to boost reproducibility and collaboration, Dagshub is a powerful, modern solution worth exploring.
+
+  ---

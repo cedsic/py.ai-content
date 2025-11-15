@@ -1,0 +1,123 @@
+name: "Seaborn"
+slug: "seaborn"
+headline: "Statistical data visualization built on Matplotlib."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/mwaskom/seaborn"
+  - label: "Docs"
+    url: "https://seaborn.pydata.org/"
+overview: |
+  Seaborn is a powerful Python visualization library built on top of Matplotlib, designed to make statistical graphics **more attractive, informative, and easier to create**. It abstracts away much of the complexity involved in plotting complex statistical relationships, allowing users to focus on data insight rather than intricate plotting details. By leveraging Pandas DataFrames and integrating seamlessly with the broader Python data stack, Seaborn has become a go-to tool for data scientists, analysts, and researchers.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Capability                        | Description                                                                                  |
+  |---------------------------------|----------------------------------------------------------------------------------------------|
+  | **✨ High-Level Plotting API**      | Create common statistical plots quickly with minimal code (e.g., scatter, box, violin plots) |
+  | **📊 DataFrame Integration**        | Works natively with Pandas DataFrames for intuitive data handling                            |
+  | **⚙️ Automatic Statistical Computation** | Computes aggregations, confidence intervals, and kernel density estimates automatically     |
+  | **🎨 Theming & Aesthetics**         | Built-in themes and color palettes produce polished, publication-quality graphics            |
+  | **🗂 Multi-Plot Grids**             | Easily create complex multi-plot layouts with `FacetGrid` and `PairGrid`                     |
+  | **📋 Support for Categorical Data**| Specialized plots for categorical variables (e.g., swarm plots, count plots)                 |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Seaborn shines in scenarios where **exploratory data analysis (EDA)** and **statistical visualization** are essential:
+
+  - 🔍 **Exploring distributions** of variables with histograms, KDE plots, and rug plots.
+  - 🔗 **Visualizing relationships** between variables using scatter plots, regression lines, and pairwise plots.
+  - 📊 **Comparing groups** with boxplots, violin plots, and bar plots.
+  - 🧩 **Analyzing correlations** with heatmaps and cluster maps.
+  - 🗣 **Communicating results** in reports, presentations, or publications with visually appealing charts.
+
+  ---
+
+  ## 🤔 Why People Use Seaborn
+
+  - **Simplicity & Speed:** High-level functions minimize boilerplate code.
+  - **Statistical Insight:** Automatically computes and visualizes statistical summaries.
+  - **Beautiful Defaults:** Attractive default styles reduce the need for manual tweaking.
+  - **Seamless Integration:** Works effortlessly with Pandas and NumPy data structures.
+  - **Flexibility:** Allows customization when needed without losing simplicity.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Seaborn fits naturally into the Python data ecosystem:
+
+  | Tool/Library      | Integration Aspect                                                                                  |
+  |-------------------|---------------------------------------------------------------------------------------------------|
+  | **Pandas**        | Directly accepts DataFrames and Series for plotting, enabling smooth data manipulation workflows.  |
+  | **Matplotlib**    | Built on Matplotlib; users can customize plots further by accessing underlying Matplotlib objects. |
+  | **NumPy**         | Supports NumPy arrays as inputs for numerical data.                                               |
+  | **Jupyter Notebooks** | Enables inline, interactive visualizations with rich output formatting.                         |
+  | **SciPy / Statsmodels** | Complements statistical modeling libraries by visualizing model results and diagnostics.       |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **Language:** Python
+  - **Dependencies:** Matplotlib, Pandas, NumPy, SciPy (optional)
+  - **License:** BSD License (open-source)
+  - **Installation:**  `pip install seaborn`
+  - **Plotting Paradigm:** Declarative, data-centric plotting with support for tidy data structures.
+
+  ---
+
+  ## 🐍 Example: Visualizing Tips Dataset
+
+  ```python
+  import seaborn as sns
+  import matplotlib.pyplot as plt
+
+  # Load example dataset
+  tips = sns.load_dataset("tips")
+
+  # Create a violin plot to visualize total bill distribution by day and sex
+  plt.figure(figsize=(8,6))
+  sns.violinplot(x="day", y="total_bill", hue="sex", data=tips, split=True, palette="muted")
+  plt.title("Total Bill Distribution by Day and Gender")
+  plt.show()
+  ```
+  <br>
+  This code snippet demonstrates how easily Seaborn creates a **split violin plot** that compares distributions across categories with minimal code.
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Tool          | Description                                      | Pricing                |
+  |---------------|-------------------------------------------------|-----------------------|
+  | **Matplotlib**| Low-level, highly customizable plotting library | Free, open-source      |
+  | **Plotly**    | Interactive, web-based visualizations            | Free tier + paid plans |
+  | **ggplot (Python port)** | Grammar of graphics style plotting       | Free, open-source      |
+  | **Bokeh**     | Interactive visualizations for web browsers      | Free, open-source      |
+  | **Altair**    | Declarative statistical visualization            | Free, open-source      |
+
+  **Seaborn is completely free and open-source**, making it accessible for all users without licensing concerns.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Seaborn is a **cornerstone of the Python data science toolkit**, often used alongside:
+
+  - **Pandas** for data manipulation
+  - **NumPy** for numerical operations
+  - **SciPy/Statsmodels** for statistical analysis
+  - **Scikit-learn** for machine learning workflows
+  - **Jupyter Notebooks** for interactive analysis and reporting
+
+  Its tight coupling with Pandas and Matplotlib ensures it fits naturally into almost any Python-based data workflow, bridging the gap between raw data and insightful visualization.
+
+  ---
+
+  ## ✨ Summary
+
+  Seaborn empowers users to **explore, understand, and communicate data insights** through beautiful, statistically-informed visualizations — all while requiring minimal code. Whether you’re a beginner or an experienced data scientist, Seaborn’s elegant API and polished aesthetics make it an indispensable tool in the Python ecosystem.
+
+  ---

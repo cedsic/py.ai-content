@@ -1,0 +1,134 @@
+name: "PIL/Pillow"
+slug: "pil-pillow"
+headline: "Python imaging library for easy image manipulation."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/python-pillow/Pillow"
+  - label: "Docs"
+    url: "https://pillow.readthedocs.io/"
+overview: |
+  **PIL (Python Imaging Library)**, and its actively maintained fork **Pillow**, are the go-to libraries for image processing in Python. Whether you’re a developer, data scientist, or hobbyist, Pillow brings powerful, easy-to-use image manipulation capabilities right into your Python environment. It abstracts away the complexity of low-level image processing, offering a clean, high-level API to open, edit, and save images effortlessly.
+description: |
+  ## 🖼️ Core Capabilities
+
+  - **Image Editing:** Resize, crop, rotate, flip, and apply a variety of filters and transformations.
+  - **Format Support:** Open and save images in popular formats like PNG, JPEG, GIF, BMP, TIFF, and more.
+  - **Drawing & Text:** Add geometric shapes, lines, and text with customizable fonts and colors.
+  - **Color Manipulation:** Convert between color spaces, adjust brightness, contrast, and apply color filters.
+  - **Image Enhancement:** Sharpen, blur, and apply advanced filters to enhance image quality.
+  - **Batch Processing & Automation:** Integrate image workflows into scripts and applications for bulk processing.
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  | Use Case                          | Description                                                                                  |
+  |----------------------------------|----------------------------------------------------------------------------------------------|
+  | **🌐 Web Development**              | Generate thumbnails, optimize images for faster loading, and automate image resizing.        |
+  | **📊 Data Science & Machine Learning** | Preprocess images for training models: normalization, augmentation, and format conversion.   |
+  | **🎭 Digital Art & Design**         | Programmatically create and manipulate graphics, add text overlays, and apply effects.       |
+  | **🤖 Automation Scripts**           | Batch convert image formats, watermark photos, or extract metadata in bulk.                  |
+  | **🎓 Education**                    | Teach image processing concepts with accessible Python code.                                 |
+
+  ---
+
+  ## 💡 Why People Use Pillow
+
+  - **Simplicity:** Intuitive API that’s easy to learn and integrate.
+  - **Versatility:** Supports a wide range of image formats and operations.
+  - **Active Development:** Continuously updated with bug fixes and new features.
+  - **Python Ecosystem Friendly:** Works seamlessly with popular Python libraries like NumPy, OpenCV, and matplotlib.
+  - **Cross-Platform:** Runs on Windows, macOS, Linux, and even embedded systems.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Pillow shines in the Python ecosystem by working smoothly alongside:
+
+  - **NumPy:** Convert images to arrays for numerical operations and back.
+  - **OpenCV:** Use Pillow for image loading and format conversion, then leverage OpenCV’s advanced computer vision algorithms.
+  - **matplotlib & seaborn:** Display and annotate images in scientific plots.
+  - **Flask/Django:** Dynamically process images in web applications.
+  - **TensorFlow/PyTorch:** Preprocess and augment images before feeding them into deep learning models.
+
+  Example: Converting a Pillow image to a NumPy array for ML processing
+
+  ```python
+  from PIL import Image
+  import numpy as np
+
+  img = Image.open('example.jpg')
+  img_array = np.array(img)
+  print(f"Image shape: {img_array.shape}")
+  ```
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  - **Written in:** Python and C for performance-critical components.
+  - **Supported Python Versions:** Compatible with Python 3.6+.
+  - **Installation:** Simple via pip `pip install Pillow`
+  - **Extensibility:** Custom filters and plugins can be developed.
+  - **API Design:** Object-oriented with `Image` as the core class, offering methods like `.resize()`, `.filter()`, `.rotate()`, `.save()`, etc.
+  - **Performance:** Efficient memory handling and fast decoding/encoding for common formats.
+
+  ---
+
+  ## 🖼️ Example: Creating a Thumbnail with Pillow
+
+  ```python
+  from PIL import Image
+
+  def create_thumbnail(input_path, output_path, size=(128, 128)):
+      with Image.open(input_path) as img:
+          img.thumbnail(size)
+          img.save(output_path)
+          print(f"Thumbnail saved at {output_path}")
+
+  create_thumbnail('input.jpg', 'thumbnail.jpg')
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool             | Description                                      | Pricing          | Notes                                 |
+  |------------------|------------------------------------------------|------------------|-------------------------------------|
+  | **Pillow**       | Python imaging library, free and open-source    | **Free (MIT License)** | Most popular for Python image tasks |
+  | **OpenCV**       | Computer vision library with image processing   | Free (BSD License) | More complex, broader CV features    |
+  | **scikit-image** | Scientific image processing for Python          | Free (BSD License) | Focused on scientific/image analysis |
+  | **ImageMagick**  | Command-line image manipulation tool             | Free (Open Source) | Powerful but external to Python      |
+  | **Wand**         | Python binding for ImageMagick                   | Free (MIT License) | Python interface for ImageMagick     |
+
+  Pillow’s **zero cost** and ease of use make it the default choice for many Python developers needing image manipulation without external dependencies.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Pillow is a **cornerstone library** in the Python ecosystem for image processing. It acts as a bridge between raw image data and higher-level applications, enabling:
+
+  - Seamless integration with scientific computing (NumPy, SciPy).
+  - Essential preprocessing for machine learning pipelines.
+  - Enabling web developers to efficiently manage media assets.
+  - Support for educational tools and prototyping.
+
+  Its widespread adoption and active community ensure it remains a reliable and evolving tool in Python’s imaging landscape.
+
+  ---
+
+  ## 📋 Summary
+
+  | **Why Choose Pillow?**                           |
+  |-------------------------------------------------|
+  | ✅ Easy to learn and use                          |
+  | ✅ Supports a broad range of image formats       |
+  | ✅ Integrates well with Python scientific stack  |
+  | ✅ Actively maintained and well-documented       |
+  | ✅ Free and open source                           |
+
+  Pillow transforms image processing in Python from a daunting task into a smooth, enjoyable experience — empowering developers to create, automate, and innovate with images.
+
+  ---

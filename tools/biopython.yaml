@@ -1,0 +1,136 @@
+name: "BioPython"
+slug: "biopython"
+headline: "Python tools for computational biology."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/biopython/biopython"
+  - label: "Docs"
+    url: "https://biopython.org/"
+overview: |
+  **BioPython** is an open-source collection of Python tools tailored for computational biology and bioinformatics. It streamlines the analysis, manipulation, and visualization of biological data, enabling researchers to transform complex biological questions into programmable workflows. By bridging biology and programming, BioPython removes the bottlenecks of manual data processing and accelerates discovery in genomics, proteomics, and beyond.
+description: |
+  ## 🧬 Core Capabilities
+
+  BioPython offers a rich suite of functionalities designed to cover diverse bioinformatics needs:
+
+  | Capability               | Description                                                                                  |
+  |--------------------------|----------------------------------------------------------------------------------------------|
+  | **🧬 Sequence Analysis**    | Handle DNA, RNA, and protein sequences — including transcription, translation, and mutation. |
+  | **📄 File Parsing**         | Read and write common bioinformatics formats like FASTA, GenBank, PDB, Clustal, and more.    |
+  | **🗄️ Database Access**      | Interface with biological databases (NCBI, UniProt, etc.) for fetching sequences and annotations. |
+  | **🔗 Sequence Alignments**  | Perform pairwise and multiple sequence alignments using built-in algorithms.                  |
+  | **🏗️ Structural Bioinformatics** | Analyze 3D macromolecular structures (PDB files), extract features, and visualize.       |
+  | **🌳 Phylogenetics**        | Construct and manipulate phylogenetic trees to study evolutionary relationships.              |
+  | **🧬 Population Genetics**  | Tools for analyzing genetic variation and polymorphisms.                                     |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  BioPython is the tool of choice for:
+
+  - **🧬 Genomic and Transcriptomic Analysis**: Automate the processing of DNA/RNA sequences, identify motifs, and annotate genes.
+
+  - **🔍 Comparative Genomics**: Align sequences from different species to detect conserved regions or evolutionary divergence.
+
+  - **🧪 Protein Structure Analysis**: Parse PDB files to study protein folding, active sites, and molecular interactions.
+
+  - **🔄 Data Integration and Pipeline Automation**: Combine data retrieval, analysis, and visualization steps in reproducible Python scripts.
+
+  - **🎓 Educational Purposes**: Teach bioinformatics concepts interactively using Python notebooks.
+
+  ---
+
+  ## ❓ Why Use BioPython?
+
+  - **Open Source & Community-Driven**: Continuously improved by a vibrant community of bioinformaticians and developers.
+
+  - **Extensive Format Support**: Covers virtually all major bioinformatics file types and databases.
+
+  - **Seamless Python Integration**: Leverages Python’s readability, libraries, and ecosystem for rapid development.
+
+  - **Reproducibility & Automation**: Enables scripting of complex workflows, reducing human error and improving reproducibility.
+
+  - **Cross-Platform Compatibility**: Runs on Windows, macOS, and Linux without hassle.
+
+  ---
+
+  ## 🔗 Integration with Other Tools and BioPython in the Python Ecosystem
+
+  BioPython plays well within the broader scientific Python ecosystem and is a cornerstone of scientific computing in Python, complementing libraries like:
+
+  | Integration Partner       | Role & Benefit                                      |
+  |---------------------------|---------------------------------------------------|
+  | **NumPy / SciPy**         | Numerical computations and statistical analysis.   |
+  | **Matplotlib / Seaborn / Plotly** | Data visualization of sequences, alignments, phylogenies, and other bioinformatics data. |
+  | **Pandas**                | Data manipulation and tabular data handling.       |
+  | **scikit-learn**          | Machine learning on biological data.                |
+  | **Jupyter Notebooks**     | Interactive exploration and teaching.               |
+  | **Bioconductor (via rpy2)** | Cross-language interoperability with R bioinformatics tools. |
+  | **External Tools**        | Interfaces with BLAST, ClustalW, MUSCLE, and other command-line bioinformatics software. |
+
+  Its synergy with these libraries makes BioPython a powerful tool for end-to-end bioinformatics workflows, from raw data processing to advanced analyses and visualization.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  BioPython is implemented in pure Python with optional C extensions for performance-critical components. It supports Python 3.x and is installable via pip: `pip install biopython`
+
+  Its modular architecture includes subpackages such as:
+
+  - `Bio.Seq` — sequence objects and operations  
+  - `Bio.Align` — alignment handling  
+  - `Bio.PDB` — protein structure analysis  
+  - `Bio.Entrez` — NCBI database access  
+  - `Bio.Phylo` — phylogenetic tree manipulation  
+
+  ---
+
+  ## 🧪 Example: DNA Sequence Analysis with BioPython
+
+  Here’s a simple script demonstrating loading a DNA sequence, transcribing to RNA, and translating to a protein:
+
+  ```python
+  from Bio.Seq import Seq
+
+  # Define a DNA sequence
+  dna_seq = Seq("ATGGCCATTGTAATGGGCCGCTGAAAGGGTGCCCGATAG")
+
+  # Transcribe DNA to RNA
+  rna_seq = dna_seq.transcribe()
+  print(f"RNA Sequence: {rna_seq}")
+
+  # Translate RNA to Protein
+  protein_seq = rna_seq.translate()
+  print(f"Protein Sequence: {protein_seq}")
+  ```
+  <br>
+  **Output:**
+
+  ```
+  RNA Sequence: AUGGCCAUUGUAAUGGGCCGCUGAAAGGGUGCCCGAUAG
+  Protein Sequence: MAIVMGR*KGAR*
+  ```
+
+  ---
+
+  ## 💰 Competitors and Pricing
+
+  | Tool            | Description                                    | Pricing           |
+  |-----------------|------------------------------------------------|-------------------|
+  | **BioPython**   | Python-based, open-source bioinformatics toolkit | Free (Open Source) |
+  | **Bioconductor**| R-based comprehensive bioinformatics packages   | Free (Open Source) |
+  | **EMBOSS**      | Suite of bioinformatics tools (C-based)          | Free (Open Source) |
+  | **Geneious**    | Commercial bioinformatics software with GUI      | Paid, subscription |
+  | **CLC Genomics Workbench** | Commercial, comprehensive bioinformatics platform | Paid, subscription |
+
+  BioPython stands out by being free, flexible, and deeply integrated with Python’s ecosystem, making it ideal for developers and researchers comfortable with coding.
+
+  ---
+
+  ## 📝 Summary
+
+  BioPython empowers researchers by transforming biological data into programmable, reproducible, and scalable analyses. Its rich feature set, active community, and deep integration with Python’s scientific stack make it an indispensable tool for modern bioinformatics.
+
+  ---

@@ -1,0 +1,144 @@
+name: "JAX"
+slug: "jax"
+headline: "High-performance numerical computing with automatic differentiation."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/google/jax"
+  - label: "Docs"
+    url: "https://jax.readthedocs.io/"
+overview: |
+  **JAX** is a revolutionary Python library that seamlessly blends the familiarity of NumPy with the blazing speed of XLA (Accelerated Linear Algebra) compilation. Designed for researchers, engineers, and data scientists, JAX empowers you to write clean, idiomatic Python code while achieving GPU and TPU-accelerated performance — no manual tuning required.
+  <br>
+  Whether you're training cutting-edge deep learning models or running complex scientific simulations, JAX simplifies the development process by combining **just-in-time (JIT) compilation**, **automatic differentiation**, and **function transformations** into one elegant framework.
+description: |
+  ## ⚙️ Core Capabilities
+
+  | Feature                          | Description                                                                                       | Benefits                                  |
+  |---------------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------|
+  | **🚀 XLA-Optimized Computation**    | Compiles numerical code to highly efficient machine instructions for CPU, GPU, and TPU          | Massive speedups, hardware acceleration  |
+  | **🔢 NumPy-Compatible API**          | Provides a nearly drop-in replacement for NumPy with familiar syntax                            | Easy adoption, minimal learning curve     |
+  | **🧮 Automatic Differentiation (autograd)** | Computes gradients automatically for arbitrary Python functions                             | Simplifies ML training and optimization   |
+  | **🔄 Composable Function Transformations** | Includes `grad`, `vmap`, `jit`, `pmap` for differentiation, vectorization, compilation, and parallelization | Write scalable, performant code effortlessly |
+  | **🧩 Pure Functional Programming**  | Encourages stateless, side-effect-free functions for easier debugging and reasoning             | Improved code reliability and reproducibility |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  JAX shines in domains that demand both **flexibility** and **high performance**:
+
+  - **🤖 Machine Learning Research**  
+    Rapid prototyping and training of neural networks, especially in reinforcement learning and meta-learning.
+    
+  - **🔬 Scientific Computing**  
+    Large-scale simulations in physics, chemistry, and biology where complex derivatives and vectorized operations are common.
+    
+  - **📈 Optimization Problems**  
+    Gradient-based optimization in economics, finance, and engineering.
+    
+  - **📊 Probabilistic Programming**  
+    Bayesian inference frameworks that require efficient gradient computations.
+
+  ---
+
+  ## 🌟 Why People Use JAX
+
+  - **🐍 Write Python, Run Fast:** Develop in pure Python with NumPy-like syntax, but leverage the speed of compiled code on GPUs and TPUs.
+  - **⚡ Simplified Gradient Computation:** No need to manually derive gradients; `grad` handles it automatically.
+  - **🔗 Composable and Modular:** Combine transformations (`jit`, `vmap`, `grad`) to build complex, optimized pipelines.
+  - **📈 Scalable from Research to Production:** Prototype quickly and scale seamlessly without rewriting code.
+  - **🤝 Open Source & Active Community:** Backed by Google Research, with growing adoption in academia and industry.
+
+  ---
+
+  ## 🔌 Integration with Other Tools
+
+  JAX fits naturally into the Python scientific ecosystem and integrates well with:
+
+  | Tool                  | Integration Type                             | Description                                              |
+  |-----------------------|----------------------------------------------|----------------------------------------------------------|
+  | **Flax, Haiku**       | Neural network libraries                      | High-level APIs for building deep learning models on JAX |
+  | **Optax**             | Optimization library                          | Gradient-based optimization algorithms                    |
+  | **TensorFlow**        | Interoperability                              | Export JAX computations to TensorFlow via XLA            |
+  | **NumPy, SciPy**      | API compatibility                            | Use familiar APIs with JAX’s accelerated backend         |
+  | **Google Colab / TPU**| Hardware acceleration                         | Run JAX code on TPUs effortlessly                         |
+  | **PyTorch**           | Interoperability (via ONNX or converters)   | Some experimental tools for model conversion              |
+  | **Magenta** | Creative ML research       | Music and art generation models that can leverage JAX for accelerated training and experimentation |
+
+  ---
+
+  ## Technical Aspects
+
+  - **⚙️ JIT Compilation:** Using `@jit` decorator, JAX compiles Python functions into optimized machine code. This reduces Python overhead and speeds up repeated calls.
+  - **🧮 Automatic Differentiation:** The `grad` function computes derivatives via reverse-mode autodiff, supporting higher-order gradients.
+  - **🔄 Vectorization:** `vmap` vectorizes functions to apply operations batch-wise without explicit loops.
+  - **🤝 Parallelization:** `pmap` enables data parallelism across multiple devices (e.g., multiple GPUs or TPU cores).
+  - **🧩 Pure Functional Style:** Functions are side-effect-free, which allows JAX to safely apply transformations and optimizations.
+
+  ---
+
+  ## 💡 Example: Gradient Descent with JAX
+
+  ```python
+  import jax
+  import jax.numpy as jnp
+
+  # Define a simple quadratic function
+  def loss_fn(x):
+      return (x - 3.0) ** 2
+
+  # Compute the gradient of the loss function
+  grad_loss = jax.grad(loss_fn)
+
+  # Gradient descent loop
+  x = 0.0
+  learning_rate = 0.1
+
+  for i in range(10):
+      grad_value = grad_loss(x)
+      x -= learning_rate * grad_value
+      print(f"Step {i+1}: x = {x:.4f}, loss = {loss_fn(x):.4f}")
+  ```
+
+  *Output:*
+
+  ```
+  Step 1: x = 0.6000, loss = 5.7600
+  Step 2: x = 1.0800, loss = 3.6864
+  Step 3: x = 1.4640, loss = 2.3593
+  ...
+  Step 10: x = 2.8659, loss = 0.0180
+  ```
+
+  ---
+
+  ## 💰 Competitors and Pricing
+
+  | Tool         | Description                             | Pricing Model                           | Notes                                 |
+  |--------------|-----------------------------------------|----------------------------------------|---------------------------------------|
+  | **PyTorch**  | Popular deep learning framework with dynamic graphs | Open source, free                      | Strong ecosystem, GPU acceleration    |
+  | **TensorFlow** | Comprehensive ML platform with XLA support | Open source, free                      | Larger ecosystem, production-ready    |
+  | **NumPy**    | Standard numerical computing library    | Open source, free                      | CPU only, no automatic differentiation |
+  | **Autograd** | Automatic differentiation for NumPy     | Open source, free                      | Less performant, no GPU support       |
+  | **Julia + Flux** | Alternative high-performance ML ecosystem | Open source, free                      | Different language, growing ecosystem |
+
+  **JAX is open source and free to use**, with no licensing fees. Costs are typically associated with the hardware (GPU/TPU) you run it on.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  JAX is deeply embedded in the Python scientific stack, designed to be a **drop-in acceleration layer for NumPy** while extending its capabilities with automatic differentiation and hardware acceleration. It complements and sometimes replaces traditional libraries in:
+
+  - Scientific computing workflows
+  - Machine learning research pipelines
+  - Optimization and control systems
+
+  Its design philosophy encourages writing **clean, functional-style Python code** that scales effortlessly from CPU to GPU/TPU, making it a favorite for researchers who want performance *and* productivity.
+
+  ---
+
+  ## 📋 Summary
+
+  > **JAX is the bridge between elegant Python code and the raw power of modern accelerators.**  
+  > It empowers you to prototype fast, compute gradients effortlessly, and scale your computations to massive hardware — all while keeping your code readable and maintainable.

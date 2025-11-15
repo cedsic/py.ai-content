@@ -1,0 +1,129 @@
+name: "scikit-learn"
+slug: "scikit-learn"
+headline: "High-performance Python library for machine learning and data analysis."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/scikit-learn/scikit-learn"
+  - label: "Docs"
+    url: "https://scikit-learn.org/"
+overview: |
+  **scikit-learn** is a widely-used, open-source **Python library** for **machine learning** and **data analysis**.  
+  It provides a consistent and user-friendly **API** for building **supervised** and **unsupervised learning models**, including tasks such as **classification**, **regression**, **clustering**, and **dimensionality reduction**.
+
+  Designed for both beginners and experienced **data scientists**, **scikit-learn** integrates seamlessly with **NumPy**, **pandas**, and **matplotlib**, enabling end-to-end **ML workflows** from **data preprocessing** to **model evaluation**.
+
+  The library emphasizes **simplicity**, **efficiency**, and **reproducibility**, making it a go-to tool for **research**, **prototyping**, and **production deployment**.
+description: |
+  ### 🚀 Key Features
+  - **Wide Algorithm Support**  🔍  
+    &nbsp; Includes algorithms for **decision trees**, **random forests**, **support-vector machines (SVMs)**, **linear models**, and **clustering methods**.  🌳🌲  
+  - **Supervised Learning**  🎓  
+    &nbsp; Train models on **labeled data** for tasks such as **regression** (predicting continuous values) and **classification** (predicting categories).  🏷️  
+  - **Unsupervised Learning**  🕵️‍♂️  
+    &nbsp; Identify patterns in **unlabeled datasets** using **clustering** (e.g., **KMeans**) and **dimensionality reduction** (e.g., **PCA**).  📊  
+  - **Model Evaluation & Tuning**  ⚙️  
+    &nbsp; Built-in tools for **cross-validation**, **metrics**, and **hyperparameter optimization** to prevent issues like **model overfitting**.  📈  
+  - **Data Preprocessing & Feature Engineering**  🧹  
+    &nbsp; Utilities for **scaling**, **encoding**, **imputing missing values**, and **feature extraction**, ensuring your data is ready for modeling.  🛠️  
+  - **Pipeline Support**  🔗  
+    &nbsp; Streamline workflows by chaining **preprocessing**, **feature selection**, and **modeling steps** into robust pipelines.  🚂  
+  - **Integration Friendly**  🤝  
+    &nbsp; Works with **NumPy**, **pandas**, **matplotlib**, and other **Python ML libraries** for flexible, end-to-end solutions.  🐍  
+  - **Extensible & Community Driven**  🌐  
+    &nbsp; Regularly updated with contributions from the global **open-source community**, ensuring **state-of-the-art algorithms** are available.  🏆  
+
+  ---
+
+  ### 🎯 Use Cases
+  scikit-learn is ideal for **data scientists**, **analysts**, **researchers**, and **ML engineers** seeking to rapidly develop, evaluate, and deploy **machine learning models**.  👩‍💻👨‍💻
+
+  Common scenarios include:
+
+  - **Predictive Analytics**  🔮  
+    &nbsp; Sales forecasting, risk assessment, and churn prediction.  📊  
+  - **Customer Segmentation**  🧩  
+    &nbsp; Grouping users with **clustering algorithms** for marketing and personalization.  🎯  
+  - **Recommendation Systems**  💡  
+    &nbsp; Suggest products or content using collaborative filtering and supervised learning.  🛍️  
+  - **Fraud & Anomaly Detection**  🚨  
+    &nbsp; Identify unusual patterns in financial or transactional data.  🕵️‍♀️  
+  - **Educational & Research Prototyping**  📚  
+    &nbsp; Quickly test hypotheses with decision trees, random forests, or SVMs.  🧪  
+  - **Model Evaluation & Robustness**  🛡️  
+    &nbsp; Use cross-validation and hyperparameter tuning to prevent model overfitting and improve generalization.  ✔️  
+
+  ---
+
+  ### ⚙️ How It Works
+  scikit-learn follows a simple **fit/predict workflow**:  🔄
+
+  1. **Load & Preprocess Data**  🗃️  
+    &nbsp; Use **pandas** or **NumPy** to clean, scale, and transform data.  🧹  
+  2. **Choose an Estimator**  🎯  
+    &nbsp; Examples: `RandomForestClassifier`, `SVC`, `KMeans`.  🏹  
+  3. **Train the Model**  🏋️‍♂️  
+    &nbsp; Call `.fit()` to train your model on the training dataset.  📚  
+  4. **Make Predictions**  🔮  
+    &nbsp; Use `.predict()` or `.predict_proba()` for classification/regression outputs.  🎲  
+  5. **Evaluate & Tune**  🧰  
+    &nbsp; Apply cross-validation, metrics, and `GridSearchCV`/`RandomizedSearchCV` for hyperparameter optimization.  📈  
+  6. **Pipeline Automation**  🤖  
+    &nbsp; Combine preprocessing, model fitting, and evaluation into reusable pipelines for consistent workflows.  🔗  
+
+  ---
+
+  ### 💡 Key Concepts in Action
+  - **Decision Trees & Random Forests**  🌳  
+    &nbsp; Flexible, interpretable models that handle classification and regression tasks.  🔍  
+  - **Support-Vector Machines (SVMs)**  ✂️  
+    &nbsp; Powerful for high-dimensional data, separating classes with optimal hyperplanes.  📐  
+  - **Supervised vs. Unsupervised Learning**  ⚖️  
+    &nbsp; Predict outcomes with labeled data or discover hidden patterns in unlabeled datasets.  🔍  
+  - **Model Overfitting**  ⚠️  
+    &nbsp; Tools to detect and mitigate overfitting, ensuring models generalize well to new data.  🛡️  
+
+  ---
+
+  ### 🛠️ Example in Action
+  A **data science team** can use scikit-learn to build a **credit risk prediction model**:
+
+  ```python
+  from sklearn.ensemble import RandomForestClassifier
+  from sklearn.model_selection import train_test_split, cross_val_score
+  from sklearn.preprocessing import StandardScaler
+  import pandas as pd
+
+  # Load data
+  data = pd.read_csv("credit_data.csv")
+  X = data.drop("default", axis=1)
+  y = data["default"]
+
+  # Preprocess features
+  scaler = StandardScaler()
+  X_scaled = scaler.fit_transform(X)
+
+  # Split data
+  X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+  # Train model
+  model = RandomForestClassifier(n_estimators=100, random_state=42)
+  model.fit(X_train, y_train)
+
+  # Evaluate model
+  scores = cross_val_score(model, X_test, y_test, cv=5)
+  print("Cross-validated accuracy:", scores.mean())
+  ```
+  <br>
+  This example demonstrates:  
+  - **Data preprocessing** using `StandardScaler`  
+  - **Training** a Random Forest Classifier  
+  - **Evaluating performance** with cross-validation  
+  - Building a **robust, reusable ML workflow**
+
+  ---
+
+  ### 📌 Additional Notes
+  - **Ideal for small-to-medium datasets**; for large-scale deep learning, consider TensorFlow, PyTorch, or JAX.  
+  - **Pipeline & modular design** allows combining multiple ML steps into production-ready workflows.  
+  - **Interpretability** — Models like decision trees and random forests provide insights into feature importance.  
+  - **Extensibility** — Integrates easily with tools like Hugging Face, MLflow, Dask, and domain-specific frameworks such as MONAI for medical imaging, enabling scalable and specialized ML workflows.

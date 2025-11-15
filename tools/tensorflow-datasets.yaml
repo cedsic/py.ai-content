@@ -1,0 +1,147 @@
+name: "TensorFlow Datasets"
+slug: "tensorflow-datasets"
+headline: "Ready-to-use datasets for TensorFlow and machine learning."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/tensorflow/datasets"
+  - label: "Docs"
+    url: "https://www.tensorflow.org/datasets"
+overview: |
+  In the fast-paced world of machine learning, **access to clean, well-structured, and standardized datasets** is often a critical bottleneck. Enter **TensorFlow Datasets (TFDS)** — an open-source library that provides a **curated collection of ready-to-use datasets** optimized for TensorFlow and other ML frameworks. TFDS simplifies the data pipeline by offering **versioned, consistent, and multi-modal datasets** that enable researchers, educators, and engineers to focus on building and evaluating models instead of wrangling data.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                        | Description                                                                                   |
+  |-------------------------------|-----------------------------------------------------------------------------------------------|
+  | **📚 Curated & Versioned Datasets** | Access to 200+ datasets with standardized formats and version control for reproducibility.    |
+  | **🖼️ Multi-Modal Data Support**      | Includes images, text, audio, video, and structured data across various domains.             |
+  | **🔗 Seamless Integration**          | Works out-of-the-box with TensorFlow, JAX, PyTorch, and NumPy.                               |
+  | **⚙️ Automatic Data Preparation**    | Handles downloading, extraction, and preprocessing transparently.                            |
+  | **🚀 Efficient Data Loading**        | Supports streaming, caching, and shuffling for scalable training workflows.                  |
+  | **🎛️ Consistent API**                 | Uniform interface to load any dataset with minimal code changes.                             |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  TensorFlow Datasets is ideal for:
+
+  - **⚡ Rapid Prototyping & Experimentation:** Quickly try new models on benchmark datasets like CIFAR-10, MNIST, or IMDB Reviews.
+  - **📊 Benchmarking & Evaluation:** Compare model performance on standardized datasets with consistent preprocessing.
+  - **🎓 Educational Purposes:** Simplify tutorials and courses by providing hassle-free dataset access.
+  - **🔄 Research Reproducibility:** Ensure experiments can be replicated exactly with versioned datasets.
+  - **🧩 Multi-modal ML Projects:** Leverage datasets spanning images, text, audio, and more without manual integration.
+
+  ---
+
+  ## 🤔 Why Use TensorFlow Datasets?
+
+  - ⏳ **Saves Time:** No need to manually download, clean, or preprocess datasets.
+  - 🔒 **Ensures Consistency:** Standardized formats reduce bugs and inconsistencies in data pipelines.
+  - 🔁 **Supports Reproducibility:** Dataset versions guarantee experiments can be rerun with identical data.
+  - 🔄 **Cross-framework Flexibility:** While built for TensorFlow, TFDS integrates well with other ML frameworks.
+  - 🌐 **Rich Dataset Catalog:** Covers a wide spectrum of domains from computer vision to natural language processing.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  TensorFlow Datasets fits naturally into the Python ML ecosystem:
+
+  | Tool / Framework | Integration Highlights                                         |
+  |------------------|---------------------------------------------------------------|
+  | **TensorFlow**   | Native support; outputs `tf.data.Dataset` objects ready to feed models. |
+  | **PyTorch**      | Convert TFDS datasets to PyTorch DataLoader via `torch.utils.data.Dataset`. |
+  | **JAX/Flax**     | Easily converts datasets into NumPy arrays or JAX tensors.    |
+  | **NumPy**        | Provides datasets as NumPy arrays for flexible manipulation.  |
+  | **Keras**        | Seamless integration with Keras model training pipelines.    |
+  | **Google Colab** | Pre-installed and ready to use in cloud notebooks for rapid prototyping. |
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  TFDS is implemented in Python and provides a high-level API to:
+
+  1. 📥 **Download** dataset files from remote sources.
+  2. 🛠️ **Prepare** datasets by extracting, decoding, and formatting data.
+  3. 📂 **Load** datasets as iterable `tf.data.Dataset` objects or NumPy arrays.
+  4. 🏷️ **Version** datasets to guarantee reproducibility.
+  5. 🧩 **Extend** with custom datasets if needed.
+
+  Datasets are stored in a local cache directory (`~/tensorflow_datasets/` by default) to avoid repeated downloads.
+
+  ---
+
+  ## 🐍 Example: Loading and Using MNIST with TFDS
+
+  ```python
+  import tensorflow_datasets as tfds
+  import tensorflow as tf
+
+  # Load MNIST dataset (train and test splits)
+  (ds_train, ds_test), ds_info = tfds.load(
+      'mnist',
+      split=['train', 'test'],
+      shuffle_files=True,
+      as_supervised=True,
+      with_info=True,
+  )
+
+  # Prepare the dataset for training
+  def normalize_img(image, label):
+      return tf.cast(image, tf.float32) / 255.0, label
+
+  ds_train = ds_train.map(normalize_img).cache().shuffle(1000).batch(32).prefetch(tf.data.AUTOTUNE)
+  ds_test = ds_test.map(normalize_img).batch(32).prefetch(tf.data.AUTOTUNE)
+
+  # Build a simple model
+  model = tf.keras.Sequential([
+      tf.keras.layers.Flatten(input_shape=ds_info.features['image'].shape),
+      tf.keras.layers.Dense(128, activation='relu'),
+      tf.keras.layers.Dense(10),
+  ])
+
+  model.compile(
+      optimizer='adam',
+      loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+      metrics=['accuracy'],
+  )
+
+  # Train the model
+  model.fit(ds_train, epochs=5, validation_data=ds_test)
+  ```
+
+  ---
+
+  ## 🥊 Competitors & Pricing
+
+  | Tool / Service           | Description                                    | Pricing                         |
+  |-------------------------|------------------------------------------------|--------------------------------|
+  | **TorchVision Datasets** | PyTorch’s dataset library for vision tasks.    | Free, open-source              |
+  | **Hugging Face Datasets**| Extensive dataset library, especially NLP.     | Free, open-source; paid tiers for hosted datasets and API usage |
+  | **Kaggle Datasets**      | Community-driven dataset repository.            | Free                          |
+  | **Google Dataset Search**| Search engine for datasets across the web.     | Free                          |
+
+  **TensorFlow Datasets is completely free and open-source**, maintained by the TensorFlow team and community contributors.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  TFDS is a **cornerstone package** in the Python ML ecosystem, especially for TensorFlow users. Its tight integration with `tf.data` pipelines makes it a natural choice for scalable, high-performance ML workflows. Moreover, its compatibility with NumPy, PyTorch, and JAX broadens its appeal beyond TensorFlow, enabling flexible dataset loading regardless of the preferred ML framework.
+
+  ---
+
+  ## 🚀 Summary
+
+  TensorFlow Datasets empowers ML practitioners by:
+
+  - Providing **easy access to a vast library of standardized datasets**
+  - Ensuring **reproducibility** through versioning and consistent preprocessing
+  - Enabling **seamless integration** with TensorFlow and other Python ML tools
+  - Supporting **multi-modal data** types for diverse ML challenges
+
+  Whether you're a beginner experimenting with your first model or a researcher benchmarking state-of-the-art architectures, TFDS is an indispensable tool in your ML toolkit.
+
+  ---

@@ -1,0 +1,146 @@
+name: "pandas"
+slug: "pandas"
+headline: "Powerful Python library for data manipulation and analysis."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/pandas-dev/pandas"
+  - label: "Docs"
+    url: "https://pandas.pydata.org/"
+overview: |
+  In the world of data science and analytics, **pandas** stands out as one of the most essential Python libraries for working with structured data. Whether you're a data analyst, scientist, or developer, pandas offers **intuitive, powerful, and flexible tools** to load, clean, transform, and analyze data efficiently. Its cornerstone lies in making tabular data manipulation **simple and expressive**, turning what would otherwise be tedious tasks into elegant, readable code.
+description: |
+  ## ⚙️ Core Capabilities
+
+  | Feature                         | Description                                                                                  |
+  |--------------------------------|----------------------------------------------------------------------------------------------|
+  | **🗃️ DataFrames & Series**         | Two primary data structures: DataFrame (2D tabular data) and Series (1D labeled array).      |
+  | **🧹 Data Cleaning & Transformation** | Handle missing data, filter, sort, reshape, and merge datasets with ease.                    |
+  | **📊 Grouping & Aggregation**      | Group data by categories and compute aggregate statistics quickly.                           |
+  | **⏰ Time-Series Analysis**        | Powerful date/time functionality for resampling, frequency conversion, and rolling windows. |
+  | **📥 Input/Output Support**        | Read/write from/to CSV, Excel, SQL databases, JSON, and more.                               |
+  | **⚡ Performance Optimization**   | Vectorized operations and integration with NumPy for fast computation.                      |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  - **🧹 Data Cleaning & Preparation:** Handle missing values, duplicates, and inconsistent data formats.
+  - **🔍 Exploratory Data Analysis (EDA):** Summarize datasets, compute statistics, and visualize trends.
+  - **💰 Financial Analysis:** Time-series data manipulation, calculating moving averages, returns, and risk metrics.
+  - **🤖 Machine Learning Pipelines:** Prepare features and labels by transforming raw data into model-ready formats.
+  - **📈 Reporting & Visualization:** Aggregate data for dashboards or export to visualization libraries like Matplotlib and Seaborn.
+
+  ---
+
+  ## 💡 Why People Use pandas
+
+  - **👍 User-Friendly API:** pandas’ syntax is intuitive and consistent, lowering the barrier to entry for newcomers.
+  - **🌟 Rich Functionality:** From simple indexing to complex reshaping, it covers a broad spectrum of data tasks.
+  - **🔗 Seamless Integration:** Works well with other Python libraries, creating a smooth data science workflow.
+  - **🌍 Open Source & Community-Driven:** Constantly evolving with contributions from thousands of developers worldwide.
+  - **🧩 Handles Real-World Data:** Designed to tackle messy, imperfect data common in practical scenarios.
+
+  ---
+
+  ## 🔄 Integration with Other Tools
+
+  pandas is **deeply embedded in the Python data ecosystem**, integrating effortlessly with:
+
+  - **NumPy:** pandas builds on NumPy arrays for fast numerical computations.
+  - **Matplotlib & Seaborn:** For data visualization, pandas DataFrames can be plotted directly.
+  - **scikit-learn:** Prepares and transforms data for machine learning models.
+  - **flaml:** Provides lightweight, efficient automated machine learning to quickly build and tune models on pandas-processed data.
+  - **Jupyter Notebooks:** Interactive data exploration and visualization.
+  - **SQLAlchemy:** Enables reading from and writing to SQL databases.
+  - **Dask:** Scales pandas workflows for big data by parallelizing computations.
+  - **pydanticai:** Enhances data validation and AI-driven data modeling to ensure data integrity throughout analysis pipelines.
+  - **Dagshub:** Facilitates data versioning, experiment tracking, and collaboration, making it easier to manage pandas-based data science projects in a reproducible and shareable way.
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  At its core, pandas revolves around two data structures:
+
+  - **Series:** A one-dimensional labeled array capable of holding any data type.
+  - **DataFrame:** A two-dimensional labeled data structure with columns that can be different types.
+
+  Its operations are **vectorized**, meaning they apply over entire arrays without explicit Python loops, resulting in significant speed-ups. pandas also supports **indexing** and **hierarchical indexing (MultiIndex)**, enabling complex data slicing and selection.
+
+  ---
+
+  ## 🐍 Example: Quick Data Analysis with pandas
+
+  ```python
+  import pandas as pd
+
+  # Sample sales data
+  data = {
+      'Date': pd.date_range('2023-01-01', periods=6),
+      'Region': ['East', 'West', 'East', 'West', 'East', 'West'],
+      'Sales': [250, 200, 300, 220, 280, 210]
+  }
+
+  df = pd.DataFrame(data)
+
+  # Set Date as index
+  df.set_index('Date', inplace=True)
+
+  # Calculate total sales by region
+  total_sales = df.groupby('Region')['Sales'].sum()
+
+  # Calculate 3-day rolling average sales
+  df['Rolling_Avg'] = df['Sales'].rolling(window=3).mean()
+
+  print("Total Sales by Region:")
+  print(total_sales)
+  print("\nData with Rolling Average:")
+  print(df)
+  ```
+  <br>
+  **Output:**
+
+  ```
+  Total Sales by Region:
+  Region
+  East    830
+  West    630
+  Name: Sales, dtype: int64
+
+  Data with Rolling Average:
+              Region  Sales  Rolling_Avg
+  Date                                  
+  2023-01-01   East    250          NaN
+  2023-01-02   West    200          NaN
+  2023-01-03   East    300   250.000000
+  2023-01-04   West    220   240.000000
+  2023-01-05   East    280   266.666667
+  2023-01-06   West    210   236.666667
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool           | Description                                        | Pricing Model                 |
+  |----------------|--------------------------------------------------|------------------------------|
+  | **pandas**     | Open-source Python library for data manipulation | **Free & Open Source**        |
+  | **polars**     | Fast DataFrame library written in Rust, optimized for performance and parallelism | Free & Open Source            |
+  | **R data.table**| High-performance R package for tabular data      | Free & Open Source            |
+  | **Apache Spark (PySpark)** | Distributed big data processing with DataFrame API | Open Source, Cloud costs may apply |
+  | **Dask**       | Parallel computing with pandas-like API          | Open Source                  |
+  | **Excel**      | Widely used spreadsheet tool                      | Commercial License           |
+
+  **pandas** is free and open source, making it accessible to individuals and enterprises alike, with no licensing costs.
+
+  ---
+
+  ## 🐍 pandas in the Python Ecosystem
+
+  pandas is a **cornerstone** of the Python data science stack, often the first tool used to wrangle data before feeding it into other libraries for visualization, statistical modeling, or machine learning. Its synergy with libraries like **NumPy**, **Matplotlib**, **scikit-learn**, and **Jupyter** notebooks makes it indispensable for anyone working with data in Python.
+
+  ---
+
+  ## 📝 Summary
+
+  > pandas is the **go-to library** for anyone dealing with structured data in Python. Its elegant data structures, rich feature set, and seamless integration with the broader Python ecosystem empower users to **clean, analyze, and visualize data effortlessly** — all while writing clean, readable code.

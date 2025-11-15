@@ -1,0 +1,118 @@
+name: "SciPy"
+slug: "scipy"
+headline: "Python library for advanced scientific and technical computing."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/scipy/scipy"
+  - label: "Docs"
+    url: "https://docs.scipy.org/doc/scipy/"
+overview: |
+  **SciPy** is an open-source Python library that builds on **NumPy** to provide a powerful collection of **scientific and numerical algorithms**. It offers modules for optimization, integration, interpolation, eigenvalue problems, algebraic equations, differential equations, signal and image processing, and more. SciPy is widely used in academia and industry for solving complex scientific and engineering problems with ease and efficiency.
+description: |
+  ## 🚀 Core Capabilities ⚙️
+
+  | Feature                      | Description                                                                                  |
+  |-----------------------------|----------------------------------------------------------------------------------------------|
+  | **Optimization** 🔧          | Algorithms for linear, nonlinear, and constrained optimization problems                      |
+  | **Numerical Integration** ➗  | Adaptive quadrature, multiple integration, and ODE solvers                                  |
+  | **Interpolation** 📈         | 1D and multidimensional interpolation techniques                                            |
+  | **Signal & Image Processing** 🎛️ | Filtering, Fourier transforms, convolution, and image manipulation                          |
+  | **Linear Algebra** 🔢        | Advanced matrix decompositions and eigenvalue solvers                                       |
+  | **Sparse Matrices** 🧮       | Efficient storage and operations for large sparse matrices                                  |
+  | **Statistical Functions** 📊 | Probability distributions, descriptive statistics, and hypothesis testing                   |
+
+  ---
+
+  ## 🎯 Key Use Cases 🎓
+
+  SciPy is essential for:
+
+  - **Researchers & Scientists:** 🔬 Modeling and simulating complex systems with numerical methods.
+  - **Engineers:** 🛠️ Solving differential equations, signal processing, and optimization tasks.
+  - **Data Scientists:** 📊 Preprocessing data and performing advanced numerical computations.
+  - **Educators:** 📚 Teaching computational science and applied mathematics concepts.
+
+  ---
+
+  ## 💡 Why People Use SciPy 💻
+
+  - **Comprehensive:** Covers a wide range of scientific computing needs in one package. ✅
+  - **Efficient:** Implements performance-critical code in compiled languages. ⚡
+  - **Well-Integrated:** Works seamlessly with NumPy and other scientific Python libraries. 🔗
+  - **Open Source & Community-Driven:** Regularly maintained with contributions from experts worldwide. 🌍
+  - **Extensible:** Can be combined with specialized libraries for domain-specific tasks. 🧩
+
+  ---
+
+  ## 🔗 Integration with Other Tools 🔄
+
+  SciPy fits naturally within the Python scientific stack:
+
+  | Tool/Framework       | Integration Mode                                | Notes                                      |
+  |----------------------|------------------------------------------------|--------------------------------------------|
+  | **NumPy**            | Base array and numerical operations            | Foundation for SciPy data structures       |
+  | **Matplotlib**       | Plotting and visualization                       | Visualize SciPy results and data            |
+  | **Pandas**           | Data manipulation and analysis                   | Preprocess data for SciPy computations      |
+  | **Jupyter Notebooks**| Interactive computing environment                | Experiment and document scientific workflows|
+  | **SymPy**            | Symbolic mathematics                             | Complement numerical methods with symbolic  |
+  | **Scikit-learn**     | Machine learning algorithms                       | Use SciPy for preprocessing and metrics     |
+  | **Numba**            | Just-in-time compilation for Python              | Speed up custom numerical code               |
+
+  ---
+
+  ## ⚙️ Technical Aspects 🧰
+
+  - **Architecture:** SciPy is modular, with subpackages for different scientific domains.
+  - **Performance:** Uses C, C++, and Fortran libraries under the hood for speed.
+  - **Dependencies:** Builds on NumPy arrays for data structures.
+  - **API:** Pythonic, consistent, and well-documented interfaces.
+  - **Extensibility:** Can be combined with other scientific Python tools and custom code.
+
+  ---
+
+  ## 🐍 Example: Numerical Integration and Root Finding 🔍
+
+  ```python
+  import numpy as np
+  from scipy import integrate, optimize
+
+  # Define a function to integrate
+  def f(x):
+      return np.exp(-x**2)
+
+  # Compute the integral of f from 0 to 1
+  integral, error = integrate.quad(f, 0, 1)
+  print(f"Integral of exp(-x^2) from 0 to 1: {integral:.5f}")
+
+  # Define a function for root finding
+  def g(x):
+      return x**3 - 1
+
+  # Find the root near 1
+  root = optimize.root_scalar(g, bracket=[0, 2])
+  print(f"Root of x^3 - 1 near 1: {root.root:.5f}")
+  ```
+  <br>
+  > This example shows how to perform adaptive numerical integration and solve nonlinear equations using SciPy.
+
+  ---
+
+  ## 🏆 Competitors & Pricing 💰
+
+  | Tool          | Description                                            | Pricing                     | Notes                               |
+  |---------------|--------------------------------------------------------|-----------------------------|------------------------------------|
+  | **MATLAB**    | Commercial numerical computing environment             | Paid license                | Industry standard, rich toolboxes  |
+  | **NumPy**     | Fundamental numerical operations library               | Free & Open Source          | Lower-level than SciPy              |
+  | **Julia**     | High-performance scientific computing language         | Free & Open Source          | Alternative language, fast execution|
+  | **SciPy**     | Comprehensive scientific computing library for Python  | Free & Open Source          | Broad functionality, Python-native |
+
+  SciPy is free and open-source, making it accessible for academic, personal, and commercial use without licensing fees.
+
+  ---
+
+  ## 🧩 Summary 🔬
+
+  **SciPy** extends the power of Python for **scientific, mathematical, and engineering computations**.  
+  With its modular structure, performance-driven design, and integration with the broader Python data stack, it remains a cornerstone for research, data science, and technical computing across disciplines.
+
+  Whether you’re analyzing experimental data, solving optimization problems, or teaching numerical methods, **SciPy** provides the reliability, performance, and flexibility that scientists and engineers trust.

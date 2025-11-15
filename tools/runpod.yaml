@@ -1,0 +1,46 @@
+name: "RunPod"
+slug: "runpod"
+headline: "On-demand GPU and CPU resources for AI workloads."
+urls:
+  - label: "Official Site"
+    url: "https://www.runpod.io/"
+overview: |
+  RunPod provides **flexible, on-demand GPU and CPU instances** optimized for AI development, ML training, and experimentation.  
+  It is ideal for teams that need **immediate access to compute** without managing physical servers.  
+  Unlike larger cloud providers, RunPod focuses on **simplicity, low-latency provisioning, and developer-first workflows**.
+description: |
+  ## ⚡ Key Strengths  ⚙️
+  - ⚡ **Rapid Provisioning** – Launch GPU/CPU instances in minutes.  ⏱️
+  - 📈 **Flexible Scaling** – Adjust compute resources dynamically per project or workload.  🔄
+  - 🖥️ **Developer-Friendly Interface** – Simple web dashboard, API, and CLI for automation.  🤖
+  - 🌍 **Global Availability** – Multiple regions to reduce latency and improve throughput.  📡
+  - 💸 **Cost Transparency** – Pay only for what you use, no hidden fees.  💰
+
+  ---
+
+  ## 🚀 Where RunPod Shines  🔥
+  - Small-to-medium AI teams that need **fast GPU access** for prototyping or experiments.  🧪
+  - Researchers who want **parallel model training** without hardware overhead.  🤹‍♂️
+  - Developers running **short-term inference pipelines** on GPU instances.  🏃‍♂️
+
+  ---
+
+  ## ⚠️ Limitations  ❗
+  - Fewer enterprise-grade features than Lambda Cloud or CoreWeave.  🏢
+  - Not ideal for extremely large-scale distributed training.  📉
+  - GPU selection may vary by availability and region.  🌐
+
+  ---
+
+  ## 💡 Example in Action  🎯
+  A machine learning team could:  
+  1. Launch multiple **A100 GPU instances** on RunPod.  🔥  
+  2. Train several models in parallel to accelerate experimentation.  ⚙️  
+  3. Tear down instances immediately after use to save costs.  🧹
+
+  ---
+
+  ## 🔍 Comparisons  ⚔️
+  - **vs Lambda Cloud** → RunPod is more flexible and pay-as-you-go; Lambda Cloud is better for multi-node enterprise training.  
+  - **vs Paperspace** → RunPod emphasizes speed and low-cost provisioning; Paperspace adds virtual desktops and Gradient notebooks.  
+  - **vs Vast.ai** → RunPod is managed and reliable; Vast.ai offers decentralized GPU marketplace at potentially lower cost.

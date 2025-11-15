@@ -1,0 +1,161 @@
+name: "MONAI"
+slug: "monai"
+headline: "Medical imaging AI framework for diagnostics."
+urls:
+  - label: "Github"
+    url: "https://github.com/Project-MONAI/MONAI"
+  - label: "Docs"
+    url: "https://docs.monai.io/"
+overview: |
+  **MONAI** (Medical Open Network for AI) is a cutting-edge, open-source framework tailored specifically for **medical imaging AI**. Built on top of PyTorch, MONAI empowers researchers, clinicians, and developers to build, train, and deploy AI models that tackle complex medical imaging challenges — from diagnosis to treatment planning — with efficiency and reproducibility at their core.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Capability                 | Description                                                                                 |
+  |----------------------------|---------------------------------------------------------------------------------------------|
+  | **🧩 Pre-built Modules**       | Ready-to-use neural networks (e.g., UNet), loss functions, and image transforms designed for medical imaging. |
+  | **📂 Data Handling**           | Native support for medical image formats like **DICOM**, **NIfTI**, and others, with efficient loading and caching. |
+  | **⚡ Scalable Training**       | Seamless distributed training and GPU acceleration to handle large datasets and complex models. |
+  | **🎨 Advanced Augmentation**   | Domain-specific image augmentation techniques that preserve anatomical correctness.          |
+  | **🔗 Interoperability**        | Fully compatible with PyTorch ecosystem tools (e.g., Ignite, Lightning), enabling rapid prototyping. |
+  | **🔄 Reproducible Workflows**  | Modular pipelines for preprocessing, training, validation, and inference with easy experiment tracking. |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  MONAI is widely adopted in the medical AI community for tasks such as:
+
+  - **🩺 Automated diagnosis** from CT, MRI, PET, and ultrasound scans  
+  - **✂️ Segmentation** of organs, tumors, lesions, and anatomical structures  
+  - **🧹 Image preprocessing & normalization** tailored for medical data  
+  - **📊 3D volumetric analysis** and multi-modal image fusion  
+  - **🔍 Radiomics feature extraction** for downstream clinical decision support  
+  - **🛡️ Federated learning** and privacy-preserving AI in healthcare  
+
+  ---
+
+  ## 💡 Why Choose MONAI?
+
+  - **🏥 Domain-optimized:** Unlike generic vision frameworks, MONAI is built **specifically for medical imaging**, addressing unique challenges like 3D data handling and modality-specific preprocessing.  
+  - **🌐 Open and Community-driven:** Backed by NVIDIA, King's College London, and a vibrant community, MONAI evolves rapidly with best practices and state-of-the-art algorithms.  
+  - **🐍 PyTorch Native:** Leverages the flexibility and power of PyTorch, making it easy for AI practitioners to integrate MONAI into existing workflows.  
+  - **🛠️ Extensible:** From beginners to advanced users, MONAI offers modular components that can be customized or extended to fit any research or clinical pipeline.  
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  MONAI plays well with the broader AI and medical imaging ecosystem:
+
+  | Tool/Library         | Integration Aspect                                  |
+  |----------------------|----------------------------------------------------|
+  | **PyTorch**          | Core deep learning backend, model definition & training. |
+  | **PyTorch Lightning**| Simplified training loops and experiment management. |
+  | **NVIDIA Clara**     | Compatible with Clara Deploy for clinical-grade deployment. |
+  | **DICOM Toolkits**   | Uses libraries like `pydicom` for medical image parsing. |
+  | **MONAI Label**      | Interactive annotation tool that integrates seamlessly for model-assisted labeling. |
+  | **TensorBoard/MLFlow**| Experiment tracking and visualization.             |
+  | **MediaPipe**        | Real-time multimodal data processing and computer vision pipelines that can complement medical image analysis workflows. |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **🏗️ Architecture:** Modular design with components for transforms, networks, losses, metrics, and data loaders.  
+  - **🛤️ Data Pipeline:** Supports lazy loading and caching, multi-threaded data augmentation, and 3D patch-based sampling.  
+  - **🚀 Training:** Supports mixed precision, distributed data parallel (DDP), and automatic gradient accumulation.  
+  - **📏 Evaluation:** Includes a rich set of metrics like Dice, Hausdorff distance, sensitivity, specificity, and more.  
+  - **🔌 Extensibility:** Users can plug in custom transforms, networks, and loss functions with minimal effort.
+
+  ---
+
+  ## 🐍 MONAI in Action: Python Example
+
+  ```python
+  import monai
+  from monai.transforms import (
+      LoadImaged, AddChanneld, ScaleIntensityd, 
+      RandRotate90d, ToTensord
+  )
+  from monai.networks.nets import UNet
+  from monai.data import DataLoader, Dataset
+  from monai.losses import DiceLoss
+  from monai.metrics import DiceMetric
+  import torch
+
+  # Sample dataset dictionary
+  data = [{"image": "path/to/image1.nii.gz", "label": "path/to/label1.nii.gz"},
+          {"image": "path/to/image2.nii.gz", "label": "path/to/label2.nii.gz"}]
+
+  # Define transforms
+  train_transforms = monai.transforms.Compose([
+      LoadImaged(keys=["image", "label"]),
+      AddChanneld(keys=["image", "label"]),
+      ScaleIntensityd(keys=["image"]),
+      RandRotate90d(keys=["image", "label"], prob=0.5, spatial_axes=[0, 2]),
+      ToTensord(keys=["image", "label"])
+  ])
+
+  # Create dataset and dataloader
+  train_ds = Dataset(data, transform=train_transforms)
+  train_loader = DataLoader(train_ds, batch_size=2, shuffle=True)
+
+  # Define model, loss, optimizer
+  device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+  model = UNet(
+      dimensions=3,
+      in_channels=1,
+      out_channels=2,
+      channels=(16, 32, 64, 128, 256),
+      strides=(2, 2, 2, 2),
+      num_res_units=2,
+  ).to(device)
+
+  loss_function = DiceLoss(to_onehot_y=True, softmax=True)
+  optimizer = torch.optim.Adam(model.parameters(), 1e-4)
+  dice_metric = DiceMetric(include_background=False, reduction="mean")
+
+  # Training loop (simplified)
+  model.train()
+  for epoch in range(5):
+      for batch_data in train_loader:
+          inputs, labels = batch_data["image"].to(device), batch_data["label"].to(device)
+          optimizer.zero_grad()
+          outputs = model(inputs)
+          loss = loss_function(outputs, labels)
+          loss.backward()
+          optimizer.step()
+      print(f"Epoch {epoch+1} completed, loss: {loss.item():.4f}")
+  ```
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Framework           | Focus Area                  | Pricing                 | Notes                                         |
+  |---------------------|-----------------------------|------------------------|-----------------------------------------------|
+  | **MONAI**           | Medical imaging AI          | **Free & Open Source** | Specialized for medical imaging, backed by NVIDIA & academic partners. |
+  | **NiftyNet**         | Medical image analysis      | Free & Open Source     | Earlier framework, less active development recently. |
+  | **DeepInfer**        | Medical image inference     | Free & Open Source     | Focuses on deployment rather than training.   |
+  | **MedPy**            | Medical image processing    | Free & Open Source     | More focused on classical image processing.   |
+  | **Commercial Solutions (e.g., NVIDIA Clara, GE Healthcare AI)** | End-to-end clinical AI platforms | Commercial licensing | Often includes regulatory support and clinical integration. |
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  MONAI is a **first-class citizen in the Python AI ecosystem**:
+
+  - Built on **PyTorch**, the leading deep learning framework in research and production.  
+  - Compatible with popular Python libraries like **NumPy**, **SciPy**, **scikit-learn**, and **SimpleITK**.  
+  - Integrates with experiment tracking tools such as **TensorBoard**, **Weights & Biases**, and **MLflow**.  
+  - Supports Python 3.7+ and encourages reproducible research through Jupyter notebooks and CI/CD pipelines.
+
+  ---
+
+  ## 🔚 Summary
+
+  MONAI stands out as a **robust, domain-specific framework** that accelerates the development of AI solutions in medical imaging. Its rich set of tools, seamless PyTorch integration, and community-driven approach make it the go-to choice for researchers and clinicians aiming to harness AI for better healthcare outcomes.
+
+  ---

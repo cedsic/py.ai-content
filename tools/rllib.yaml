@@ -1,0 +1,153 @@
+name: "RLlib"
+slug: "rllib"
+headline: "Scalable reinforcement learning library built on Ray."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/ray-project/ray"
+  - label: "Website"
+    url: "https://www.ray.io/"
+overview: |
+  **RLlib** is an open-source library designed to make **reinforcement learning (RL)** scalable, flexible, and production-ready. Built on top of the **Ray** distributed computing framework, RLlib empowers researchers, engineers, and enterprises to train intelligent agents that learn from interaction with complex environments — all while effortlessly scaling from a single laptop to large clusters.
+  <br>
+  Whether you're experimenting with cutting-edge RL algorithms or deploying robust decision-making systems in production, RLlib abstracts away the complexity of distributed training and resource management, allowing you to focus on innovation.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                     | Description                                                                                   |
+  |-----------------------------|-----------------------------------------------------------------------------------------------|
+  | **⚙️ Distributed Training**     | Seamlessly scale RL workloads across CPUs, GPUs, and multiple nodes with minimal setup.       |
+  | **🧩 High-Level Abstractions**  | Simplifies working with RL algorithms, policies, and environments through modular APIs.       |
+  | **🤖 Automatic Rollouts & Evaluation** | Manages environment interactions, experience collection, and policy evaluation automatically. |
+  | **👥 Multi-Agent Support**      | Train and evaluate multiple agents simultaneously in shared or competitive environments.     |
+  | **🔧 Extensible & Customizable**| Easily integrate custom models, environments, and algorithms.                                |
+  | **🛡️ Fault Tolerance**          | Robust handling of node failures and interruptions during long-running experiments.           |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  RLlib is ideal for various RL-driven applications, including but not limited to:
+
+  - **🏭 Industrial Automation & Robotics**  
+    Train control policies for robots or automated systems that require real-time decision-making and adaptability.
+
+  - **🎮 Game AI Development**  
+    Develop and optimize intelligent agents for complex, multi-agent game environments.
+
+  - **🛍️ Recommendation Systems & Personalization**  
+    Optimize dynamic user interactions and content delivery through reinforcement learning.
+
+  - **🔬 Research & Algorithm Development**  
+    Rapidly prototype and benchmark new RL algorithms at scale without worrying about infrastructure.
+
+  - **💹 Optimization in Finance & Operations**  
+    Use RL to improve trading strategies, supply chain management, or resource allocation.
+
+  ---
+
+  ## ❓ Why Choose RLlib?
+
+  - **📈 Scalability without Complexity**  
+    RLlib leverages Ray’s distributed scheduler to parallelize training and rollouts, removing the typical hurdles of multi-node RL experiments.
+
+  - **🏗️ Production-Ready**  
+    Designed with robustness and fault tolerance, RLlib supports deployment beyond research prototypes.
+
+  - **🌐 Rich Ecosystem & Community**  
+    Active development, extensive documentation, and integration with popular RL benchmarks and environments.
+
+  - **🐍 Pythonic & Familiar**  
+    Fits naturally into the Python ML ecosystem, interoperating with libraries like TensorFlow, PyTorch, and OpenAI Gym.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  RLlib plays well with many components of the ML and RL ecosystem:
+
+  | Integration          | Description                                                                                       |
+  |---------------------|-------------------------------------------------------------------------------------------------|
+  | **Ray**             | Core distributed computing framework powering RLlib’s scalability and resource management.      |
+  | **TensorFlow / PyTorch** | Supports both major deep learning frameworks for defining custom models and policies.          |
+  | **OpenAI Gym & PettingZoo** | Compatible with standard RL environments for benchmarking and experimentation.               |
+  | **Tune**             | Ray Tune integrates seamlessly for hyperparameter tuning and experiment management.              |
+  | **Kubernetes**       | Can be deployed on Kubernetes clusters for scalable, containerized RL workloads.                 |
+
+  ---
+
+  ## 🏗️ Technical Overview
+
+  RLlib’s architecture centers around **policy abstractions** and **distributed rollout workers**:
+
+  - **Rollout Workers** interact with environments to collect experience in parallel.
+  - **Policy Evaluators** apply RL algorithms to update agent policies using collected data.
+  - **Trainer API** orchestrates the entire training loop, managing resources and scheduling.
+
+  The system supports both **on-policy** and **off-policy** algorithms, multi-agent setups, and custom training loops.
+
+  ---
+
+  ## 💡 Example: Training a PPO Agent in RLlib
+
+  ```python
+  import ray
+  from ray import tune
+  from ray.rllib.algorithms.ppo import PPOConfig
+
+  # Initialize Ray
+  ray.init()
+
+  # Configure PPO trainer
+  ppo_config = PPOConfig().environment("CartPole-v1").framework("torch").resources(num_gpus=0)
+
+  # Run training with Tune
+  tune.run(
+      "PPO",
+      config=ppo_config.to_dict(),
+      stop={"episode_reward_mean": 200},
+      verbose=1
+  )
+
+  # Shutdown Ray
+  ray.shutdown()
+  ```
+  <br>
+  This example shows how easily you can spin up a distributed RL experiment with RLlib using just a few lines of Python code.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool                | Overview                                                     | Pricing                         |
+  |---------------------|--------------------------------------------------------------|--------------------------------|
+  | **Stable Baselines3**| Popular, easy-to-use RL library, but primarily single-node.  | Open source, free              |
+  | **OpenAI Baselines** | Classic implementations of RL algorithms, less scalable.    | Open source, free              |
+  | **Coach (Intel)**    | RL framework with good algorithm coverage, limited scaling.  | Open source, free              |
+  | **Acme (DeepMind)**  | Research-focused RL framework, less production-oriented.     | Open source, free              |
+  | **RLlib**            | Highly scalable, production-ready, distributed training.     | Open source, free; commercial support via Ray Enterprise |
+
+  **Note:** RLlib is fully open-source under the Apache 2.0 license. For enterprise-grade support, Ray offers commercial options.
+
+  ---
+
+  ## 🐍 RLlib in the Python Ecosystem
+
+  - **Seamless integration** with Python’s scientific stack: NumPy, Pandas, Matplotlib.
+  - Supports **PyTorch** and **TensorFlow**, enabling researchers to leverage their preferred DL frameworks.
+  - Compatible with popular environment APIs like **OpenAI Gym** and **PettingZoo**.
+  - Works well alongside hyperparameter tuning libraries such as **Ray Tune** and visualization tools like **TensorBoard**.
+
+  ---
+
+  ## ✨ Summary
+
+  RLlib stands out as a **powerful, scalable reinforcement learning library** that lets you:
+
+  - Train complex RL agents across clusters with minimal effort.
+  - Easily switch between algorithms and environments.
+  - Integrate with the broader Python ML ecosystem.
+  - Move from research prototypes to production deployments seamlessly.
+
+  If your projects demand robust, distributed RL at scale — **RLlib is a go-to solution** that combines flexibility, power, and ease of use.
+
+  ---

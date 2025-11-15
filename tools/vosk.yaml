@@ -1,0 +1,146 @@
+name: "Vosk"
+slug: "vosk"
+headline: "Offline speech recognition toolkit."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/alphacep/vosk-api"
+  - label: "Docs"
+    url: "https://alphacephei.com/vosk/"
+overview: |
+  **Vosk** is a cutting-edge offline speech recognition toolkit designed to empower developers with real-time, accurate transcription capabilities **without relying on internet connectivity**. Supporting a wide array of languages and dialects, Vosk enables speech-to-text processing directly on local devices — from powerful servers to resource-constrained embedded systems.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                         | Description                                                                                   |
+  |--------------------------------|-----------------------------------------------------------------------------------------------|
+  | 📴 **Offline Speech Recognition** | Fully functional without cloud or internet access, ensuring privacy and low latency.          |
+  | 🌐 **Multilingual Support**        | Supports 20+ languages including English, Chinese, Russian, French, Spanish, and more.       |
+  | ⚡ **Lightweight & Efficient**     | Optimized for CPUs and mobile processors, runs smoothly on Raspberry Pi, Android, iOS, etc.   |
+  | ⏱️ **Real-Time Transcription**     | Processes streaming audio with minimal delay, suitable for interactive applications.          |
+  | 💻 **Cross-Platform Compatibility**| Works seamlessly on Linux, Windows, macOS, Android, and iOS platforms.                        |
+  | 🧠 **Multiple Language Models**    | Offers various acoustic and language models tailored for different domains and accuracy needs.|
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  Vosk is a versatile tool for developers and organizations aiming to embed speech recognition into their products, especially when **offline operation** and **privacy** are priorities:
+
+  - 🗣️ **Voice Assistants & Smart Devices**  
+    Build responsive voice-controlled apps and IoT devices that work without internet.
+
+  - 📝 **Real-Time Transcription & Captioning**  
+    Generate subtitles or transcripts in meetings, lectures, or broadcasts instantly.
+
+  - ♿ **Accessibility Solutions**  
+    Enhance apps for the hearing impaired by providing on-device speech-to-text.
+
+  - 🔄 **Text-to-Speech Integration**  
+    Combine Vosk’s speech recognition with text-to-speech technologies to enable full-duplex voice interactions, creating conversational agents, audiobooks, or assistive communication tools that both listen and speak.
+
+  - 🎮 **Voice Command Interfaces**  
+    Implement hands-free navigation and control in industrial, automotive, or home automation systems.
+
+  - 📱 **Embedded and Mobile Applications**  
+    Integrate speech recognition into mobile apps or edge devices with limited connectivity.
+
+  ---
+
+  ## 💡 Why People Choose Vosk
+
+  - 🔒 **Privacy First:** No audio data leaves the device, protecting user confidentiality.
+  - 💰 **Cost-Effective:** Avoids cloud API fees and reduces operational costs.
+  - 🌍 **Robust Multilingual Support:** Enables global reach with diverse language models.
+  - 🔧 **Easy Integration:** Simple APIs and bindings for popular languages.
+  - 👐 **Open Source & Active Community:** Transparent development and continuous improvements.
+
+  ---
+
+  ## 🔗 Integration with Other Tools & Ecosystems
+
+  Vosk offers **native bindings** and integration points for multiple programming environments:
+
+  | Language/Platform | Integration Type                        | Notes                                      |
+  |-------------------|---------------------------------------|--------------------------------------------|
+  | **Python**        | `vosk` Python package (pip install)   | Streamlined API for real-time recognition  |
+  | **Java**          | Java bindings                         | Suitable for Android and desktop apps      |
+  | **JavaScript**    | WebAssembly & Node.js bindings        | Browser and server-side speech processing  |
+  | **C/C++**         | Native libraries                      | For embedded or performance-critical apps  |
+  | **Mobile (Android/iOS)** | SDKs and native bindings          | On-device speech recognition in mobile apps|
+
+  **Python ecosystem relevance:**  
+  Vosk is especially popular in the Python community due to its simplicity and compatibility with popular audio libraries such as `PyAudio`, `sounddevice`, and integration with machine learning workflows.
+  <br>
+  Additionally, Vosk integrates well within modern AI and data science workflows, complementing tools such as **Hugging Face** for advanced language models, **Jupyter** for interactive development and experimentation, and **MLflow** for managing machine learning lifecycle and experiments. These integrations enable developers to build sophisticated, end-to-end speech recognition and NLP pipelines efficiently.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **Acoustic Models:** Based on Kaldi ASR toolkit, trained with deep neural networks.
+  - **Language Models:** Supports custom grammars and large-vocabulary models.
+  - **Streaming API:** Incremental decoding for live audio input.
+  - **Resource Usage:** Models vary in size (~50MB to 200MB), optimized for CPU inference without GPU.
+  - **License:** Apache 2.0 — free for commercial and personal use.
+
+  ---
+
+  ## 🐍 Vosk in Python: Quick Start Example
+
+  ```python
+  import queue
+  import sounddevice as sd
+  from vosk import Model, KaldiRecognizer
+
+  # Load Vosk model (download from official repo)
+  model = Model("model")
+
+  # Setup audio stream parameters
+  sample_rate = 16000
+  q = queue.Queue()
+
+  def callback(indata, frames, time, status):
+      q.put(bytes(indata))
+
+  # Initialize recognizer
+  recognizer = KaldiRecognizer(model, sample_rate)
+
+  # Start audio stream
+  with sd.RawInputStream(samplerate=sample_rate, blocksize=8000, dtype='int16',
+                        channels=1, callback=callback):
+      print("Start speaking...")
+      while True:
+          data = q.get()
+          if recognizer.AcceptWaveform(data):
+              result = recognizer.Result()
+              print("Recognized:", result)
+          else:
+              partial = recognizer.PartialResult()
+              print("Partial:", partial)
+  ```
+  <br>
+  This example captures microphone input and prints recognized text in real time — all **offline**.
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Tool             | Offline Capability | Pricing Model                   | Notes                                            |
+  |------------------|--------------------|--------------------------------|--------------------------------------------------|
+  | **Vosk**         | ✅                 | Free, Open Source (Apache 2.0) | No cost, customizable, strong community support  |
+  | **Google Speech-to-Text** | ❌ (mostly cloud)    | Pay-as-you-go API              | High accuracy, but requires internet and costs   |
+  | **Mozilla DeepSpeech** | ✅                 | Free, Open Source              | Similar offline use, but slower updates          |
+  | **PocketSphinx**  | ✅                 | Free, Open Source              | Lightweight but less accurate                      |
+  | **Kaldi**        | ✅                 | Free, Open Source              | Powerful but requires expertise to setup          |
+  | **Whisper (OpenAI)** | ✅ (offline with local setup) | Free, Open Source              | High accuracy, large models, higher resource usage, Python-friendly |
+
+  **Summary:**  
+  Vosk stands out by combining **ease of use**, **multilingual support**, and **real-time offline transcription** in a lightweight package — all at zero cost.
+
+  ---
+
+  ## 🔍 Conclusion
+
+  Vosk is a powerful, privacy-conscious speech recognition toolkit ideal for developers seeking **offline, real-time, multilingual transcription**. Its flexibility, open-source nature, and smooth integration with Python and other platforms make it a top choice for voice-enabled applications — from mobile assistants to accessibility tools.
+
+  ---

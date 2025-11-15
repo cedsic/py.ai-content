@@ -1,0 +1,135 @@
+name: "RunDiffusion"
+slug: "rundiffusion"
+headline: "Cloud-based platform for diffusion model image generation."
+urls:
+  - label: "Website"
+    url: "https://www.rundiffusion.com/"
+  - label: "GitHub"
+    url: "https://github.com/RunDiffusion"
+overview: |
+  In the rapidly evolving world of AI-generated imagery, **RunDiffusion** emerges as a powerful cloud-based platform that transforms text prompts into stunning, high-fidelity images using advanced diffusion models. By removing the need for expensive hardware or complex local setups, RunDiffusion democratizes access to state-of-the-art AI image synthesis — enabling artists, marketers, designers, and developers to unleash their creativity effortlessly.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Feature                     | Description                                                                                 |
+  |-----------------------------|---------------------------------------------------------------------------------------------|
+  | ☁️ **Cloud-Based Generation**  | RunDiffusion runs entirely in the cloud—no GPU needed on your end.                          |
+  | 🚀 **State-of-the-Art Models** | Access to preconfigured, cutting-edge diffusion architectures for superior image quality.  |
+  | ⚡ **Fast & Scalable**         | Generate multiple images in parallel with minimal latency and no infrastructure hassle.     |
+  | 🎛️ **User-Friendly Interface** | Intuitive UI and APIs designed for both technical and non-technical users.                  |
+  | 🎨 **Customizable Outputs**    | Fine-tune parameters like resolution, style, and iteration steps to suit your needs.        |
+  | 🔒 **Secure & Managed**        | Fully managed environment with data privacy and uptime guarantees.                          |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  RunDiffusion is tailored for anyone looking to integrate AI-driven image generation into their workflows:
+
+  - 👩‍🎨 **Creative Professionals & Artists:** Generate concept art, illustrations, and visual assets without manual drawing.
+  - 📢 **Marketing & Advertising:** Quickly create eye-catching visuals for campaigns, social media, and product launches.
+  - 🛠️ **Product Design & Prototyping:** Visualize ideas and design concepts rapidly to accelerate iteration cycles.
+  - 🤖 **AI Researchers & Developers:** Experiment with diffusion models without investing in local compute resources.
+  - 📚 **Content Creators & Educators:** Enhance presentations, tutorials, and storytelling with unique AI-generated imagery.
+
+  ---
+
+  ## 💡 Why People Choose RunDiffusion
+
+  - ♿ **Accessibility:** No need for expensive GPUs or complex ML environments.
+  - ⏱️ **Speed:** Instant image generation with minimal wait times.
+  - 🌟 **Quality:** Leverages the latest diffusion model advancements for photorealistic and artistic outputs.
+  - 📈 **Scalability:** From single images to batch generation, handle any volume seamlessly.
+  - 🧩 **Simplicity:** Easy-to-use APIs and interfaces reduce the learning curve.
+  - 🔗 **Integration-Ready:** Fits smoothly into existing creative and development pipelines.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  RunDiffusion is built with interoperability in mind:
+
+  - **Python SDK & REST API:** Integrate effortlessly into Python-based projects, web apps, or automation scripts.
+  - **Workflow Automation:** Connect with platforms like Zapier, Integromat, or custom backend services.
+  - **Creative Suites:** Export generated images directly to tools like Adobe Photoshop, Figma, or Canva for further refinement.
+  - **Cloud Storage:** Seamlessly save outputs to AWS S3, Google Drive, or Dropbox.
+  - **Version Control:** Combine with Git or DVC for tracking iterations of AI-generated assets.
+  - **Model Hosting & Sharing:** Integrate with platforms like Replicate to leverage a broader ecosystem of hosted diffusion models and streamline deployment and collaboration.
+
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  RunDiffusion hosts **diffusion models**—a class of generative models that iteratively refine noise into coherent images guided by textual descriptions.
+
+  - **Model Types:** Supports popular architectures such as Stable Diffusion, Latent Diffusion Models (LDM), and custom fine-tuned variants.
+  - **Backend:** Runs on scalable GPU clusters managed via Kubernetes and optimized for low-latency inference.
+  - **API:** RESTful endpoints accepting prompt text, generation parameters (e.g., steps, guidance scale), and returning URLs or binary image data.
+  - **Security:** Encrypted data channels (HTTPS), user authentication, and usage quotas to ensure privacy and fair use.
+
+  ---
+
+  ## 🐍 Python Example: Generating an Image with RunDiffusion API
+
+  ```python
+  import requests
+
+  API_URL = "https://api.rundiffusion.com/v1/generate"
+  API_KEY = "your_api_key_here"
+
+  def generate_image(prompt: str, steps: int = 50, width: int = 512, height: int = 512):
+      headers = {
+          "Authorization": f"Bearer {API_KEY}",
+          "Content-Type": "application/json"
+      }
+      payload = {
+          "prompt": prompt,
+          "steps": steps,
+          "width": width,
+          "height": height,
+          "num_images": 1
+      }
+      response = requests.post(API_URL, json=payload, headers=headers)
+      response.raise_for_status()
+      image_url = response.json()['images'][0]
+      return image_url
+
+  if __name__ == "__main__":
+      prompt = "A futuristic cityscape at sunset, digital art"
+      image_link = generate_image(prompt)
+      print(f"Generated image URL: {image_link}")
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing Overview
+
+  | Platform           | Pricing Model                  | Strengths                                  | Notes                                  |
+  |--------------------|-------------------------------|--------------------------------------------|----------------------------------------|
+  | **RunDiffusion**   | Pay-as-you-go / Subscription   | Cloud-native, easy API, scalable           | Competitive pricing, strong Python support |
+  | **DreamStudio**    | Credit-based (by Stability AI) | Access to official Stable Diffusion models | Slightly higher latency, limited batch options |
+  | **Midjourney**     | Subscription-based             | Artistic style focus, Discord-based UI     | Less API-friendly, community-driven    |
+  | **DALL·E 2**       | Pay-per-image                  | High-quality, OpenAI-backed                 | Limited customization, pricing varies  |
+  | **Google Imagen**  | Research-only / Limited Access | Cutting-edge quality, research-grade       | Not publicly accessible                 |
+
+  _RunDiffusion strikes a balance between affordability, ease of use, and technical flexibility, making it ideal for developers and creatives alike._
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  RunDiffusion fits naturally into the **Python AI/ML ecosystem**:
+
+  - Provides a **Python SDK** and REST API, enabling seamless integration with popular ML libraries like **PyTorch**, **TensorFlow**, and **Hugging Face Transformers**.
+  - Supports automation and batch processing workflows using Python scripting.
+  - Compatible with data science tools such as **Jupyter Notebooks**, **Pandas**, and **OpenCV** for downstream image analysis or augmentation.
+  - Enables rapid prototyping of AI-powered applications, chatbots, and creative tools using Python frameworks like **FastAPI** or **Flask**.
+
+  ---
+
+  ## 🎨 Summary
+
+  RunDiffusion is a versatile, cloud-native diffusion model platform that empowers users to generate high-quality images from text prompts without the need for local GPU resources. Its scalable infrastructure, user-friendly APIs, and robust Python support make it a top choice for creative professionals, marketers, and AI practitioners seeking to integrate generative AI into their workflows quickly and cost-effectively.
+
+  ---

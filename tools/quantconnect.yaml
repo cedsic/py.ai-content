@@ -1,0 +1,155 @@
+name: "QuantConnect"
+slug: "quantconnect"
+headline: "Algorithmic trading platform using AI and quantitative finance."
+urls:
+  - label: "Website"
+    url: "https://www.quantconnect.com/"
+  - label: "Docs"
+    url: "https://www.quantconnect.com/docs/"
+overview: |
+  **QuantConnect** is a cutting-edge, cloud-based platform tailored for **algorithmic trading**, **quantitative research**, and **AI-driven investment strategies**. It empowers quants, developers, and finance professionals to **design, backtest, and deploy** sophisticated trading algorithms seamlessly across multiple asset classes — all within a unified, scalable environment.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Feature                         | Description                                                                                  |
+  |--------------------------------|----------------------------------------------------------------------------------------------|
+  | **📚 Algorithm Library**           | Extensive collection of pre-built strategies, financial indicators, and data sources.       |
+  | **🧪 Backtesting Engine**          | Powerful simulation on decades of historical market data with realistic slippage & fees.    |
+  | **💹 Multi-Asset Support**         | Trade equities, forex, options, futures, cryptocurrencies, and custom data.                  |
+  | **☁️ Cloud Deployment**            | Instant deployment of live algorithms on cloud servers with broker integration.             |
+  | **🐍 Multi-Language Support**      | Develop in **Python** or **C#**, leveraging familiar syntax and libraries.                   |
+  | **🔗 Brokerage Integration**       | Connect with interactive brokers like Interactive Brokers, GDAX, Binance, Tradier, and more.|
+  | **📊 Data Management**             | Access to clean, normalized, and consolidated market data with granular control.            |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  QuantConnect is designed to serve a broad spectrum of users, including:
+
+  - **📈 Quantitative Analysts & Researchers**  
+    Explore new trading ideas, perform statistical arbitrage, and validate hypotheses with rapid prototyping.
+
+  - **🤖 Algorithmic Traders**  
+    Build, test, and automate execution of strategies on stocks, forex, crypto, and derivatives.
+
+  - **🧠 AI & ML Practitioners in Finance**  
+    Integrate machine learning models for predictive analytics, portfolio optimization, and event-driven trading.
+
+  - **🏦 Fintech Startups & Hedge Funds**  
+    Leverage QuantConnect's infrastructure to scale research and live trading without heavy upfront investment.
+
+  ---
+
+  ## 💡 Why People Use QuantConnect
+
+  - **🧩 All-in-One Platform**: No need to cobble together multiple tools; coding, backtesting, data, and deployment are unified.
+  - **📈 Extensive Data Access**: Includes equities from major exchanges, FX pairs, crypto markets, and alternative datasets.
+  - **🌐 Community & Open Source**: Access a vibrant community, shared algorithms, and an open-source Lean engine.
+  - **⚙️ Scalability & Reliability**: Cloud infrastructure ensures your strategies run 24/7 with minimal downtime.
+  - **🐍 Python Ecosystem Friendly**: Full support for popular Python libraries like NumPy, pandas, scikit-learn, enabling advanced analytics.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  QuantConnect is designed to fit smoothly into your existing workflow:
+
+  - **🤝 Broker APIs**: Directly connect and execute trades on supported brokerages.
+  - **📥 Data Feeds**: Import custom datasets or connect to external data providers.
+  - **📚 Python Libraries**: Use ML frameworks (TensorFlow, PyTorch), data analysis tools, and visualization libraries within your algorithms.
+  - **🛠️ Version Control & Collaboration**: Integrate with GitHub for code management and teamwork.
+  - **☁️ Cloud Services**: Export results, logs, and metrics to cloud storage or monitoring tools.
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  At its core, QuantConnect runs on the **Lean Algorithm Framework** — an open-source, modular engine supporting:
+
+  - **Event-driven architecture** for order handling and data updates.
+  - **Multi-threaded backtesting** for speed and efficiency.
+  - **Custom data ingestion** and flexible universe selection.
+  - **Robust risk management** and portfolio construction tools.
+
+  ### Example: Simple Moving Average Crossover Strategy in Python
+
+  ```python
+  from AlgorithmImports import *
+
+  class SMACrossoverAlgorithm(QCAlgorithm):
+
+      def Initialize(self):
+          self.SetStartDate(2022, 1, 1)
+          self.SetEndDate(2023, 1, 1)
+          self.SetCash(100000)
+          
+          self.symbol = self.AddEquity("AAPL", Resolution.Daily).Symbol
+          
+          self.fast_sma = self.SMA(self.symbol, 50, Resolution.Daily)
+          self.slow_sma = self.SMA(self.symbol, 200, Resolution.Daily)
+          
+          self.previous = None
+          
+      def OnData(self, data):
+          if not self.fast_sma.IsReady or not self.slow_sma.IsReady:
+              return
+          
+          if self.previous is None:
+              self.previous = self.fast_sma.Current.Value > self.slow_sma.Current.Value
+              return
+          
+          current = self.fast_sma.Current.Value > self.slow_sma.Current.Value
+          
+          # Golden cross - buy signal
+          if current and not self.previous:
+              self.SetHoldings(self.symbol, 1)
+          
+          # Death cross - sell signal
+          elif not current and self.previous:
+              self.Liquidate(self.symbol)
+          
+          self.previous = current
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Platform          | Pricing Model                           | Key Differentiators                      |
+  |-------------------|---------------------------------------|-----------------------------------------|
+  | **QuantConnect**  | Free tier + Subscription plans (~$8-$50/month) | Open-source engine, multi-asset support, strong Python/C# integration |
+  | **Quantopian**    | (Discontinued)                        | Previously popular but shut down         |
+  | **AlgoTrader**    | Enterprise pricing                    | Focus on institutional clients, Java-based |
+  | **TradeStation**  | Commission-based, platform fees      | Integrated brokerage & trading platform  |
+  | **Backtrader**    | Open-source (self-hosted)            | Powerful Python backtesting framework, no cloud or brokerage integration |
+  | **MetaTrader 5**  | Free, with broker dependency         | Popular in forex, MQL5 scripting language |
+
+  > **Note:** QuantConnect offers a **free community tier** with access to most features, while premium plans unlock higher compute power, live trading, and priority support.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  QuantConnect's **full Python support** makes it a natural choice for quants who rely on:
+
+  - **📊 Data manipulation:** `pandas`, `numpy`
+  - **📈 Statistical analysis:** `scipy`, `statsmodels`
+  - **🤖 Machine learning:** `scikit-learn`, `tensorflow`, `xgboost`
+  - **📉 Visualization:** `matplotlib`, `seaborn`
+  - **💰 Financial modeling:** `QuantLib` for advanced pricing, risk, and derivatives modeling
+
+  You can seamlessly incorporate these libraries into your strategies, enabling advanced predictive models and data-driven decision-making — all within a single platform.
+
+  ---
+
+  ## 📋 Summary
+
+  QuantConnect stands out as a **versatile, developer-friendly** platform that democratizes quantitative finance. Whether you're a solo quant, a fintech startup, or an institutional researcher, it provides:
+
+  - Powerful tools to **build, test, and deploy** algorithmic strategies.
+  - Access to **rich datasets** and multi-asset trading.
+  - Integration with **modern Python libraries** and broker APIs.
+  - A scalable **cloud infrastructure** with open-source transparency.
+
+  ---

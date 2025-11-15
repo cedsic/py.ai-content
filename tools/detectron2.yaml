@@ -1,0 +1,136 @@
+name: "Detectron2"
+slug: "detectron2"
+headline: "State-of-the-art object detection and segmentation framework."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/facebookresearch/detectron2"
+  - label: "Docs"
+    url: "https://detectron2.readthedocs.io/"
+overview: |
+  **Detectron2** is a next-generation, open-source computer vision library developed by Facebook AI Research (FAIR). It empowers developers, researchers, and engineers to build state-of-the-art object detection, instance segmentation, and keypoint estimation models with ease and flexibility. Built on top of **PyTorch**, Detectron2 brings modularity, scalability, and high performance to complex visual recognition tasks, making advanced computer vision accessible to a wide audience.
+description: |
+  ## 🔑 Core Capabilities
+
+  - **🧰 Pretrained Models**: Access a rich model zoo with pretrained weights for popular architectures like Faster R-CNN, Mask R-CNN, RetinaNet, and DensePose — enabling quick experimentation and deployment. 🏆
+
+  - **🧩 Modular and Extensible Architecture**: Customize every component from backbone networks, ROI heads, data loaders, to training schedules, allowing researchers to innovate without reinventing the wheel. 🔄
+
+  - **🎯 Multi-Task Support**: Handle object detection, instance segmentation, semantic segmentation, and keypoint estimation under one unified framework. 🤖
+
+  - **⚡ Seamless PyTorch Integration**: Leverages PyTorch’s dynamic computation graph and GPU acceleration for fast prototyping and efficient training. 🚀
+
+  - **🚀 Highly Optimized Performance**: State-of-the-art accuracy on benchmarks like COCO, with optimized inference speed suitable for real-time applications. ⏱️
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  | Use Case                      | Description                                                                                  | Industry Examples                   |
+  |------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------|
+  | **Real-Time Object Detection** | Detect and track objects in video streams for surveillance, autonomous vehicles, or robotics. 🎥 | Security, Automotive, Robotics     |
+  | **Instance Segmentation**     | Precisely segment objects at the pixel level for medical imaging, satellite imagery, or manufacturing. 🏥 | Healthcare, Agriculture, Industry  |
+  | **Keypoint Estimation**       | Identify human body joints or object landmarks for motion analysis, AR applications, VR experiences, and sports analytics. 🕺 | Sports Tech, Entertainment, AR/VR |
+  | **Retail Analytics**          | Analyze customer behavior and product interactions through camera feeds for business insights. 🛍️ | Retail, Marketing                  |
+
+  ---
+
+  ## 🤔 Why Choose Detectron2?
+
+  - **👌 Ease of Use & Flexibility**: Intuitive APIs and configuration system make it simple to train new models or fine-tune existing ones. 🛠️
+
+  - **🌍 Community and Ecosystem**: Backed by FAIR and a vibrant open-source community, it continuously evolves with new features and improvements. 🤝
+
+  - **🔬 Research-Ready**: Designed with cutting-edge research in mind, enabling rapid experimentation with novel architectures and loss functions. 🧪
+
+  - **🏭 Production-Grade**: Supports export to ONNX and TorchScript for deployment in production environments. 🖥️
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Detectron2 fits naturally into the Python AI/ML ecosystem:
+
+  - **PyTorch**: Core deep learning framework powering all computations.
+  - **Detectron2 Model Zoo**: Provides pretrained weights for quick start.
+  - **OpenCV**: For advanced image/video preprocessing and visualization.
+  - **TensorBoard / Weights & Biases**: For experiment tracking and visualization.
+  - **ONNX & TorchScript**: For exporting models to production environments or edge devices.
+  - **DVC / MLFlow**: For dataset and model versioning in complex pipelines.
+
+  ---
+
+  ## 🛠️ Technical Overview
+
+  Detectron2's architecture revolves around **config-driven design**, allowing users to define models and training parameters declaratively.
+
+  - **Backbones:** ResNet, ResNeXt, EfficientNet, etc.
+  - **Heads:** ROI heads for detection and segmentation tasks.
+  - **Data Loaders:** Support for COCO, LVIS, Cityscapes, and custom datasets.
+  - **Loss Functions:** Cross-entropy, focal loss, smooth L1, etc.
+  - **Training:** Supports multi-GPU distributed training, mixed precision, and gradient clipping.
+
+  ---
+
+  ## 🐍 Quick Python Example
+
+  ```python
+  import detectron2
+  from detectron2.engine import DefaultPredictor
+  from detectron2.config import get_cfg
+  from detectron2.utils.visualizer import Visualizer
+  from detectron2.data import MetadataCatalog
+  import cv2
+
+  # Load image
+  image = cv2.imread("input.jpg")
+
+  # Setup config and model
+  cfg = get_cfg()
+  cfg.merge_from_file("detectron2/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+  cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5  # set threshold for this model
+  cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl"
+
+  predictor = DefaultPredictor(cfg)
+
+  # Perform inference
+  outputs = predictor(image)
+
+  # Visualize results
+  v = Visualizer(image[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
+  out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
+  cv2.imshow("Detected Objects", out.get_image()[:, :, ::-1])
+  cv2.waitKey(0)
+  ```
+
+  ---
+
+  ## ⚔️ Competitors & Pricing
+
+  | Framework          | Strengths                                  | Pricing                          |
+  |--------------------|--------------------------------------------|---------------------------------|
+  | **Detectron2**      | State-of-the-art accuracy, modular design | Free, open-source (Apache 2.0)  |
+  | **MMDetection**     | Highly configurable, large model zoo       | Free, open-source (Apache 2.0)  |
+  | **TensorFlow Object Detection API** | TensorFlow ecosystem, mobile deployment | Free, open-source (Apache 2.0)  |
+  | **YOLO (v5/v8)**    | Extremely fast, lightweight models          | Free, open-source (GPL/MIT)      |
+  | **OpenCV DNN Module** | Lightweight, easy integration               | Free, open-source (BSD)          |
+
+  *Detectron2 stands out for its research-grade features combined with production readiness.*
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Detectron2 is deeply embedded in the Python AI ecosystem:
+
+  - Built on **PyTorch**, the most popular deep learning library in Python.
+  - Compatible with Python data science tools like **NumPy**, **Pandas**, and **Matplotlib** for data manipulation and visualization.
+  - Integrates with experiment tracking tools like **TensorBoard** and **Weights & Biases**.
+  - Supports export to Python-compatible formats (ONNX, TorchScript) for deployment.
+
+  ---
+
+  ## 🎉 Summary
+
+  Detectron2 is a powerful, flexible, and efficient framework that democratizes access to advanced computer vision technologies. Whether you’re a researcher pushing the boundaries of vision AI or a developer building scalable applications, Detectron2 offers the tools and ecosystem to accelerate your projects from prototype to production.
+
+  ---

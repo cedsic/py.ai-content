@@ -1,0 +1,147 @@
+name: "Swarms"
+slug: "swarms"
+headline: "Distributed AI agents inspired by swarm intelligence."
+urls:
+  - label: "Official website"
+    url: "https://www.swarms.ai"
+  - label: "GitHub"
+    url: "https://github.com/kyegomez/swarms"
+  - label: "Docs"
+    url: "https://docs.swarms.world/en/latest/"
+overview: |
+  In today’s AI landscape, coordinating large numbers of agents often comes with challenges like bottlenecks, single points of failure, and centralized control issues. **Swarms** is a cutting-edge framework inspired by nature’s swarm intelligence — the collective behavior seen in bees, ants, and birds — designed to overcome these challenges by enabling **decentralized, resilient, and scalable multi-agent systems**.
+  <br>
+  By mimicking how natural swarms self-organize and adapt, Swarms empowers developers and researchers to build AI ecosystems where agents collaborate seamlessly, dynamically solving complex problems without relying on a central brain.
+description: |
+  ## 🔑 Core Capabilities 🚀🤖
+
+  | Capability                 | Description                                                                                     |
+  |----------------------------|-------------------------------------------------------------------------------------------------|
+  | **Decentralized Coordination** 🕸️ | Agents communicate peer-to-peer, eliminating single points of failure and bottlenecks.         |
+  | **Fault Tolerance** 🛡️        | The system gracefully adapts when individual agents fail or disconnect, maintaining overall function. |
+  | **Scalable Architecture** 📈 | Easily manages hundreds to thousands of agents working simultaneously without performance degradation. |
+  | **Emergent Problem-Solving** 🧠 | Collective intelligence emerges from simple local interactions, enabling dynamic and adaptive solutions. |
+  | **Lightweight Agent Model** 🪶 | Agents are designed to be lightweight and efficient, facilitating rapid spawning and communication. |
+
+  ---
+
+  ## 🎯 Key Use Cases 📦🚁
+
+  Swarms is ideal for scenarios requiring **robust, scalable, and adaptive multi-agent coordination**:
+
+  - **Autonomous Robotics & Drone Fleets**  🚀  
+    Coordinate large numbers of robots or drones for tasks like delivery, surveillance, or search and rescue with dynamic task allocation and fault tolerance.
+
+  - **Distributed Simulations & Multi-Agent Research**  🧪  
+    Build complex simulations where agents interact, learn, and evolve without centralized orchestration.
+
+  - **Logistics & Manufacturing**  🏭  
+    Optimize dynamic task scheduling, resource allocation, and process automation in supply chains and factories.
+
+  - **Smart Cities & IoT Networks**  🌆  
+    Enable decentralized control and decision-making across interconnected devices and sensors.
+
+  ---
+
+  ## 🤔 Why Use Swarms? 🌟
+
+  - **Resilience by Design:** No single point of failure means your system stays online and adaptive even under stress.  
+  - **Scalability Without Complexity:** Add or remove agents on the fly without re-architecting your system.  
+  - **Natural, Emergent Intelligence:** Complex problem-solving arises naturally from simple agent interactions.  
+  - **Flexibility & Extensibility:** Easily customize agent behaviors and communication protocols to fit your domain.  
+  - **Research-Backed:** Built on principles proven in biological and computational swarm intelligence studies.
+
+  ---
+
+  ## 🔗 Integration with Other Tools 🔌🧩
+
+  Swarms is designed to fit smoothly into existing AI and software ecosystems:
+
+  - **Messaging & Networking:** Supports integration with MQTT, ZeroMQ, and WebSocket for flexible communication layers.  
+  - **Data Pipelines:** Easily connects with data processing frameworks like Apache Kafka or RabbitMQ for real-time analytics.  
+  - **Machine Learning Frameworks:** Agents can embed models from TensorFlow, PyTorch, or scikit-learn to enhance decision-making.  
+  - **Cloud & Edge Platforms:** Deploy agents across cloud VMs, edge devices, or hybrid environments using Kubernetes or Docker.  
+  - **Python Ecosystem:** Fully compatible with Python, enabling rapid prototyping and seamless integration with popular libraries.
+
+  ---
+
+  ## ⚙️ Technical Aspects 🛠️🔍
+
+  - **Agent Model:** Lightweight, event-driven agents with customizable state machines.  
+  - **Communication:** Peer-to-peer messaging via decentralized protocols, supporting broadcast, multicast, and direct messaging.  
+  - **Consensus Mechanisms:** Implements distributed consensus algorithms (e.g., gossip protocols) for reliable group decisions.  
+  - **Fault Handling:** Automatic detection and isolation of faulty agents, with dynamic reconfiguration of swarm topology.  
+  - **Extensibility:** Plugin architecture allows custom behaviors, sensors, and actuators to be added easily.
+
+  ---
+
+  ## 🐍 Python Example: Coordinating a Simple Swarm 🐝
+
+  ```python
+  from swarms import Agent, Swarm
+
+  class DeliveryDrone(Agent):
+      def __init__(self, agent_id):
+          super().__init__(agent_id)
+          self.task = None
+
+      def on_message(self, msg):
+          if msg['type'] == 'task_assignment':
+              self.task = msg['task']
+              print(f"Drone {self.agent_id} assigned to {self.task}")
+
+      def perform_task(self):
+          if self.task:
+              print(f"Drone {self.agent_id} performing {self.task}")
+              # Simulate task completion
+              self.task = None
+
+  # Initialize swarm with 5 drones
+  swarm = Swarm()
+
+  for i in range(5):
+      drone = DeliveryDrone(agent_id=i)
+      swarm.add_agent(drone)
+
+  # Assign tasks dynamically
+  swarm.broadcast({'type': 'task_assignment', 'task': 'Deliver Package A'})
+
+  # Run swarm cycle
+  swarm.step()
+  ```
+  <br>
+  This snippet demonstrates how lightweight agents (drones) can receive tasks and operate autonomously within a swarm, coordinating without central control.
+
+  ---
+
+  ## 🏆 Competitors & Pricing 💰⚔️
+
+  | Tool / Framework       | Highlights                                    | Pricing Model                   |
+  |-----------------------|-----------------------------------------------|--------------------------------|
+  | **Ray**               | Distributed computing with actor model        | Open-source; enterprise tiers  |
+  | **JADE**              | Java-based multi-agent system                  | Open-source                    |
+  | **Microsoft Orleans** | Virtual actor model for cloud apps             | Open-source                    |
+  | **smolagents**        | Lightweight, minimalist agent framework        | Open-source                    |
+  | **Swarm Intelligence Libraries** (e.g., PySwarm) | Focused on optimization algorithms | Mostly open-source             |
+  | **Swarms**            | Decentralized, fault-tolerant, scalable multi-agent framework | Open core + paid support & cloud options |
+
+  **Swarms** distinguishes itself by emphasizing **decentralization and fault tolerance** specifically for AI multi-agent coordination, with a native Python ecosystem focus.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance 🐍📊
+
+  Swarms is built with Python developers in mind:
+
+  - Native Python APIs make it easy to integrate with AI/ML libraries like **TensorFlow**, **PyTorch**, and **scikit-learn**.  
+  - Compatible with async frameworks such as **asyncio** and **Twisted** for efficient event-driven programming.  
+  - Supports data science tools like **Pandas** and **NumPy** for agent data analysis.  
+  - Works well with orchestration tools like **Dask** and **Prefect** for workflow management.
+
+  ---
+
+  ## 🌟 Summary ✨
+
+  **Swarms** is a revolutionary framework that brings the power of nature-inspired swarm intelligence to distributed AI systems. By enabling decentralized, fault-tolerant, and scalable agent coordination, it opens new frontiers in robotics, logistics, research, and beyond — all while fitting naturally into the vibrant Python ecosystem.
+
+  ---

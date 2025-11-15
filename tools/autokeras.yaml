@@ -1,0 +1,135 @@
+name: "AutoKeras"
+slug: "autokeras"
+headline: "Automated machine learning for faster model building."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/keras-team/autokeras"
+  - label: "Docs"
+    url: "https://autokeras.com/"
+overview: |
+  **AutoKeras** is an open-source AutoML (Automated Machine Learning) library designed to simplify and accelerate the process of building deep learning models. By automating neural architecture search and hyperparameter tuning, AutoKeras enables users — from beginners to experts — to develop high-performing models without requiring deep expertise in machine learning or neural network design.
+  <br>
+  Built on top of the **popular Keras** and **TensorFlow** frameworks, AutoKeras offers a user-friendly, high-level API that abstracts away the complexity of model selection, training, and optimization, making it an ideal tool for rapid prototyping and experimentation.
+description: |
+  ## ✨ Core Capabilities ✨
+
+  | Feature                      | Description                                                                                   |
+  |------------------------------|-----------------------------------------------------------------------------------------------|
+  | **🤖 Automated Model Search**    | Uses state-of-the-art neural architecture search (NAS) to find optimal model architectures.  |
+  | **⚙️ Preprocessing Pipelines**   | Automatically handles data preprocessing, including normalization, encoding, and augmentation.|
+  | **🖼️ Multi-Modal Support**       | Supports image, text, and structured/tabular data out-of-the-box.                             |
+  | **🎯 Hyperparameter Optimization** | Tunes hyperparameters such as learning rate, batch size, and network depth automatically.     |
+  | **🧑‍💻 User-Friendly API**         | Minimal code required to build, train, and evaluate deep learning models.                     |
+  | **📈 Scalable & Extensible**     | Integrates seamlessly with TensorFlow ecosystem for customization and scaling.                |
+
+  ---
+
+  ## 🎯 Key Use Cases 🎯
+
+  AutoKeras fits a wide variety of domains and users:
+
+  - **👩‍🔬 Data Scientists & ML Engineers**: Rapid prototyping of deep learning models without spending weeks on architecture engineering.
+  - **🎓 Educators & Students**: Simplified learning curve for understanding deep learning concepts through hands-on experimentation.
+  - **💻 Developers & Startups**: Quickly build production-ready models for tasks like image classification, text analysis, and regression.
+  - **🔬 Researchers**: Benchmarking and exploring new datasets with minimal setup.
+
+  Common tasks include:
+
+  - 🖼️ Image classification and object recognition
+  - 📝 Text classification and sentiment analysis
+  - 📊 Regression on tabular data (e.g., predicting prices, sales forecasting)
+  - ⏰ Time series forecasting and anomaly detection
+
+  ---
+
+  ## 🤔 Why People Use AutoKeras? 🤔
+
+  - **No Deep ML Expertise Required:** Allows non-experts to leverage the power of deep learning.
+  - **Saves Time & Resources:** Eliminates manual trial-and-error in model design and hyperparameter tuning.
+  - **Built on Trusted Frameworks:** Leverages Keras and TensorFlow’s robustness and scalability.
+  - **Flexible & Extensible:** Users can customize or extend the search space if needed.
+  - **Community & Open Source:** Supported by an active community with continuous improvements.
+
+  ---
+
+  ## 🧩 Integration with Other Tools 🧩
+
+  AutoKeras fits naturally into the Python ML ecosystem:
+
+  - **TensorFlow & Keras:** Uses TensorFlow backend and Keras API, making it easy to switch between AutoKeras and custom Keras models.
+  - **Scikit-learn:** Can be combined with scikit-learn pipelines for preprocessing or post-processing.
+  - **TensorBoard:** Supports TensorBoard for visualization of training progress and model architecture.
+  - **Cloud Platforms:** Compatible with Google Colab, AWS SageMaker, and other cloud ML platforms for scalable training.
+  - **ONNX & TensorFlow Serving:** Models trained with AutoKeras can be exported for deployment using ONNX or TensorFlow Serving.
+
+  ---
+
+  ## ⚙️ Technical Aspects ⚙️
+
+  AutoKeras employs **Neural Architecture Search (NAS)** techniques, including:
+
+  - **Bayesian Optimization** and **Reinforcement Learning** to explore model architectures.
+  - **Early Stopping** to avoid overfitting during search.
+  - **Multi-trial Parallel Training** to speed up hyperparameter tuning.
+  - Supports **multi-modal inputs** by automatically building appropriate subnetworks for images, text, and structured data.
+
+  Under the hood, AutoKeras abstracts the complexity of TensorFlow’s low-level APIs and provides a simple, declarative interface.
+
+  ---
+
+  ## 🐍 Quick Start Example in Python 🐍
+
+  ```python
+  import autokeras as ak
+  from tensorflow.keras.datasets import mnist
+
+  # Load dataset
+  (x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+  # Initialize ImageClassifier
+  clf = ak.ImageClassifier(max_trials=5, overwrite=True)
+
+  # Train the model
+  clf.fit(x_train, y_train, epochs=10)
+
+  # Evaluate the best model
+  accuracy = clf.evaluate(x_test, y_test)
+  print(f"Test accuracy: {accuracy}")
+
+  # Export the best Keras model
+  model = clf.export_model()
+  model.summary()
+  ```
+  <br>
+  This example demonstrates how easily you can train an image classifier with minimal code, leaving the architecture and hyperparameter search to AutoKeras.
+
+  ---
+
+  ## 💸 Competitors & Pricing 💸
+
+  | Tool              | Description                             | Pricing Model                  | Notes                                      |
+  |-------------------|-------------------------------------|-------------------------------|--------------------------------------------|
+  | **AutoKeras**     | Open-source AutoML for deep learning | Free (Apache 2.0 license)      | Best for ease of use with TensorFlow backend |
+  | **Google AutoML** | Cloud-based AutoML by Google          | Pay-as-you-go (cloud pricing) | Enterprise-grade, fully managed service    |
+  | **H2O Driverless AI** | AutoML with focus on tabular data   | Commercial license             | Strong in tabular data, limited deep learning |
+  | **Auto-sklearn**  | AutoML for classical ML algorithms    | Free (open source)             | Not focused on deep learning                |
+  | **TPOT**          | Genetic programming-based AutoML      | Free (open source)             | Focused on classical ML pipelines           |
+
+  AutoKeras is **free and open-source**, making it highly accessible for individuals, startups, and academic projects.
+
+  ---
+
+  ## Relevance in the Python Ecosystem 🐍
+
+  AutoKeras is a natural extension to the Python data science stack:
+
+  - **Seamless with TensorFlow/Keras:** Users familiar with Keras will find AutoKeras intuitive.
+  - **Complementary to scikit-learn:** While scikit-learn excels at classical ML, AutoKeras fills the gap for deep learning automation.
+  - **Jupyter & Colab Friendly:** Perfect for interactive experimentation and teaching.
+  - **Integration with Pandas & NumPy:** Works smoothly with standard Python data structures.
+
+  ---
+
+  ## Summary
+
+  AutoKeras democratizes deep learning by automating the most challenging parts of model development. Whether you're a beginner eager to dive into AI or a seasoned practitioner looking to accelerate workflows, AutoKeras delivers a powerful, flexible, and easy-to-use solution within the vibrant Python ML ecosystem.

@@ -1,0 +1,153 @@
+name: "OpenCV"
+slug: "opencv"
+headline: "Open-source toolkit for real-time computer vision."
+urls:
+  - label: "Website"
+    url: "https://opencv.org/"
+  - label: "GitHub"
+    url: "https://github.com/opencv/opencv"
+overview: |
+  OpenCV (Open Source Computer Vision Library) is a powerful, open-source toolkit designed to bring computer vision and machine learning capabilities to developers, researchers, and hobbyists alike. With its rich collection of optimized algorithms and seamless Python integration, OpenCV transforms complex image and video processing tasks into accessible, real-time solutions.
+  <br>
+  Whether you’re building **augmented reality apps**, developing **robotics vision systems**, or conducting **advanced video analytics**, OpenCV provides the building blocks to bring your vision projects to life.
+description: |
+  ## 🔑 Core Capabilities 🛠️
+
+  OpenCV offers a comprehensive suite of features, including but not limited to:
+
+  | Capability                  | Description                                                      |
+  |----------------------------|------------------------------------------------------------------|
+  | **Image Processing** 🖼️ | Filtering, transformations (resize, rotate), color space conversion; often used together with Pillow (PIL) for image file handling and manipulation |
+  | **Feature Detection** 🔍       | Edge detection, corner detection, blob detection, keypoint extraction |
+  | **Object Detection & Tracking** 🎯 | Haar cascades, HOG + SVM, Deep Learning-based detectors (YOLO, SSD) |
+  | **Video Analysis** 🎥          | Motion tracking, background subtraction, and optical flow — core elements of perception systems for dynamic scene understanding.           |
+  | **3D Vision & Calibration** 📐 | Stereo vision, depth maps, camera calibration                    |
+  | **Machine Learning** 🤖        | Built-in algorithms for classification, clustering, and regression |
+  | **Augmented Reality** 🕶️       | Marker detection, pose estimation                                |
+
+  ---
+
+  ## 🎯 Key Use Cases 🚀
+
+  OpenCV empowers a wide range of applications across industries:
+
+  - **Autonomous Robotics:** 🤖 Real-time object detection and navigation.
+  - **Surveillance & Security:** 🛡️ Face recognition, motion detection, anomaly detection.
+  - **Healthcare:** 🏥 Medical image analysis and diagnostics.
+  - **Augmented Reality:** 🌐 Overlaying digital content onto the physical world.
+  - **Multimedia:** 🎬 Video stabilization, enhancement, and editing.
+  - **Research & Academia:** 📚 Prototyping new computer vision algorithms.
+
+  ---
+
+  ## 💡 Why People Use OpenCV 💻
+
+  - **Open Source & Free:** 🆓 No licensing fees, fully community-supported.
+  - **Performance-Optimized:** ⚡ Written in C/C++ with hardware acceleration; Python bindings for ease of use.
+  - **Cross-Platform:** 🌍 Runs on Windows, Linux, macOS, Android, iOS, and embedded systems.
+  - **Rich Ecosystem:** 📖 Extensive documentation, tutorials, and a large active community.
+  - **Python Integration:** 🐍 Works seamlessly with popular Python libraries like NumPy, SciPy, and TensorFlow.
+
+  ---
+
+  ## 🔗 Integration with Other Tools 🔄
+
+  OpenCV plays well with many tools in the Python ecosystem and beyond:
+
+  | Tool/Library        | Integration Use Case                                   |
+  |---------------------|-------------------------------------------------------|
+  | **NumPy**           | Image data manipulation as multidimensional arrays    |
+  | **TensorFlow / PyTorch** | Preprocessing images/videos for deep learning models |
+  | **scikit-learn**    | Feature extraction and classical ML model pipelines   |
+  | **Dlib**            | Advanced face recognition and landmark detection      |
+  | **ROS (Robot Operating System)** | Vision pipelines for robotics and automation     |
+  | **MediaPipe**       | Real-time hand, face, and pose tracking                |
+  | **Detectron2**      | State-of-the-art object detection and segmentation models; can be used alongside OpenCV for enhanced vision pipelines |
+
+  ---
+
+  ## ⚙️ Technical Overview 🧩
+
+  At its core, OpenCV is a collection of over 2500 optimized algorithms implemented primarily in C++ for speed. Python bindings expose these functionalities with a simple, intuitive API.
+
+  - **Data Structures:** Images are handled as NumPy arrays (`cv2.imread()` returns an ndarray).
+  - **Modular Design:** Organized into modules like `core`, `imgproc`, `video`, `features2d`, `calib3d`, and `dnn`.
+  - **Hardware Acceleration:** Supports OpenCL, CUDA, and Intel IPP for faster computation.
+  - **Deep Learning:** Includes a DNN module to load models from frameworks like Caffe, TensorFlow, and ONNX.
+
+  ---
+
+  ## 🐍 OpenCV in Python: Example Code 📝
+
+  Here’s a simple example demonstrating real-time face detection using OpenCV’s Haar cascades:
+
+  ```python
+  import cv2
+
+  # Load pre-trained Haar cascade classifier for face detection
+  face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+  # Open webcam stream
+  cap = cv2.VideoCapture(0)
+
+  while True:
+      ret, frame = cap.read()
+      if not ret:
+          break
+
+      # Convert to grayscale for detection
+      gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+      # Detect faces
+      faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+
+      # Draw rectangles around faces
+      for (x, y, w, h) in faces:
+          cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+      # Display the output
+      cv2.imshow('Face Detection', frame)
+
+      # Exit on pressing 'q'
+      if cv2.waitKey(1) & 0xFF == ord('q'):
+          break
+
+  cap.release()
+  cv2.destroyAllWindows()
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing 💰
+
+  | Tool/Library          | Description                                  | Pricing Model             |
+  |-----------------------|----------------------------------------------|--------------------------|
+  | **OpenCV**            | Open-source, general-purpose CV library      | Free (Apache 2.0 License)|
+  | **MATLAB Computer Vision Toolbox** | Proprietary, rich features and GUI tools | Paid (license-based)     |
+  | **Dlib**              | Focused on machine learning and face recognition | Free (Boost Software License) |
+  | **SimpleCV**           | Simplified wrapper around OpenCV             | Free                     |
+  | **Google MediaPipe**   | Real-time perception pipelines (hands, face) | Free                     |
+
+  OpenCV’s zero-cost, open-source nature combined with its extensive capabilities makes it the default choice for many projects.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance 🌐
+
+  OpenCV is deeply embedded in the Python data science and AI ecosystem:
+
+  - Works natively with **NumPy** arrays for image and matrix operations.
+  - Acts as a preprocessing backbone for **deep learning frameworks** like TensorFlow and PyTorch.
+  - Integrates smoothly with **Jupyter notebooks** for interactive vision experiments.
+  - Supports **scikit-image** and **matplotlib** for visualization and advanced image processing.
+  - Popular in **Kaggle competitions**, research, and prototyping.
+
+  ---
+
+  ## 🌟 Summary ✨
+
+  OpenCV is a **versatile, high-performance**, and **community-driven** computer vision library that has become the backbone of countless Python projects involving image and video analysis. Its balance of **ease-of-use**, **speed**, and **extensibility** makes it indispensable for developers ranging from hobbyists to enterprise engineers.
+
+  Whether you want to build a simple face detector or a complex autonomous navigation system, OpenCV offers the tools and flexibility to make your vision a reality.
+
+  ---

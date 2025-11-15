@@ -1,0 +1,157 @@
+name: "Weights & Biases"
+slug: "weights-and-biases"
+headline: "Experiment tracking and model management for machine learning teams."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/wandb/client"
+  - label: "Docs"
+    url: "https://docs.wandb.ai/"
+overview: |
+  **Weights & Biases** is a powerful platform designed to simplify and supercharge machine learning workflows by providing seamless **experiment tracking**, **model management**, and **collaborative visualization**. It helps data scientists, ML engineers, and research teams organize, reproduce, and share their work effortlessly — eliminating the manual hassle and error-prone process of tracking experiments.
+  <br>
+  With W&B, every run, metric, hyperparameter, dataset version, and model artifact is automatically logged and visualized in real-time, enabling teams to focus on building better models instead of managing spreadsheets or scattered notes.
+description: |
+  ## 🚀 Core Capabilities
+
+  | Capability                  | Description                                                                                 |
+  |----------------------------|---------------------------------------------------------------------------------------------|
+  | 🧪 **Experiment Tracking**     | Automatically log hyperparameters, system metrics, outputs, and custom values during runs.  |
+  | 🗃️ **Model Management**        | Version, store, and compare models with full lineage and metadata for reproducibility.     |
+  | 📊 **Visualization Dashboards**| Interactive, customizable dashboards for monitoring training curves, distributions, and more.|
+  | 🤝 **Collaboration Tools**     | Share reports, runs, and insights with teams or stakeholders in real-time.                  |
+  | 📦 **Artifact Management**     | Track datasets, models, and intermediate outputs as versioned artifacts.                    |
+  | 🎯 **Sweeps (Hyperparameter Tuning)** | Launch, manage, and analyze large-scale hyperparameter search experiments efficiently. |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  - **Hyperparameter Optimization:** Track and compare multiple runs to find the best-performing model configurations. ⚙️
+  - **Model Performance Monitoring:** Visualize training/validation metrics over epochs or iterations. 📈
+  - **Experiment Reproducibility:** Automatically capture environment info, code versions, and dependencies. 🔄
+  - **Collaboration & Reporting:** Share live dashboards and reports to keep teams aligned. 📢
+  - **Data & Model Versioning:** Manage datasets and model artifacts to ensure traceability in production pipelines. 🗂️
+  - **Research & Development:** Accelerate iteration cycles through insightful comparisons and aggregated experiment data. ⚡
+
+  ---
+
+  ## 💡 Why People Use Weights & Biases
+
+  - **Save Time:** Automate tedious experiment logging and artifact tracking. ⏳
+  - **Improve Reproducibility:** Ensure experiments can be rerun exactly with captured metadata. 🔐
+  - **Gain Deeper Insights:** Interactive visualizations reveal trends and anomalies early. 👀
+  - **Collaborate Seamlessly:** Share results and reports with teams or clients instantly. 🤗
+  - **Scale Effortlessly:** Manage hundreds or thousands of experiments with ease. 📈
+  - **Integrate Flexibly:** Works with popular ML frameworks and cloud environments. ☁️
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Weights & Biases integrates smoothly into the modern ML ecosystem:
+
+  | Tool / Framework           | Integration Type                                |
+  |---------------------------|------------------------------------------------|
+  | **TensorFlow**             | Native logging via `wandb.tensorflow`          |
+  | **PyTorch**                | Easy integration with `wandb.watch()`          |
+  | **Keras**                  | Built-in callback support                       |
+  | **Scikit-learn**           | Manual logging and metric tracking              |
+  | **Hugging Face Transformers** | Example projects & scripts available           |
+  | **Jupyter Notebooks**      | Inline visualizations and interactive widgets  |
+  | **Cloud Platforms**        | AWS, GCP, Azure support for artifact storage   |
+  | **CI/CD Pipelines**        | API and CLI for automated experiment tracking  |
+  | **Kubeflow / MLflow**      | Can be used alongside or replace experiment tracking |
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **Client SDK:** Lightweight Python package (`wandb`) that hooks into your training scripts.
+  - **Backend:** Cloud-hosted or self-hosted server for data storage, visualization, and collaboration.
+  - **API:** REST and WebSocket APIs for programmatic access and automation.
+  - **Security:** Enterprise-grade controls including SSO, RBAC, and private cloud deployments.
+  - **Scalability:** Designed to handle large-scale experiments with minimal overhead.
+
+  ---
+
+  ## 🐍 Python Example: Quickstart with PyTorch
+
+  ```python
+  import wandb
+  import torch
+  import torch.nn as nn
+  import torch.optim as optim
+  from torchvision import datasets, transforms
+
+  # Initialize a W&B run
+  wandb.init(project="mnist-classification", entity="your_team")
+
+  # Define a simple model
+  class Net(nn.Module):
+      def __init__(self):
+          super(Net, self).__init__()
+          self.fc = nn.Linear(28*28, 10)
+      def forward(self, x):
+          return self.fc(x.view(-1, 28*28))
+
+  model = Net()
+  optimizer = optim.SGD(model.parameters(), lr=0.01)
+  criterion = nn.CrossEntropyLoss()
+
+  # Watch model for gradients and parameter logging
+  wandb.watch(model, log="all")
+
+  # Prepare data
+  train_loader = torch.utils.data.DataLoader(
+      datasets.MNIST('.', train=True, download=True, transform=transforms.ToTensor()),
+      batch_size=64, shuffle=True)
+
+  # Training loop
+  for epoch in range(3):
+      for batch_idx, (data, target) in enumerate(train_loader):
+          optimizer.zero_grad()
+          output = model(data)
+          loss = criterion(output, target)
+          loss.backward()
+          optimizer.step()
+
+          # Log metrics to W&B
+          wandb.log({"loss": loss.item(), "epoch": epoch})
+
+  print("Training complete!")
+  ```
+
+  ---
+
+  ## 🏆 Competitors and Pricing
+
+  | Tool             | Focus Area                     | Pricing Model                         |
+  |------------------|--------------------------------|-------------------------------------|
+  | **Weights & Biases** | Experiment tracking, model & artifact management | Free tier available; paid plans start at $12/user/month with enterprise options |
+  | **MLflow**       | Open-source experiment tracking and lifecycle management | Free (open source), paid managed services available |
+  | **Neptune.ai**   | Experiment tracking and metadata store | Free tier; paid plans based on usage and features |
+  | **Comet.ml**     | Experiment tracking, model monitoring | Free tier; paid plans from $25/user/month |
+  | **TensorBoard**  | Visualization tool for TensorFlow | Free, limited to TensorFlow ecosystem |
+  | **Sacred + Omniboard** | Open-source experiment tracking | Free, requires self-hosting and setup |
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Weights & Biases is **deeply integrated into the Python ML ecosystem**:
+
+  - Native support for popular frameworks like **PyTorch**, **TensorFlow**, **Keras**, and **scikit-learn**.
+  - Works seamlessly in **Jupyter notebooks** for interactive experimentation.
+  - Supports **Python scripts and pipelines** with minimal code changes.
+  - Enables **hyperparameter sweeps** using simple YAML or Python APIs.
+  - Plays well with Python-based orchestration tools like **Airflow**, **Prefect**, and **Kubeflow**.
+
+  ---
+
+  ## 📋 Summary
+
+  Weights & Biases empowers machine learning teams to **track, visualize, and manage experiments at scale** with minimal overhead. Its tight integration with Python frameworks, intuitive dashboards, and collaboration features make it a go-to tool for accelerating model development and ensuring reproducibility.
+
+  > **Get started today** — automate your experiment tracking and unlock deeper insights into your ML projects!
+
+  ---

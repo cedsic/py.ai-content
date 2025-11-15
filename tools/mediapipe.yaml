@@ -1,0 +1,163 @@
+name: "Mediapipe"
+slug: "mediapipe"
+headline: "Cross-platform framework for building perception pipelines."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/google/mediapipe"
+  - label: "Docs"
+    url: "https://developers.google.com/mediapipe"
+overview: |
+  **MediaPipe** is an open-source, cross-platform framework developed by Google that simplifies building and deploying real-time perception pipelines. Whether you want to track hands, detect facial landmarks, estimate poses, or perform object detection — MediaPipe offers modular, high-performance components that work seamlessly across mobile, desktop, and web platforms.
+  <br>
+  Built for developers, researchers, and creatives alike, MediaPipe abstracts away the complexity of integrating multiple vision and ML tools, enabling rapid prototyping and production-ready applications with ease.
+description: |
+  ## 🔑 Core Capabilities
+
+  | Capability                  | Description                                                                                   |
+  |----------------------------|-----------------------------------------------------------------------------------------------|
+  | **🚀 Prebuilt Graphs & Models** | Ready-to-use pipelines for pose estimation, hand & face tracking, object detection, and more. |
+  | **🌐 Cross-Platform Support**   | Runs on Android, iOS, Windows, Linux, macOS, and via WebAssembly on browsers.                  |
+  | **🛠️ Customizable Pipelines**   | Modular components that can be combined or extended to tailor solutions to specific needs.    |
+  | **⚡ Optimized Real-Time Performance** | Designed for low-latency, high-throughput processing suitable for interactive applications.  |
+  | **🎥 Multi-Modal Input Support**| Supports video, images, audio, and sensor data integration.                                   |
+
+  ---
+
+  ## 🎯 Key Use Cases
+
+  MediaPipe shines in scenarios requiring real-time computer vision and machine learning:
+
+  - **🕶️ Augmented Reality (AR) & Virtual Reality (VR)**  
+    Interactive hand and body tracking for immersive experiences.
+
+  - **✋ Gesture Recognition & Motion Tracking**  
+    Enabling intuitive user controls in apps and devices.
+
+  - **😀 Facial Landmark Detection & Expression Analysis**  
+    Enhancing selfie apps, emotion recognition, and avatar animation.
+
+  - **🎯 Object Detection & Tracking**  
+    Real-time identification and tracking for robotics, retail, and security.
+
+  - **🏥 Healthcare & Fitness Applications**  
+    Posture correction, exercise tracking, and rehabilitation monitoring.
+
+  ---
+
+  ## 💡 Why Choose MediaPipe?
+
+  - **👍 Ease of Use:** Prebuilt pipelines reduce development time drastically.  
+  - **🔧 Flexibility:** Customize and extend graphs to fit unique project requirements.  
+  - **🚀 Performance:** Highly optimized code and GPU acceleration for real-time responsiveness.  
+  - **🌍 Cross-Platform Deployment:** Write once, deploy everywhere — from phones to browsers.  
+  - **🤝 Strong Community & Backing:** Supported by Google with active open-source contributions.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  MediaPipe integrates smoothly within broader ML and development ecosystems:
+
+  | Tool/Framework          | Integration Mode                                         | Benefit                                         |
+  |------------------------|----------------------------------------------------------|------------------------------------------------|
+  | **TensorFlow / TF Lite** | Uses TensorFlow models as part of graphs                 | Leverage custom or pretrained ML models         |
+  | **OpenCV**              | Compatible with OpenCV image/video processing pipelines | Preprocessing and postprocessing flexibility    |
+  | **Python**              | Python API & bindings                                     | Rapid prototyping and integration in Python apps|
+  | **WebAssembly (WASM)**  | Runs in browsers via WASM                                 | Deploy pipelines in web environments             |
+  | **Flutter & React Native** | Via native plugins and platform channels                | Build mobile apps with MediaPipe functionalities |
+
+  ---
+
+  ## ⚙️ Technical Overview
+
+  At its core, MediaPipe uses a **graph-based architecture**, where each node (called a *calculator*) performs a specific operation — e.g., image decoding, ML inference, or postprocessing. These calculators are connected into directed acyclic graphs that define the full data pipeline.
+
+  - **Graphs** are defined using `.pbtxt` files or programmatically.
+  - **Calculators** are reusable C++ or Python modules.
+  - Supports **hardware acceleration** via GPU and DSP for mobile.
+  - Designed to be adaptable for deployment on resource-constrained devices, including microcontrollers, enabling real-time perception in embedded and edge computing scenarios.
+  - Offers **Python bindings** for easy experimentation and integration.
+
+  ---
+
+  ## 🐍 MediaPipe in Python: A Simple Hand Tracking Example
+
+  ```python
+  import cv2
+  import mediapipe as mp
+
+  mp_hands = mp.solutions.hands
+  mp_drawing = mp.solutions.drawing_utils
+
+  # Initialize MediaPipe Hands
+  with mp_hands.Hands(
+      static_image_mode=False,
+      max_num_hands=2,
+      min_detection_confidence=0.7) as hands:
+
+      cap = cv2.VideoCapture(0)
+      while cap.isOpened():
+          ret, frame = cap.read()
+          if not ret:
+              break
+
+          # Convert the BGR image to RGB
+          image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+          image.flags.writeable = False
+
+          # Process the image and detect hands
+          results = hands.process(image)
+
+          # Draw hand landmarks
+          image.flags.writeable = True
+          image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+          if results.multi_hand_landmarks:
+              for hand_landmarks in results.multi_hand_landmarks:
+                  mp_drawing.draw_landmarks(
+                      image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+          cv2.imshow('MediaPipe Hands', image)
+          if cv2.waitKey(5) & 0xFF == 27:
+              break
+      cap.release()
+      cv2.destroyAllWindows()
+  ```
+  <br>
+  This snippet opens your webcam, detects and draws hand landmarks in real-time, showcasing MediaPipe’s ease of use and performance.
+
+  ---
+
+  ## 🥊 Competitors & Pricing
+
+  | Tool / Framework       | Description                          | Pricing Model                     | Notes                                                      |
+  |-----------------------|------------------------------------|---------------------------------|------------------------------------------------------------|
+  | **OpenPose**           | Open-source body/hand/face pose estimation | Free (Open Source)               | High accuracy but heavier and less optimized for mobile.    |
+  | **TensorFlow Lite**    | Lightweight ML inference on edge   | Free (Open Source)               | Needs custom model development; no built-in vision pipelines.|
+  | **Dlib**               | Facial landmark detection library  | Free (Open Source)               | Limited to face landmarks, less performant on video streams.|
+  | **Amazon Rekognition** | Cloud-based image/video analysis   | Pay-as-you-go                   | Cloud dependency, latency, and cost considerations.          |
+  | **MediaPipe**          | Modular, optimized vision pipelines| Free (Open Source)               | Best-in-class real-time performance and flexibility.        |
+
+  **MediaPipe is completely free and open-source**, making it an attractive choice for startups, researchers, and enterprises alike.
+
+  ---
+
+  ## 🐍 MediaPipe & the Python Ecosystem
+
+  MediaPipe’s Python API enables seamless integration with popular Python libraries:
+
+  - **OpenCV** for image/video capture and processing.
+  - **NumPy** for numerical operations on landmark data.
+  - **TensorFlow** for custom ML model integration.
+  - **Jupyter Notebooks** for interactive prototyping and visualization.
+
+  This makes MediaPipe a natural fit for Python developers working on computer vision, machine learning, and interactive applications.
+
+  ---
+
+  ## 🎉 Summary
+
+  MediaPipe is a powerful, flexible, and efficient framework for building real-time perception pipelines. Its modular design, cross-platform support, and open-source nature empower developers to bring cutting-edge vision capabilities to a wide variety of applications — from AR/VR to healthcare and beyond.
+
+  Whether you’re a beginner prototyping in Python or an expert building production-grade mobile apps, MediaPipe provides the tools and performance you need to succeed.
+
+  ---

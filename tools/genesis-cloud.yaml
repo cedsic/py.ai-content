@@ -1,0 +1,158 @@
+name: "Genesis Cloud"
+slug: "genesis-cloud"
+headline: "Affordable and sustainable GPU cloud for AI development."
+urls:
+  - label: "Official Site"
+    url: "https://www.genesiscloud.com/"
+overview: |
+  **Genesis Cloud** is a next-generation GPU cloud provider designed for teams who demand **high-performance computing** without breaking the bank or harming the planet. By leveraging **renewable energy-powered data centers** and offering **NVIDIA GPU instances** optimized for AI, HPC, and rendering workloads, Genesis Cloud delivers a unique blend of **affordability, sustainability, and performance**.
+  <br>
+  Whether you're a startup, research lab, or enterprise, Genesis Cloud empowers you to accelerate your compute-intensive projects while minimizing your carbon footprint.
+description: |
+  ## ♻️ Core Capabilities
+
+  | Feature                         | Description                                                                                     |
+  |--------------------------------|-------------------------------------------------------------------------------------------------|
+  | ♻️ **Sustainable GPU Infrastructure**       | Data centers powered by 100% renewable energy in Iceland and Norway, reducing environmental impact. |
+  | 💰 **Affordable Pricing**                   | Transparent, competitive rates for NVIDIA GPUs like V100, A100, and more.                        |
+  | ⚙️ **Optimized for AI & HPC**               | Preconfigured environments tailored for machine learning, deep learning, scientific simulations, and rendering. |
+  | 🔄 **Simple Scaling**                        | Flexible on-demand instances or long-term reservations to fit your workload patterns.            |
+  | 🌍 **European Data Centers**                 | Ideal for EU organizations with strict data residency and compliance requirements.                |
+  | 🔌 **API & Dashboard Access**                | Intuitive web UI and powerful REST API for launching, managing, and scaling GPU instances.       |
+
+  ---
+
+  ## 🔑 Key Use Cases
+
+  Genesis Cloud is the perfect choice for:
+
+  - **Training Deep Learning Models:** Efficiently train NLP, computer vision, and other AI models on affordable GPU clusters.
+  - **Scientific Simulations & HPC:** Run large-scale simulations and data-intensive research projects cost-effectively.
+  - **Budget-Conscious AI Projects:** Startups and labs balancing tight budgets with high compute demands.
+  - **Sustainable Cloud Workloads:** Organizations prioritizing eco-friendly infrastructure without compromising performance.
+  - **Rendering & Visual Effects:** Leverage GPU power for 3D rendering, animation, and creative workloads.
+
+  ---
+
+  ## ❓ Why Choose Genesis Cloud?
+
+  - **Lower Costs:** Up to 50% cheaper than many mainstream cloud providers, reducing compute expenses significantly.
+  - **Eco-Friendly:** Operate on GPUs powered by renewable energy, supporting your organization’s sustainability goals.
+  - **Easy to Use:** Launch instances in minutes via a clean web interface or automate with APIs.
+  - **European Presence:** Data centers in Iceland and Norway provide low-latency and compliance-friendly options for EU users.
+  - **Flexible Billing:** Pay-as-you-go or reserve instances for predictable budgeting.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  Genesis Cloud seamlessly integrates into your existing workflows:
+
+  - **Python Ecosystem:** Works flawlessly with popular ML/DL frameworks like **PyTorch**, **TensorFlow**, **JAX**, and **scikit-learn**. 🐍
+  - **ML Ops Pipelines:** Compatible with tools like **Kubeflow**, **MLflow**, and **Weights & Biases** for end-to-end model lifecycle management. 🔄
+  - **Containerized Workloads:** Supports Docker and Kubernetes deployments for scalable, reproducible environments. 🐳
+  - **APIs & CLI:** Automate resource provisioning and monitoring with REST APIs and command-line tools. 💻
+
+  ---
+
+  ## ⚙️ Technical Aspects
+
+  - **GPU Types:** NVIDIA Tesla V100, A100, and more, optimized for FP16, FP32, and mixed-precision training.
+  - **Networking:** High-speed, low-latency interconnects suitable for distributed training.
+  - **Storage:** Fast NVMe SSDs and scalable block storage options.
+  - **Security:** GDPR-compliant, encrypted data transfers, and isolated compute environments.
+  - **Operating Systems:** Ubuntu and other Linux distributions with pre-installed CUDA, cuDNN, and ML frameworks.
+
+  ---
+
+  ## 🐍 Python Example: Launching a Training Job on Genesis Cloud
+
+  Here’s a simple example demonstrating how you might connect to a Genesis Cloud instance and start training a PyTorch model.
+
+  ```python
+  import torch
+  import torch.nn as nn
+  import torch.optim as optim
+  from genesiscloud import GenesisAPI  # Hypothetical Python SDK
+
+  # Initialize Genesis Cloud API client
+  gc = GenesisAPI(api_key="YOUR_API_KEY")
+
+  # Launch a GPU instance (e.g., V100)
+  instance = gc.launch_instance(gpu_type="V100", region="iceland", duration_hours=4)
+
+  print(f"Launched instance ID: {instance.id} with IP: {instance.ip_address}")
+
+  # SSH or use remote execution to run training (simplified)
+  # Example PyTorch training snippet
+  class SimpleNet(nn.Module):
+      def __init__(self):
+          super().__init__()
+          self.fc = nn.Linear(784, 10)
+
+      def forward(self, x):
+          return self.fc(x)
+
+  model = SimpleNet().cuda()
+  criterion = nn.CrossEntropyLoss()
+  optimizer = optim.Adam(model.parameters())
+
+  # Dummy training loop
+  for epoch in range(5):
+      inputs = torch.randn(64, 784).cuda()
+      labels = torch.randint(0, 10, (64,)).cuda()
+
+      optimizer.zero_grad()
+      outputs = model(inputs)
+      loss = criterion(outputs, labels)
+      loss.backward()
+      optimizer.step()
+
+      print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}")
+
+  # After training, terminate instance to save costs
+  gc.terminate_instance(instance.id)
+  print("Instance terminated.")
+  ```
+
+  ---
+
+  ## 💰 Competitors & Pricing Comparison
+
+  | Provider         | Pricing (per GPU hour) | GPU Types Available          | Sustainability Focus       | Notes                          |
+  |------------------|-----------------------|-----------------------------|----------------------------|-------------------------------|
+  | **Genesis Cloud** | ~$0.40 - $0.60        | NVIDIA V100, A100, T4       | ✅ Renewable energy-powered | Affordable, EU data centers    |
+  | AWS EC2 (P3/P4)   | ~$3.06 - $32.77       | NVIDIA V100, A100            | Partial (varies by region) | High performance, expensive   |
+  | Google Cloud     | ~$2.48 - $4.00        | NVIDIA V100, A100            | Partial                    | Strong ML integrations         |
+  | Azure            | ~$2.50 - $4.00        | NVIDIA V100, A100            | Partial                    | Enterprise-grade               |
+  | Vast.ai          | ~$0.20 - $0.50        | Various consumer GPUs        | No explicit sustainability | Peer-to-peer GPU marketplace   |
+
+  > **Note:** Prices are approximate and depend on instance specs, region, and reserved vs on-demand usage.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  Genesis Cloud fits naturally into the **Python data science and AI ecosystem**:
+
+  - Pre-installed with popular Python ML libraries (PyTorch, TensorFlow, scikit-learn).
+  - Easily accessible via Python SDKs and REST APIs.
+  - Supports Jupyter notebooks and interactive workflows.
+  - Enables scalable model training and hyperparameter tuning using Python-based tools.
+
+  ---
+
+  ## ✅ Summary
+
+  | ✅ Pros                                  | ⚠️ Considerations                       |
+  |-----------------------------------------|---------------------------------------|
+  | Affordable, transparent pricing         | Smaller global footprint than AWS/GCP |
+  | Renewable energy-powered infrastructure | Limited GPU variety compared to hyperscalers |
+  | Optimized for AI, HPC, and rendering    | Focused on European data centers       |
+  | Easy integration with Python ML tools   | Newer player, evolving ecosystem       |
+
+  ---
+
+  🌟 **Genesis Cloud** is a compelling choice for teams seeking **cost-effective**, **green**, and **powerful GPU compute** — especially in Europe. If you want to accelerate your AI or HPC projects while supporting sustainability, Genesis Cloud is definitely worth exploring.
+
+  ---

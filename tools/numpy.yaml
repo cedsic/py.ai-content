@@ -1,0 +1,175 @@
+name: "NumPy"
+slug: "numpy"
+headline: "Fundamental library for numerical computing in Python."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/numpy/numpy"
+  - label: "Docs"
+    url: "https://numpy.org/"
+overview: |
+  NumPy (Numerical Python) is the **fundamental package for numerical computing** in Python. It provides powerful data structures, primarily the **ndarray**, enabling efficient storage and manipulation of large multi-dimensional arrays and matrices. By combining ease of use with high-performance C-based implementations, NumPy has become the cornerstone for scientific computing, data analysis, and machine learning in Python.
+description: |
+  ## ⚙️ Core Capabilities
+
+  - **📊 Multi-Dimensional Arrays (`ndarray`)**  
+    At its heart, NumPy introduces the `ndarray`, a fast, space-efficient container for homogeneous data that supports vectorized operations.
+
+  - **⚡ Optimized Numerical Operations**  
+    Implements element-wise arithmetic, broadcasting, and advanced indexing, all optimized in low-level C code for speed.
+
+  - **📐 Comprehensive Mathematical Functions**  
+    Includes a rich library of functions for:
+      - Linear algebra (dot products, matrix decompositions) ➗
+      - Statistical calculations (mean, median, standard deviation) 📈
+      - Fourier transforms 🔄
+      - Random number generation and sampling 🎲
+
+  - **💾 Memory Efficiency & Performance**  
+    Enables handling of large datasets with minimal memory overhead and significant speed gains compared to pure Python loops.
+
+  ---
+
+  ## 🚀 Key Use Cases
+
+  | Domain                   | Typical Applications                                      |
+  |--------------------------|-----------------------------------------------------------|
+  | **Data Science & ML**    | Data preprocessing, feature extraction, matrix operations |
+  | **Scientific Research**  | Numerical simulations, signal processing, statistical analysis, **bioinformatics with tools like Biopython** |
+  | **Engineering**          | Modeling, control systems, sensor data analysis           |
+  | **Finance**              | Quantitative analysis, risk modeling, time series analysis|
+
+  Some concrete examples:
+  - Preparing and normalizing datasets for machine learning pipelines
+  - Performing fast linear algebra computations in physics simulations
+  - Statistical analysis of experimental data in biology or chemistry
+  - Generating synthetic datasets with controlled randomness
+  - Developing and backtesting algorithmic trading strategies on platforms such as QuantConnect
+  - Financial modeling and derivative pricing using QuantLib
+
+  ---
+
+  ## 🌟 Why People Use NumPy
+
+  - **Speed & Efficiency:** Vectorized operations and compiled backend make it orders of magnitude faster than native Python loops.
+  - **Simplicity:** Intuitive syntax with Pythonic APIs makes complex numerical tasks accessible.
+  - **Ecosystem Integration:** Acts as the foundational layer for libraries like **Pandas**, **SciPy**, **scikit-learn**, and **TensorFlow**.
+  - **Community & Support:** Large, active community ensures continuous improvement and rich documentation.
+
+  ---
+
+  ## 🔗 Integration with Other Tools
+
+  NumPy’s design allows seamless interoperability with the broader Python scientific stack:
+
+  | Tool/Library     | Integration Aspect                                       |
+  |------------------|---------------------------------------------------------|
+  | **Pandas**       | Uses NumPy arrays as underlying data containers         |
+  | **Matplotlib**   | Plots data directly from NumPy arrays                    |
+  | **SciPy**        | Builds on NumPy’s arrays for advanced scientific algorithms |
+  | **scikit-learn** | Accepts NumPy arrays as input for machine learning models|
+  | **TensorFlow/PyTorch** | Convert NumPy arrays to tensors for deep learning workflows |
+  | **pydanticai**   | Validates and enforces data schemas for numerical data, ensuring robustness in data pipelines |
+
+  ---
+
+  ## 🛠️ Technical Aspects
+
+  - **Core Data Structure:** `numpy.ndarray`  
+    A fixed-size, homogeneous, multidimensional array.
+
+  - **Broadcasting:**  
+    Enables arithmetic operations on arrays of different shapes without explicit replication.
+
+  - **Universal Functions (ufuncs):**  
+    Vectorized wrappers for fast element-wise operations.
+
+  - **Memory Layout:**  
+    Supports both C-contiguous and Fortran-contiguous arrays, important for interfacing with other languages.
+
+  ---
+
+  ## 🧑‍💻 Example: NumPy in Action
+
+  ```python
+  import numpy as np
+
+  # Create a 3x3 matrix
+  matrix = np.array([[1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]])
+
+  # Compute the matrix transpose
+  transpose = matrix.T
+
+  # Calculate the matrix product
+  product = np.dot(matrix, transpose)
+
+  print("Original matrix:\n", matrix)
+  print("Transpose:\n", transpose)
+  print("Product:\n", product)
+  ```
+
+  <br>
+  **Output:**
+  ```
+  Original matrix:
+  [[1 2 3]
+    [4 5 6]
+    [7 8 9]]
+  Transpose:
+  [[1 4 7]
+    [2 5 8]
+    [3 6 9]]
+  Product:
+  [[14 32 50]
+    [32 77 122]
+    [50 122 194]]
+  ```
+
+  ---
+
+  ## 🏆 Competitors & Pricing
+
+  | Library            | Description                                             | Pricing       |
+  |--------------------|---------------------------------------------------------|---------------|
+  | **NumPy**          | Industry-standard, open-source numerical computing lib | **Free & Open Source** |
+  | **MATLAB**         | Proprietary numerical computing environment             | Commercial (expensive licenses) |
+  | **Julia (Base)**   | Modern language with built-in numerical capabilities    | Free & Open Source |
+  | **SciPy**          | Builds on NumPy, more scientific algorithms             | Free & Open Source |
+  | **TensorFlow / PyTorch** | Deep learning frameworks with tensor operations     | Free & Open Source |
+
+  **Why choose NumPy?**  
+  - No cost barrier  
+  - Massive ecosystem support  
+  - Mature and stable codebase  
+  - Compatible with other open-source tools
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance
+
+  NumPy is the **foundation of the Python scientific stack**. Almost every numerical or scientific Python library depends on NumPy arrays as the primary data structure. Its presence enables:
+
+  - Efficient data manipulation in **Pandas**  
+  - Advanced scientific algorithms in **SciPy**  
+  - Machine learning model inputs in **scikit-learn**  
+  - Tensor conversions in **TensorFlow** and **PyTorch**  
+  - Visualization data handling in **Matplotlib** and **Seaborn**
+
+  Without NumPy, the Python ecosystem for data science, AI, and scientific computing would be fragmented and inefficient.
+
+  ---
+
+  ## 📋 Summary
+
+  | Feature                 | Description                                    |
+  |-------------------------|------------------------------------------------|
+  | **Core Data Structure** | `ndarray` multi-dimensional array              |
+  | **Performance**         | Vectorized C-backed operations                   |
+  | **Use Cases**           | Data science, engineering, scientific research |
+  | **Integration**         | Seamless with Pandas, SciPy, ML frameworks      |
+  | **Cost**                | Free and open source                             |
+
+  > NumPy is **the essential toolkit** for anyone working with numerical data in Python — combining speed, simplicity, and versatility in one powerful package.
+
+  ---

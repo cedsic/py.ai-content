@@ -1,0 +1,143 @@
+name: "Airflow for pipelines"
+slug: "airflow"
+headline: "Platform to programmatically author, schedule, and monitor workflows."
+urls:
+  - label: "GitHub"
+    url: "https://github.com/apache/airflow"
+  - label: "Docs"
+    url: "https://airflow.apache.org/"
+overview: |
+  In today’s data-driven world, managing complex workflows and pipelines efficiently is crucial. **Apache Airflow** is a powerful open-source platform designed to programmatically author, schedule, and monitor workflows — making pipeline orchestration reliable, scalable, and maintainable. By treating workflows as code, Airflow eliminates manual inefficiencies and provides clear visibility into task execution, dependencies, and failures.
+description: |
+  ## ⚙️ Core Capabilities 🚀
+
+  | Feature                    | Description                                                                                  | Benefit                              |
+  |----------------------------|----------------------------------------------------------------------------------------------|------------------------------------|
+  | **Workflow as Code** 📝        | Define pipelines using Python scripts with clear task dependencies.                          | Version control, modularity, and reusability. 🔄 |
+  | **Dynamic Scheduling** ⏰      | Schedule workflows on cron-like intervals or trigger-based events.                           | Automate regular tasks and respond to events. 🔔 |
+  | **Dependency Management** 🔗   | Ensure tasks run in the correct order with dependency and conditional logic.                 | Reliable, error-free pipeline execution. ✅ |
+  | **Monitoring & Alerting** 📊   | Web UI dashboard with logs, status, and customizable alerts.                                | Proactive troubleshooting and status tracking. 🛎️ |
+  | **Scalable Execution** 📈      | Distribute task execution across multiple workers and scale horizontally.                    | Handle large, complex ETL and ML pipelines. 🌐 |
+  | **Extensible Operators** 🧩    | Rich ecosystem of pre-built operators (e.g., Bash, Python, SQL, Hadoop, Spark).              | Easy integration with diverse tools and systems. 🔌 |
+
+  ---
+
+  ## 🎯 Key Use Cases 
+
+  Airflow is widely adopted by data engineers, ML practitioners, and analytics teams for:
+
+  - **Automating ETL Pipelines**: Extract, transform, and load data reliably from multiple sources on schedule. 🔄
+  - **Machine Learning Workflow Orchestration**: Manage data preprocessing, model training, evaluation, and deployment steps automatically. 🤖
+  - **Data Quality and Monitoring**: Run validation checks and alert on anomalies or failures in data workflows. 🚨
+  - **Complex Dependency Management**: Handle workflows with multiple branching, retries, and conditional paths. 🔀
+
+  ---
+
+  ## 💡 Why Use Airflow? 
+
+  - **Code-First Approach:** Workflows are Python code, making pipelines transparent, testable, and maintainable. 🐍
+  - **Rich Ecosystem:** Integrates with cloud providers, databases, message queues, and big data tools. ☁️
+  - **Extensible & Flexible:** Custom operators and sensors allow tailoring to any business logic or infrastructure. 🛠️
+  - **Robust UI:** Track progress, retry failed tasks, and analyze logs in a user-friendly web interface. 🖥️
+  - **Open Source & Community-Driven:** Benefit from continuous improvements, plugins, and community support. 🌍
+
+  ---
+
+  ## 🔗 Integration with Other Tools 
+
+  Airflow shines as the orchestration layer in a modern data stack. It integrates seamlessly with:
+
+  | Category          | Examples                                    | Integration Mode                    |
+  |-------------------|---------------------------------------------|-----------------------------------|
+  | Cloud Platforms   | AWS (S3, EMR, Redshift), GCP (BigQuery), Azure | Native operators and hooks         |
+  | Databases        | Postgres, MySQL, Snowflake                   | SQL operators and connection hooks |
+  | Big Data         | Hadoop, Spark, Presto                        | SparkSubmitOperator, Hadoop hooks  |
+  | Messaging        | Kafka, RabbitMQ                              | Custom sensors and operators       |
+  | ML Frameworks    | TensorFlow, Kubeflow, MLflow                  | Trigger pipelines and lifecycle management |
+
+  ---
+
+  ## 🛠️ Technical Aspect 
+
+  At its core, Airflow models workflows as **Directed Acyclic Graphs (DAGs)** — a set of tasks with explicit dependencies that define execution order. The Airflow scheduler parses DAG files, triggers tasks based on schedules or external events, and distributes execution to workers.
+
+  The architecture consists of:
+
+  - **Scheduler:** Parses DAGs, schedules tasks.
+  - **Executor:** Runs tasks (e.g., LocalExecutor, CeleryExecutor, KubernetesExecutor).
+  - **Metadata Database:** Stores state and history (usually PostgreSQL or MySQL).
+  - **Webserver:** Provides UI for monitoring and managing workflows.
+
+  ---
+
+  ## 🧪 Example: A Simple ETL Pipeline in Airflow 
+
+  This example demonstrates a basic ETL pipeline using Airflow. It shows how to orchestrate tasks for extracting, transforming, and loading data in a structured workflow.
+
+  ```python
+  from airflow import DAG
+  from airflow.operators.python import PythonOperator
+  from airflow.utils.dates import days_ago
+
+  def extract():
+      print("Extracting data...")
+
+  def transform():
+      print("Transforming data...")
+
+  def load():
+      print("Loading data...")
+
+  default_args = {
+      'owner': 'data_engineer',
+      'start_date': days_ago(1),
+      'retries': 1,
+  }
+
+  with DAG(
+      'simple_etl',
+      default_args=default_args,
+      schedule_interval='@daily',
+      catchup=False,
+  ) as dag:
+
+      t1 = PythonOperator(task_id='extract', python_callable=extract)
+      t2 = PythonOperator(task_id='transform', python_callable=transform)
+      t3 = PythonOperator(task_id='load', python_callable=load)
+
+      t1 >> t2 >> t3  # Define task dependencies
+  ```
+  <br>
+  The DAG runs daily, executing tasks sequentially, and illustrates how Airflow can manage and automate data pipelines efficiently.
+
+  ---
+
+  ## 💰 Competitors and Pricing 
+
+  | Tool             | Description                              | Pricing Model                 | Strengths                              |
+  |------------------|------------------------------------------|------------------------------|---------------------------------------|
+  | **Apache NiFi**  | Data flow automation with visual UI      | Open source                  | Real-time streaming, drag-drop UI     |
+  | **Prefect**      | Modern workflow orchestration             | Open source + Cloud plans    | Python-native, easy cloud integration |
+  | **Luigi**        | Batch pipeline orchestration              | Open source                  | Simple, lightweight                   |
+  | **Dagster**      | Data orchestrator with strong type system | Open source + Cloud          | Developer-friendly, observability     |
+  | **Snakemake**    | Workflow management for reproducible and scalable scientific workflows | Open source | Strong in bioinformatics, declarative syntax |
+  | **AWS Step Functions** | Serverless orchestration on AWS       | Pay per use                  | Tight AWS integration                  |
+
+  **Apache Airflow** is free and open-source, with costs primarily from infrastructure and managed services (e.g., Astronomer, Google Cloud Composer) if you opt for hosted solutions.
+
+  ---
+
+  ## 🐍 Python Ecosystem Relevance 
+
+  Airflow is deeply embedded in the Python ecosystem:
+
+  - Workflows are **Python scripts**, enabling full programmability and flexibility.
+  - Leverages Python’s rich ecosystem for data processing (Pandas, NumPy), ML (scikit-learn, TensorFlow), and cloud SDKs.
+  - Supports custom Python operators, hooks, and plugins to extend functionality.
+  - Fits naturally into Python-based data science and engineering workflows.
+
+  ---
+
+  ## 📌 Summary 
+
+  **Apache Airflow** is the go-to tool for orchestrating complex pipelines with confidence. Its code-centric design, powerful scheduling, and extensive integrations make it ideal for automating ETL, ML workflows, and beyond — all while providing transparency and scalability.
