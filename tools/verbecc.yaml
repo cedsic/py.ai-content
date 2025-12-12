@@ -1,0 +1,58 @@
+name: "Verbecc"
+slug: "verbecc"
+headline: "Python library for verb conjugation in French, Spanish, Catalan, Italian, Portuguese, and Romanian, enhanced by machine learning"
+urls:
+  - label: "Official Site"
+    url: "https://verbecc.com/"
+overview: |
+  Verbecc is a **Python library that provides verb conjugation capabilities** for multiple Romance languages, including French, Spanish, Catalan, Italian, Portuguese, and Romanian.  
+  It leverages **machine learning techniques to improve the accuracy and reliability** of verb conjugations, making it a valuable tool for developers working on language processing applications.  
+  Verbecc is particularly useful for applications in **natural language processing (NLP), language learning tools, and linguistic research**.
+description: | 
+  ## 🌟 Key Strengths  
+  - 🌍 **Multilingual Support** – Conjugates verbs in six Romance languages.  
+  - 🤖 **Machine Learning Enhanced** – Uses ML models to improve conjugation accuracy.  
+  - 🐍 **Python Integration** – Easy to use within Python applications.  
+  - 📚 **Comprehensive Verb Database** – Covers a wide range of regular and irregular verbs.  
+  - ⚙️ **Customizable** – Allows users to extend and adapt the library for specific needs.
+  - 🔧 **Open Source** – Freely available for modification and contribution.
+  - 🚀 **Available on PyPI** – easily installable via pip.
+
+  ---
+
+  ## 🚀 Where Verbecc Shines  
+  - Language learning applications needing accurate verb conjugations 📖.  
+  - NLP projects requiring verb forms for text analysis 🧠.  
+  - Linguistic research tools focusing on Romance languages 🔍.
+
+  ---
+
+  ## ⚠️ Limitations  
+  - Primarily focused on Romance languages; limited support for others 🌐.  
+  - May require additional training data for niche or less common verbs 📊.  
+  - Performance can vary based on the complexity of verb forms and exceptions ⚙️.
+
+  ---
+
+  ## 💡 Example usecases  
+  A language learning app could:  
+  1. Integrate Verbecc to provide real-time verb conjugation exercises.  
+  2. Use its ML capabilities to adapt to user proficiency levels.  
+  3. Offer feedback on common conjugation mistakes.
+
+  ---
+
+  ## 💡 Example in python   
+  ```python
+  import verbecc
+  # Conjugate the French verb "manger" (to eat) in present tense, first person singular
+  result = verbecc.conjugate("manger", tense="present", person=1, number="singular", lang="fr")
+  print(result)  # Output: 'je mange'
+  ```
+  
+  ---
+
+  ## ⚔️ Comparisons  
+  - **vs Pattern** → Pattern offers broader NLP features; Verbecc specializes in verb conjugation with ML enhancements.  
+  - **vs SpaCy** → SpaCy is a full NLP library; Verbecc focuses specifically on conjugation tasks.  
+  - **vs NLTK** → NLTK provides general NLP tools; Verbecc delivers targeted verb conjugation solutions.
