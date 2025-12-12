@@ -1,0 +1,24 @@
+name: "API Endpoint"
+slug: "api-endpoint"
+headline: "A specific URL where an API can be accessed by a client application."
+description: |
+  An **API Endpoint** is a specific URL or URI (Uniform Resource Identifier) where an API (Application Programming Interface) can be accessed by a client application. It serves as a communication point between different software systems, allowing them to exchange data and perform operations.
+  Key points to know:
+  - **Access Point:** An API endpoint is the location where API requests are sent and responses are received.
+  - **HTTP Methods:** Endpoints typically support various HTTP methods such as GET, POST, PUT, DELETE, etc., each serving different purposes (e.g., retrieving data, creating resources).
+  - **Parameters:** Endpoints can accept parameters in the URL path, query string, or request body to customize the request.
+  - **Response Format:** The data returned from an endpoint is usually in formats like JSON or
+    XML, making it easy for client applications to parse and use the information.
+  --- 
+  
+  ### 🔗 Common API Endpoint Structures
+  API endpoints are often structured in a RESTful manner, following conventions that make them intuitive and easy to use. Here are some common patterns:
+  | Endpoint Structure                  | Description                                      | Example                                  |
+  |-------------------------------------|--------------------------------------------------|------------------------------------------|
+  | **Resource Collection**             | Access a collection of resources                 | `GET /api/users`                         |
+  | **Single Resource**                 | Access a specific resource by ID                 | `GET /api/users/{id}`                    |
+  | **Create Resource**                 | Create a new resource                            | `POST /api/users`                        |
+  | **Update Resource**                 | Update an existing resource                      | `PUT /api/users/{id}`                    |
+  | **Delete Resource**                 | Delete a specific resource                       | `DELETE /api/users/{id}`                 |
+  ---  
+
