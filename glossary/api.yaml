@@ -1,0 +1,22 @@
+name: "API"
+slug: "api"
+headline: "A set of rules and protocols that allow different software applications to communicate with each other."
+description: |
+  An **API** (Application Programming Interface) is a set of rules and protocols that allow different software applications to communicate with each other. APIs define how requests and responses should be formatted, enabling seamless interaction between systems.
+  Key points to know:
+  - **Communication Bridge:** APIs act as intermediaries that facilitate data exchange between different software components.
+  - **Standardized Protocols:** They often use standard protocols like HTTP/HTTPS for web-based APIs, ensuring compatibility across platforms.
+  - **Data Formats:** Common data formats used in APIs include JSON and XML, which are easy for machines to parse and generate.
+  - **Types of APIs:** There are various types of APIs, including RESTful APIs, SOAP APIs, and GraphQL APIs, each with its own design principles and use cases.
+  --- 
+
+  ### 🔍 Common API Types
+  Different types of APIs serve various purposes and use cases. Here are some common types:
+    | API Type         | Description                                                                        | Example Use Cases                        |
+    |------------------|------------------------------------------------------------------------------------|------------------------------------------|
+    | **RESTful API**  | Uses HTTP requests to access and manipulate resources.                             | Web services, mobile applications        |
+    | **SOAP API**     | A protocol for exchanging structured information using XML.                        | Enterprise applications, legacy systems  |
+    | **GraphQL API**  | A query language for APIs that allows clients to request only the data they need.  | Flexible data retrieval in web apps      |
+    | **WebSocket API**| Enables real-time communication between client and server.                         | Chat applications, live updates          |
+ 
+  ---
